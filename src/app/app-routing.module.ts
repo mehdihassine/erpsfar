@@ -35,6 +35,7 @@ const routes: Routes = [
  {path:'utilisateur',loadChildren:'./utilisateur/utilisateur.module#UtilisateurModule'},
  {path: 'msg', component: MessagesComponent},
  //commentaire walid
+   //comment 2 pc walid
  ]
 }
 
