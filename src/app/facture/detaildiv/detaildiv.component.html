@@ -1,0 +1,110 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<!--<div class="box">-->
+    <div id="imprimer">
+        <div class="row">
+            <div class="col-md-8 col-lg-8 col-xs-8">
+                <img src="assets/dist/img/logo.png" width="230" height="130"> 
+            </div>
+            
+            <div class="col-md-3 col-lg-3 col-xs-3">
+                <br><br>
+                <h4 class="box-title" class="text-center" ><b>Date facture : {{datefacture}}</b></h4>
+            </div>
+    
+        </div>  
+    <br>
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-xs-4">
+    
+                 <h4 class="box-title" ><b>Boulangerie Sfar</b></h4>
+                 <h4 class="box-title">Avenue Habib bourgiba Mahdia</h4>
+            </div>
+            
+            <div class="col-md-3 col-lg-3 col-xs-3">
+            </div>
+    
+    
+            <div class="col-md-4 col-lg-4 col-xs-4">
+                
+                <h4 class="box-title" >Adresse de facturation</h4>
+              
+    
+    
+            </div>
+    
+        </div>  
+    
+      
+      
+        <div class="box box-default">
+      
+          <div class="box-header ">
+            <h2 class="box-title" class="text-center" ><b>Facture divers N° {{nfacture}}</b></h2>
+      
+          </div>
+      
+          <div class="box-body">
+            <table id="example1" class="table table-striped">
+              <thead>
+                <tr class="bg-primary">
+                  <th class=" text-center" class="col-md-1">N° ligne</th>
+                  <th class=" text-center" class="col-md-2">Description article </th>
+                  <th class=" text-center" class="col-md-2">Montnat TTC</th>
+                  <th  class=" text-center" class="col-md-2">Date creation  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let f of facture">
+                  <td>{{f.nligne}}</td>
+                  <td>{{f.description}}</td>
+                  <td>{{f.montanttotal}}</td>
+                  <td>{{f.datesys}}</td>
+                
+                </tr>
+      
+              </tbody>
+            </table>
+    
+    <br><br><br>
+    
+    
+    <div class="col-md-5 col-lg-5 col-xs-5">
+    
+    
+    </div>
+    
+    
+    <div class="col-md-6 col-lg-6 col-xs-6" style="border-style: solid;">
+    
+
+        <div class="row">
+    
+            <div class="col-md-1 col-lg-1 col-xs-1">
+                </div>
+        
+                <div class="col-md-5 col-lg-5 col-xs-5">
+                    <h3 class="box-title"><b>Total TTC : </b></h3>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xs-3">
+                    <h3 class="box-title"><b>{{montanttotale}}</b></h3>
+                </div>
+        </div>
+    
+    </div>
+   
+          </div>
+      
+        </div>
+    
+    </div>
+        <div><button class="btn btn-primary btn-sm"style="margin-left: 10px;" (click)="print('imprimer')">Imprimer</button>&nbsp;&nbsp;
+
+          <button class="btn btn-success btn-sm"style="margin-left: 10px;" [routerLink]="['../../../facture/liste']">Retour liste</button>
+        </div>
+      
+     <!-- </div> -->
+      
+    

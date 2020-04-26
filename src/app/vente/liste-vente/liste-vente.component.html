@@ -1,0 +1,172 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+      <!-- Default box -->
+      <div class="box">
+
+        <div class="box-header with-border">
+          <h3 class="box-title"><b>Liste de vente</b></h3>
+
+          
+
+
+
+
+
+        </div>
+
+        
+        <div class="box box-default">
+
+          <div class="box-header with-border">
+            <h3 class="box-title"> Rechercher production</h3>
+            <div class="box-tools pull-right">  
+              <input type="text" class="form-control input-lg" class="text-center bold" id="benficetotal" name="benficetotal" [(ngModel)]="benficetotal" value="{{benficetotal}}" disabled="disabled" disabled required>
+            </div>
+  
+            <div class="box-tools pull-right">  
+              &nbsp;&nbsp;&nbsp;
+            </div>
+  
+          <div class="box-tools pull-right">  
+              <label for="libelle">Benefice TOTAL</label>
+            </div>
+
+          </div>
+
+
+          <div class="box-body">
+
+            <div class="row">
+
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label for="codarticle">date prod</label>
+                  <input type="text" class="form-control" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
+                </div>
+                </div>
+
+             <!--  <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="libelle">Code article</label>
+                    <input type="text" class="form-control" id="codarticle" name="codarticle" [(ngModel)]="codarticle" required>
+                  </div>
+                </div> 
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="libelle">Date commande</label>
+                      <input type="text" class="form-control" id="datecreation" name="datecreation" [(ngModel)]="datecreation" required>
+                    </div>
+                  </div> 
+
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label>Statut commande</label>
+                      <select class="form-control select2" style="width: 100%;" id="statut" name="statut" [(ngModel)]="statut"  required>
+                        <option selected="selected" disabled="disabled">Choisir</option>
+                        <option value="valide">validé</option>
+                        <option value="cree">créé</option>
+                        <option value="annule">annulé</option>
+                      </select> 
+                    </div>
+                  </div>
+                  
+--> 
+
+                  <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="libelle"></label>
+                      <button type="button" class="btn btn-block btn-success" (click)="rechprod()" >Rechercher</button>
+                  </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="libelle"></label>
+                      <button type="button" class="btn btn-block btn-success" (click)="affliste()">Affiche liste</button>
+                  </div>
+                </div>
+
+            </div>
+             <!--row1-->
+
+
+
+
+            <div class="row">
+
+              
+
+
+
+
+            </div>
+            <!--row1-->
+
+
+
+           
+            </div>
+            <!-- boxbody-->
+
+        </div>
+        <!--boxbody defaut-->
+
+      
+        <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title">Liste des productions</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+<div class="box-body">
+<table id="example1" class="table table-bordered">
+<thead>
+  <tr>
+    <th class="col-md-1">dateprod </th>
+    
+    <th class="col-md-2" >Nbre produit</th>
+    <th class="col-md-2">Quantite VENTE</th>
+    <th class="col-md-2">Montant TOTAL</th>
+    <th class="col-md-2">Benefice TOTAL</th>
+    <th class="col-md-2">Action</th>
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let e of production">
+    <td>{{e.dateprod}}</td>
+    <td>{{e.Nbreproduit}}</td>
+
+    <td>{{e.qtevente}}</td>
+    <td>{{e.montantvente}}</td>
+    <td>{{e.benficeProd}}</td>
+      
+    <td>
+        <button class="btn btn-warning btn-sm"style="margin-left: 10px;" [routerLink]="['../reste',e.dateprod]"> <i class="fa fa-gear"></i></button>&nbsp;&nbsp;
+        <button class="btn btn-danger btn-sm"style="margin-left: 10px;" (click)="supprimer(e.numproduction)" ><i class="fa fa-trash"></i></button>
+
+    </td>    
+</tr>      
+
+
+</tbody>
+</table>
+</div>
+
+        </div>
+        <!--boxbody defaut-->
+
+      </div>
+      <!--box-->
+
+
+
+    
+

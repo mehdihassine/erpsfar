@@ -1,0 +1,56 @@
+<div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title" class="text-center">Liste des Produits</h3>
+    </div>
+    <div class="box-body">
+      <form>  
+        <div class="row">
+          <div class="col-md-6">
+            <div class=" form-group">
+              <label>diamètre</label>
+              <input class=" form-control" type="text" id="diametre" [(ngModel)]="diametre" name="diametre"  value="{{table.diametre}}"required  />
+            </div>
+          </div> 
+        <div class="col-md-6">
+          <div class=" form-group">
+            <label> NOM Produit</label>
+            <input class=" form-control" type="text" id="diametre" [(ngModel)]="nomProduit" name="nomProduit"  value="{{table.nomProduit}}"required  />
+          </div>
+        </div> 
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label> cout de revien</label>
+              <input class=" form-control"  type="text" id="prixProduit" [(ngModel)]="coutrevien" name="coutrevien"  value="{{table.coutrevien}}"required  />
+            </div>
+          </div> 
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label> PRIX Vente </label>
+              <input class=" form-control" type="text" value=""id="prixvente" [(ngModel)]="prixvente" name="prixvente"  value="{{table.prixvente}}"required />
+            </div>
+          </div>
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label>TYPE Produit</label>
+              <input class=" form-control"  type="text" id="type" [(ngModel)]="typeProduit_id" name="typeProduit_id"  value="{{table.typeProduit_id}}"required/>
+            </div>
+          </div> 
+          <div class=" col-md-12">
+            <div class=" form-group">
+              <label>Description article</label>
+              <textarea class=" form-control"type="text" row="6"  id="desc" [(ngModel)]="descriptionProduit" name="descriptionProduit"  value="{{table.descriptionProduit}}"required ></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer"> 
+      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="edit(table.idProduit)" >modifier</button> 
+      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="retouliste()" >retour</button> 
+      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="delete(table.idProduit)" >supprimer</button> 
+    </div>
+  
+  
+    <!-- /.box-body -->
+  </div>
+  

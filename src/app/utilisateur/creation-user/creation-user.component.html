@@ -1,0 +1,246 @@
+<div class="box">
+
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Création utilisateur</b></h3>
+      <div class="box-tools pull-right">
+  
+            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retourliste()" >Retour liste</button>
+  
+      </div>
+      <!--(click)="retourliste()-->
+  
+    </div>
+  
+  
+    
+  
+  
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Informations générales</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codearticle">Nom </label>
+              <input type="text" class="form-control" id="nomuser" name="nomuser" [(ngModel)]="nomuser"placeholder="" value="nomuser" required>
+            </div>
+          </div>  
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="libelle">Prénom</label>
+              <input type="text" class="form-control" id="prenomuser"name="prenomuser" [(ngModel)]="prenomuser" placeholder=""value="prenomuser"  required>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="codearticle">email</label>
+              <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email"placeholder="" value="email" required>
+            </div>
+          </div>  
+         
+  
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="codearticle">Login Utilisateur </label>
+              <input type="text" class="form-control" id="loginuser" name="loginuser" [(ngModel)]="loginuser"placeholder="" value="loginuser" required>
+            </div>
+          </div>  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="codearticle">Mot de Passe</label>
+              <input type="text" class="form-control" id="mdpuser" name="mdpuser" [(ngModel)]="mdpuser"placeholder="" value="mdpuser" required>
+            </div>
+          </div> 
+  
+         
+  
+        </div>
+        <div class="row">
+           
+             
+            <div class="col-md-2">
+                <div class="form-group">
+                  <label>Role</label>
+                  <select class="form-control select2" style="width: 100%;" id="role" name="role" [(ngModel)]="role"   value="rolebox"required>
+                    <option selected value="" disabled>{{rolebox}}</option>
+                    <option value="Directeur">Directeur</option>
+                    <option value="Chef de Production">Chef de Production</option>
+                    <option value="Secretaire">Sécretaire</option>
+                  </select>
+                </div>
+              </div>
+            
+        </div>
+        
+        <div class="row">
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <button type="button" class="btn btn-block btn-success btn-sm" (click)="creer()">Créer Utilisateur</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  
+  
+  
+  
+    <!-- /.box-defaut -->
+  
+    <div class="box box-default">
+    
+      <div class="box-header with-border">
+        <h3 class="box-title">Détails Utilisateur</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-md-2">Nom</th>
+              <th   class="col-md-2">Prenom </th>
+              <th  class="col-md-2">E_mail</th>
+              <th  class="col-md-2">Login</th>
+              <th  class="col-md-2">Mot de passe </th>
+              <th  class="col-md-2">Role </th>
+           
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of utilisateur">
+              <td><b>{{e.nomuser}}</b></td>
+              <td>{{e.prenomuser}}</td>
+              <td>{{e.email}}</td>
+              <td>{{e.loginuser}}</td>
+              <td>{{e.mpduser}}</td>
+              <td>{{e.roleuser}}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--<div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title" class="text-center">Ajoute Fournisseur</h3>
+    </div>
+    <div class="box-body">
+      <form>  
+        <div class="row">
+        <div class="col-md-6">
+          <div class=" form-group">
+            <label> NOM Societe</label>
+            <input class=" form-control" type="text" id="nom" [(ngModel)]="nomfr" name="nomfr" required  />
+          </div>
+        </div> 
+          
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label> Telephone </label>
+              <input class=" form-control" type="text" value=""id="telephone" [(ngModel)]="telfr" name="telfr" required />
+            </div>
+          </div>
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label>E_mail</label>
+              <input class=" form-control"  type="text" id="email" [(ngModel)]="mailfr" name="mailfr" required/>
+            </div>
+          </div> 
+          
+          <div class="col-md-6">
+            <div class=" form-group">
+              <label> ville</label>
+              <input class=" form-control" type="text" id="ville" [(ngModel)]="villefr" name="villefr" required  />
+            </div>
+          </div> 
+            <div class=" col-md-6">
+              <div class=" form-group">
+                <label> Telephone Fax</label>
+                <input class=" form-control" type="text" value=""id="teleph" [(ngModel)]="fax" name="fax" required />
+              </div>
+            </div>
+            <div class=" col-md-6">
+              <div class=" form-group">
+                <label>Code Postal</label>
+                <input class=" form-control" type="text" value=""id="code" [(ngModel)]="codepostal" name="codepostal" required />
+              </div>
+            </div>
+          
+        </div>
+      </form>
+    </div>
+    <div class="card-footer"> 
+      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="add()" >Valider</button> 
+    </div>
+  
+  
+    
+  </div>-->

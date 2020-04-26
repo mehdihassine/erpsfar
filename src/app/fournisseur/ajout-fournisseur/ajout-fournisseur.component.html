@@ -1,0 +1,240 @@
+<div class="box">
+
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><b>Création fournisseur</b></h3>
+    <div class="box-tools pull-right">
+
+          <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retourliste()">Retour liste</button>
+
+    </div>
+    <!--(click)="retourliste()-->
+
+  </div>
+
+
+  
+
+
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Informations générales</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="codearticle">Nom </label>
+            <input type="text" class="form-control" id="nomfournisseur" name="nomfournisseur" [(ngModel)]="nomfournisseur"placeholder="" value="nomfournisseur" required>
+          </div>
+        </div>  
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="libelle">Adresse</label>
+            <input type="text" class="form-control" id="adresse"name="adresse" [(ngModel)]="adresse" placeholder=""value="adresse"  required>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="codearticle">Ville</label>
+            <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="ville"placeholder="" value="ville" required>
+          </div>
+        </div>  
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="codearticle">Code postal</label>
+            <input type="text" class="form-control" id="codepostal" name="codepostal" [(ngModel)]="codepostal"placeholder="" value="codepostal" required>
+          </div>
+        </div>  
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="codearticle">Adress E_mail </label>
+            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email"placeholder="" value="email" required>
+          </div>
+        </div>  
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="codearticle">N° telephone</label>
+            <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="telephone"placeholder="" value="telephone" required>
+          </div>
+        </div> 
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="codearticle">N° Fax</label>
+            <input type="text" class="form-control" id="fax" name="fax" [(ngModel)]="fax"placeholder="" value="fax" required>
+          </div>
+        </div>  
+       
+
+      </div>
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <button type="button" class="btn btn-block btn-success btn-sm"(click)="add()" >Créer Fournisseur</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+
+
+
+  <!-- /.box-defaut -->
+
+  <div class="box box-default">
+  
+    <div class="box-header with-border">
+      <h3 class="box-title">Détails Fournisseur</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-md-2">Nom</th>
+            <th   class="col-md-3">Adresse </th>
+            <th  class="col-md-2">E_mail</th>
+            <th  class="col-md-2">N°telephone</th>
+            <th  class="col-md-2">N°Fax</th>
+            <th  class="col-md-1">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of fournisseur">
+            <td><b>{{e.nomfr}}</b></td>
+            <td>{{e.adresse}},&nbsp;{{e.villefr}},&nbsp;{{e.codepostal}}</td>
+            <td>{{e.mailfr}}</td>
+            <td>{{e.telfr}}</td>
+            <td>{{e.fax}}</td>
+            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppfournisseur(e.idfr)"><i
+                  class="fa fa-trash"></i></button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!--boxbody defaut-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title" class="text-center">Ajoute Fournisseur</h3>
+  </div>
+  <div class="box-body">
+    <form>  
+      <div class="row">
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label> NOM Societe</label>
+          <input class=" form-control" type="text" id="nom" [(ngModel)]="nomfr" name="nomfr" required  />
+        </div>
+      </div> 
+        
+        <div class=" col-md-6">
+          <div class=" form-group">
+            <label> Telephone </label>
+            <input class=" form-control" type="text" value=""id="telephone" [(ngModel)]="telfr" name="telfr" required />
+          </div>
+        </div>
+        <div class=" col-md-6">
+          <div class=" form-group">
+            <label>E_mail</label>
+            <input class=" form-control"  type="text" id="email" [(ngModel)]="mailfr" name="mailfr" required/>
+          </div>
+        </div> 
+        
+        <div class="col-md-6">
+          <div class=" form-group">
+            <label> ville</label>
+            <input class=" form-control" type="text" id="ville" [(ngModel)]="villefr" name="villefr" required  />
+          </div>
+        </div> 
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label> Telephone Fax</label>
+              <input class=" form-control" type="text" value=""id="teleph" [(ngModel)]="fax" name="fax" required />
+            </div>
+          </div>
+          <div class=" col-md-6">
+            <div class=" form-group">
+              <label>Code Postal</label>
+              <input class=" form-control" type="text" value=""id="code" [(ngModel)]="codepostal" name="codepostal" required />
+            </div>
+          </div>
+        
+      </div>
+    </form>
+  </div>
+  <div class="card-footer"> 
+    <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="add()" >Valider</button> 
+  </div>
+
+
+  
+</div>-->

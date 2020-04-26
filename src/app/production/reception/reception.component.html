@@ -1,0 +1,217 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Reception article</b></h3>
+  
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block btn-danger btn-sm">Annuler</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-primary btn-success btn-sm"><b>Valider réception</b></button>
+      </div>
+  
+    </div>
+  
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Informations générales</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+  
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codarticle">Code article</label>
+              <input type="text" class="form-control" id="codarticle" name="codarticle" [(ngModel)]="codarticle"
+                placeholder="" required>
+            </div>
+          </div>
+  
+  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="libelle">Libellé article</label>
+              <input type="text" class="form-control" value={{libellearticle}} id="libelle" name="libelle" [(ngModel)]="libelle" placeholder=""
+             
+                disabled="disabled" disabled required>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codarticle">Quantite</label>
+              <input type="text" class="form-control" id="codarticle" name="codarticle" [(ngModel)]="codarticle"
+                placeholder="" required>
+            </div>
+          </div>
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="prixachat">Prix achat</label>
+              <input type="text" class="form-control" id="prixachat" name="prixachat" [(ngModel)]="prixachat"
+                placeholder="" required>
+            </div>
+          </div>
+  
+  
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Fournisseur</label>
+              <select class="form-control select2" style="width: 100%;" id="fournisseur" name="fournisseur"
+                [(ngModel)]="fournisseur" required>
+                <option selected="selected" disabled="disabled">Choisir</option>
+                <option value="fou1">Fou 1</option>
+                <option value="fou2">Fou 2</option>
+                <option value="fou3">Fou 3</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Date fin de validité:</label>
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right" id="datefinv" name="datefinv" [(ngModel)]="datefinv"
+                  required>
+              </div>
+            </div>
+  
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="description">Commentaire Reception</label>
+              <textarea class="form-control" rows="1" id="description" name="description" [(ngModel)]="description"
+                required></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      
+  
+  
+        <!-- /.row -->
+  
+      </div>
+      <!-- /.box-defaut -->
+      <div class="box box-default">
+       
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Emplacement de stockage</label>
+                <select class="form-control select2" style="width: 100%;" id="type" name="type" [(ngModel)]="type"
+                  required>
+                  <option selected="selected" disabled="disabled">Choisir</option>
+                  <option value="emplacement1">emplacement 1</option>
+                  <option value="emplacement2">emplacement 2</option>
+                  <option value="emplacement3">emplacement 3</option>
+                  <option value="emplacement4">emplacement 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Type de stockage</label>
+                <select class="form-control select2" style="width: 100%;" id="typestockage" name="typestockage"
+                  [(ngModel)]="typestockage" required>
+                  <option selected="selected" disabled="disabled">Choisir</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Froid">Froid</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+                
+            </div>
+
+            <div class="col-md-2">
+                <br>
+                <div class="form-group">
+                  <label ></label>
+                  <button type="button" class="btn btn-primary btn-warning "><b>Ajouter Article</b></button>
+                </div>
+              </div>
+  
+  
+  
+          </div>
+  
+        </div>
+        <!-- /.box-body -->
+  
+        <!-- /.box-defaut -->
+      </div>
+  
+    </div>
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title" >Détails Reception</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class=" text-center" class="col-md-1">code Article</th>
+              <th class=" text-center" class="col-md-1">libelle</th>
+              <th  class=" text-center" class="col-md-1">Quantite </th>
+              <th class=" text-center" class="col-md-1">Prix Unit </th>
+              <th class=" text-center" class="col-md-1">Fournisseur</th>
+              <th class=" text-center" class="col-md-1">DFV</th>
+              <th class=" text-center" class="col-md-1">Emplacement</th>
+              <th class=" text-center" class="col-md-1">Type stock </th>
+              <th class=" text-center" class="col-md-1">DR</th>
+              <th class=" text-center" class="col-md-1">Prix Total</th>
+              <th class=" text-center" class="col-md-1">Commentaire</th>
+
+              <th class=" text-center" class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" ><i class="fa fa-trash"></i></button></td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

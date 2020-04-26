@@ -1,0 +1,65 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Liste des utilisateurs</b></h3>
+      <div class="box-tools pull-right">
+   
+        <button type="button" class="btn btn-block btn-success btn-sm"(click)="ajoute()" >Ajouter utilisateur</button>
+  
+  </div>
+ 
+  <div class="box-tools pull-right">
+    &nbsp;&nbsp;&nbsp;
+  </div>
+ 
+    </div>
+  
+ 
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title">Liste des Utilisateur</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+                <th class="col-md-2">Nom et Prenom</th>
+              <th  class="col-md-2">E_mail</th>
+              <th  class="col-md-2">Login</th>
+              <th  class="col-md-2">Mot de passe </th>
+              <th  class="col-md-2">Role </th>
+                <th  class="col-md-2">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of utilisateur">
+                <td><b>{{e.nomuser}}&nbsp;&nbsp;{{e.prenomuser}}</b></td>
+                <td>{{e.email}}</td>
+                <td>{{e.loginuser}}</td>
+                <td>{{e.mpduser}}</td>
+                <td>{{e.roleuser}}</td>
+               <td>
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;"(click)= "delete(e.loginuser)"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+  
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->

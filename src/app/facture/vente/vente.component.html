@@ -1,0 +1,157 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Creation Facture Vente {{nfacture}}</b></h3>
+  
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block btn-danger btn-sm"(click)="annuler(nfacture)">Annuler</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-primary btn-success btn-sm" (click)="valider(nfacture)"><b>Valider Facture</b></button>
+      </div>
+  
+    </div>
+  
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Informations facture</h3>
+  
+        <div class="box-tools pull-right">  
+            <input type="text" class="form-control input-lg" class="text-center bold" id="montanttotal" name="montanttotal" [(ngModel)]="montanttotal" value="{{montanttotal}}" disabled="disabled" disabled required>
+          </div>
+
+          <div class="box-tools pull-right">  
+            &nbsp;&nbsp;&nbsp;
+          </div>
+
+        <div class="box-tools pull-right">  
+            <label for="libelle">Montant TTC</label>
+          </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+  
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="nomclient">Nom Client</label>
+              <input type="text" class="form-control" id="nomclient" name="nomclient" [(ngModel)]="nomclient" value="nomclientboxs"
+                placeholder="" required>
+            </div>
+          </div>
+  
+  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="adresse">Adresse</label>
+              <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="adresse" placeholder="" value="adressebox"
+            required>
+            </div>
+          </div>
+         
+        <!-- /.row -->
+      
+  
+  
+        <!-- /.row -->
+  
+      </div>
+      <!-- /.box-defaut -->
+      <div class="box box-default">
+       
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                  <label for="nomclient">Code Produit</label>
+                  <input type="text" class="form-control" id="codproduit" name="codproduit" [(ngModel)]="codproduit" value="codproduitbox"
+                    placeholder="" required>
+                </div>
+              </div>
+      
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label for="prixachat">Quantite</label>
+                  <input type="text" class="form-control" id="quantite" name="quantite" [(ngModel)]="quantite" value="quantitebox"
+                    placeholder="" required>
+                </div>
+              </div>
+              
+          <div class="col-md-6">
+            <div class="form-group">
+              </div>
+          </div>
+      <br>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <button type="button" class="btn btn-block btn-warning btn"(click)="ajouter()" >Ajouter</button>
+                </div>
+              </div>
+      
+            </div>
+            <!-- /.row -->
+          
+  
+  
+          
+  
+        </div>
+  
+    </div>
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title" >Détails Facture</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class=" text-center" class="col-md-1">N° ligne</th>
+              <th class=" text-center" class="col-md-1">Code produit</th>
+              <th  class=" text-center" class="col-md-1">Libellé </th>
+              <th class=" text-center" class="col-md-1">Quantité </th>
+              <th class=" text-center" class="col-md-1">Prix unit</th>
+              <th class=" text-center" class="col-md-1">% TVA </th>
+              <th class=" text-center" class="col-md-1">Montant TVA</th>
+              <th class=" text-center" class="col-md-1">Montant THT</th>
+              <th class=" text-center" class="col-md-1">Montant total</th>
+              <th class=" text-center" class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of facture">
+              <td>{{f.nligne}}</td>
+              <td>{{f.idproduit}}</td>
+              <td>{{f.nomProduit}}</td>
+              <td>{{f.quantite}}</td>
+              <td>{{f.prixvente}}</td>
+              <td>{{f.tva}}</td>
+              <td>{{f.montanttva}}</td>
+              <td>{{f.montantTHT}}</td>
+              <td>{{f.montanttotal}}</td>
+              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppartfacture(f.nligne)" ><i class="fa fa-trash"></i></button></td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>
+  

@@ -1,0 +1,219 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="http://127.0.0.1/apis_pfe/utilisateur/image/{{photo}}"  class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>{{user}}</p>
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> En Ligne</a>
+      </div>
+    </div>
+
+    
+    <!-- Sidebar Menu --> 
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MENU : {{role}}</li>
+
+
+
+      <li class="treeview">
+        <a  href="#user" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="user"><i class="fa fa-link" ></i> <span>Gestion Utilisateur</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="user">
+          <li><a routerLink="/home/utilisateur/creation">Ajouter User</a></li>
+          <li><a routerLink="/home/utilisateur/list">liste User</a></li>
+        </ul>
+      </li>
+
+      
+      <!-- Optionally, you can add icons to the links -->
+      <li class="treeview" *ngIf="(role == 'CHEF' || role == 'admin')"  >
+        <a href="#categorie" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="categorie"><i class="fa fa-link"></i> <span>Gestion Categorie</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="categorie">
+          <li><a routerLink="/home/categorie/ajout">Ajouter Categorie</a></li>
+          <li><a routerLink="/home/categorie/all">liste Categorie</a></li>
+        </ul>
+      </li>
+ 
+
+
+
+
+
+      <li class="treeview">
+        <a  href="#otherSections1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections1"><i class="fa fa-link" ></i> <span>Gestion Produits</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="otherSections1">
+          <li><a routerLink="/home/produit/add">Ajouter Produit</a></li>
+          <li><a routerLink="/home/produit/all">liste Produits</a></li>
+        </ul>
+      </li>
+
+
+
+
+
+
+
+
+
+      <li class="treeview">
+        <a href="#employee" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="employee"><i class="fa fa-link"></i> <span>Gestion Employées</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="employee">
+          <li><a routerLink="/home/employee/ajout">Ajouter Employée</a></li>
+          <li><a routerLink="/home/employee/all">liste Employées</a></li>
+          <li class="treeview">
+            <a  href="#specialite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="specialite"><i class="fa fa-link"></i> <span>Gestion spécialitées</span>
+              <span class="pulspecialitel-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul  class="collapse list-unstyled" id="specialite">
+              <li><a routerLink="/home/specialitee/ajoute">Ajouter spécialitée</a></li>
+              <li><a routerLink="/home/specialitee/liste">liste spécialitées</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+
+
+
+
+      </li>
+      <li class="treeview">
+        <a href="#stock" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="stock"><i class="fa fa-link"></i> <span>Gestion Stock</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="stock">
+          <li><a routerLink="/home/stock/reception">Réception Article</a></li>
+          <li><a routerLink="/home/stock/liste">liste reception </a></li>
+          <li><a routerLink="/home/stock/liste">Liste stock</a></li>
+        </ul>
+
+
+
+
+
+
+
+        
+      <li class="treeview">
+        <a href="#fournisseur" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="fournisseur"><i class="fa fa-link"></i> <span>Gestion Fournisseur</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="fournisseur">
+          <li><a routerLink="/home/fournisseur/ajout">Ajouter Fournisseur</a></li>
+          <li><a routerLink="/home/fournisseur/list">liste Fournisseur</a></li>
+        </ul>
+      </li>
+
+
+
+
+
+
+      <li class="treeview">
+        <a routerLink="/msg"><i class="fa fa-link"></i> <span>Liste des Messages</span> </a>
+      </li>
+
+
+
+
+
+      <li class="treeview">
+        <a href="#production" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="production"><i class="fa fa-link"></i> <span>Gestion Production</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+       <ul  class="collapse list-unstyled" id="production">
+          <li><a routerLink="/home/production/creation">Creation Production</a></li>
+          <li><a routerLink="/home/production/liste">liste Production</a></li>
+        
+        </ul>
+
+
+
+
+
+
+
+
+        <li class="treeview">
+          <a href="#facture" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="facture"><i class="fa fa-link"></i> <span>Gestion facture</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           <ul  class="collapse list-unstyled" id="facture">
+            <li><a routerLink="/home/facture/vente">Facture Vente</a></li>
+            <li><a routerLink="/home/facture/achat">Facture Achat</a></li>
+            <li><a routerLink="/home/facture/diver">Facture Diver</a></li>
+            <li><a routerLink="/home/facture/liste">Liste Facture </a></li>
+          </ul>
+
+
+
+
+
+
+
+        <li class="treeview">
+          <a  href="#vente" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="vente"><i class="fa fa-link"></i> <span>Gestion Vente</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul  class="collapse list-unstyled" id="vente">
+            <li><a routerLink="/home/vente/liste">Liste Vente</a></li>
+            <li><a routerLink="/home/vente/detail">Detail Vente</a></li>
+          
+          </ul>
+
+
+
+
+
+
+      <li class="treeview">
+        <a  href="#article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-link"></i> <span>Gestion article</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="article">
+          <li><a routerLink="/home/article/ajout">Ajouter Article</a></li>
+          <li><a routerLink="/home/article/liste">liste Article</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

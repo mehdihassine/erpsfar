@@ -1,0 +1,122 @@
+<!-- Content Wrapper. Contains page content -->
+
+<!-- Default box -->
+
+
+<div class="box">
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><b>Creation categorie de produit</b></h3>
+    <div class="box-tools pull-right">
+ 
+      <button type="button" class="btn btn-block btn-warning btn-sm"(click)="retourliste()" >Retour liste</button>
+
+</div>
+  </div>
+  
+
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Informations categorie</h3>
+    </div>
+    <br> 
+
+    <!-- /.box-header -->
+   
+    
+
+
+ 
+
+      <div class="row">
+        
+
+
+
+      
+    </div>
+
+
+
+    <!-- /.box-defaut -->
+     
+      <!-- /.box-header -->
+      <div class="box-body">
+        
+        <div class="row">
+
+          <div class="col-md-2">
+              <div class="form-group">
+
+                <label class="control-label">libelle catégorie</label>
+                <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle"  required value="libellebox">
+              </div>
+            </div>
+    
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="description">description catégorie</label>
+                <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required value="descriptionbox">
+              </div>
+            </div>
+            
+         
+    
+          </div>
+          <!-- /.row -->
+          <br>
+          <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <button type="button" class="btn btn-block btn-success btn-sm"(click)="ajouter()" >Ajouter</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+        
+
+      </div>
+</div>
+
+
+  <!--</div>-->
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title" >Détails categorie</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+            <th class=" text-center" class="col-md-1">Id</th>
+            <th class=" text-center" class="col-md-2">libelle catégorie</th>
+            <th  class=" text-center" class="col-md-4">description catégorie </th>
+           
+            <th class=" text-center" class="col-md-1">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let f of categorie">
+            <td>{{f.idtype}}</td>
+            <td>{{f.libelle}}</td>
+            <td>{{f.description}}</td>
+            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppacategorie(f.idtype)" ><i class="fa fa-trash"></i></button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+
+

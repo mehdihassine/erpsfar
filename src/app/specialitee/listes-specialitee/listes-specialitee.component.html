@@ -1,0 +1,129 @@
+
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Liste des spécialité </b></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block btn-success btn-sm"(click)=" nouveauspecialiter()">Créer nouveau spécialité</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-primary btn-primary btn-sm"(click)="affiche()"><b>afficher liste</b></button>
+      </div>
+    </div>
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title"> Rechercher spécialité</h3>
+      </div>
+  
+  
+      <div class="box-body">
+  
+        <div class="row">
+
+
+          <div class="col-md-3">
+             
+          <div class="input-group">
+            <select class="form-control"[(ngModel)]="libelle" class="form-control select2" style="width: 100%;" id="libelle" name="libelle" value="typebox" required>
+              <option  selected value="" disabled>{{typebox}}</option>
+              <option *ngFor="let s of listespecialiter" [value] = s.libelle>{{s.libelle}}</option>
+            </select>            
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-sm" type="submit" (click)=" rechspecialiter()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+            </span>
+          </div>
+          </div>
+
+
+       
+
+
+
+
+
+
+
+          <!-- (click)="rechprod()" (click)="affliste()"-->
+        
+        </div>
+        <!--row1-->
+  
+        <div class="row">
+         
+        </div>
+        <!--row1-->
+  
+      </div>
+      <!-- boxbody-->
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title">Liste des spécialité</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-md-3" >libelle specialité</th>
+              <th  class="col-md-2">salaire mensuelle </th>
+              <th  class="col-md-2">salaire journalié </th>
+              <th class="col-md-2" class=" text-center">Action</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of specialite">
+                <td>{{s.libelle}}</td>
+                <td>{{s.salairetotale}}</td>
+                <td>{{s.salairejour}}</td>
+              <td class=" text-center">
+                <button class=" btn btn-fill btn-info"[routerLink]="['../modifier',s.libelle] "><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" (click)="delete(s.libelle)"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+  
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

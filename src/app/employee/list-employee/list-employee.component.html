@@ -1,0 +1,292 @@
+
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><b>Liste des employées </b></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block btn-success btn-sm"(click)=" nouveauemployee()">Créer nouveau employée</button>
+    </div>
+    <div class="box-tools pull-right">
+      &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-primary btn-primary btn-sm"(click)="affiche()"><b>afficher liste</b></button>
+    </div>
+  </div>
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"> Rechercher employé(e)</h3>
+    </div>
+
+
+    <div class="box-body">
+
+      <div class="row">
+
+
+        <div class="col-md-8">
+          <div class="input-group">
+          <span class="input-group-btn">
+            <div class="form-group">
+              
+              <input type="text" class="form-control" id="idemploye" placeholder="N° matricule"  name="idemploye" [(ngModel)]="idemploye" style="width: 100px;"  value= "idemploye" required>
+            </div>
+          </span>
+          
+
+          <span class="input-group-btn">
+            <p>&nbsp;&nbsp;</p>
+          </span>
+  
+       
+          <span class="input-group-btn">
+          <select class="form-control"[(ngModel)]="specialiter" class="form-control select2" style="width: 150px;" id="specialiter" name="specialiter" value="typebox" required>
+            <option  selected value="" disabled>{{typebox}}</option>
+            <option *ngFor="let s of listespecialiter" [value] = s.libelle>{{s.libelle}}</option>
+          </select> 
+        </span>
+
+        <span class="input-group-btn">
+          <p>&nbsp;&nbsp;</p>
+        </span>
+
+    
+          <span class="input-group-btn">
+            <select class="form-control select2" class="form-control" style="width: 150px;" id="typec" name="typec" [(ngModel)]="typec"   value="typebox2"required>
+              <option disabled selected value="">{{typebox2}}</option>
+              <option value="contrat CDI">Contrat CDI</option>
+              <option value="contrat CDD">Contrat CDD</option>
+              <option value="saisonnier">Saisonnier</option>
+              <option value="stagiaire">Stagiaire</option>
+            </select>   
+        </span> 
+
+
+
+
+
+        
+
+        
+
+
+
+      <span class="input-group-btn">
+        <p>&nbsp;&nbsp;</p>
+      </span>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-sm" type="submit" (click)=" Recherche()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+          </span>
+        </div>
+
+        </div>
+
+
+     
+
+
+
+
+
+
+
+        <!-- (click)="rechprod()" (click)="affliste()"-->
+      
+      </div>
+      <!--row1-->
+
+      <div class="row">
+       
+      </div>
+      <!--row1-->
+
+    </div>
+    <!-- boxbody-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title">Liste des spécialité</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-md-1">Matricule</th>
+            <th   class="col-md-2">Nom Prénom </th>
+            <th  class="col-md-2">Adresse</th>
+            <th  class="col-md-1">N°telephone</th>
+            <th  class="col-md-1">CIN</th>
+            <th  class="col-md-1">CNSS</th>
+            <th  class="col-md-1">Contrat</th>
+            <th  class="col-md-1">Spécialité</th>
+            <th  class="col-md-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let e of employees">
+            <td><b>{{e.idEmployee}}</b></td>
+            <td>{{e.nomEmployee}}&nbsp;{{e.prenomEmployee}}</td>
+            <td>{{e.adressEmployee}}</td>
+            <td>{{e.telEmployee}}</td>
+            <td>{{e.cinEmployee}}</td>
+            <td>{{e.cnssEmployee}}</td>
+            <td>{{e.type_contrat}}</td>
+            <td>{{e.libelle}}</td>
+            <td >
+              <button class=" btn btn-fill btn-info"[routerLink]="['../modifier',e.idEmployee] "><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" (click)="delete(e.idEmployee)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!--boxbody defaut-->
+
+</div>
+<!--box-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Liste des employee</h3>
+  </div>
+  <div class=" card-body">
+    <div class=" table-responsive">
+      <table class=" table tablesorter" id="">
+        <thead class=" text-primary">
+          <tr>
+            <th class=" text-center">id</th>
+            <th class=" text-center">nom</th>
+            <th class=" text-center">prenom</th>
+            <th class=" text-center">telephone</th>
+            <th class=" text-center">adress</th>
+            <th class=" text-center">type_contrat</th>
+            <th class=" text-center">specialiter</th>
+            <th class=" text-center">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let e of employee'>
+            <td class=" text-center">{{e.idEmployee}}</td>
+            <td class=" text-center">{{e.nomEmployee}}</td>
+            <td class=" text-center">{{e.prenomEmployee}}</td>
+            <td class=" text-center">{{e.telEmployee}}</td>
+            <td class=" text-center">{{e.adressEmployee}}</td>
+            <td class=" text-center">{{e.type_contrat}}</td>
+            <td class=" text-center">{{e.libelle}}</td>
+            <td class=" text-center"><button  class="btn btn-danger btn-sm" ><i class="fa fa-edit"></i></button>
+              <button class="btn btn-warning btn-sm" style="margin-left: 10px;"(click)="delete(e.idEmployee)"><i class="fa fa-trash"></i></button>
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+</div>-->

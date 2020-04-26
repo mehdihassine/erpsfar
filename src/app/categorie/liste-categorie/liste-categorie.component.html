@@ -1,0 +1,112 @@
+
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><b>Liste des catégories </b></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block btn-success btn-sm"(click)=" ajoutercategorie()">Créer nouveau catégorie</button>
+    </div>
+    <div class="box-tools pull-right">
+      &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-primary btn-primary btn-sm"(click)="afficheliste()"><b>afficher liste</b></button>
+    </div>
+  </div>
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"> Rechercher catégorie</h3>
+    </div>
+
+
+    <div class="box-body">
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="codarticle">libelle catégorie</label>
+            <form class="form-inline md-form mr-auto mb-4">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="libelle" name="libelle" [(ngModel)]="libelle" required>
+              <button class="btn btn-primary btn-sm" type="submit" (click)="rechcategorie()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+            </form>
+          </div>
+        </div> 
+        <!-- (click)="rechprod()" (click)="affliste()"-->
+       
+
+      </div>
+      <!--row1-->
+
+      <div class="row">
+      </div>
+      <!--row1-->
+
+    </div>
+    <!-- boxbody-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title">Liste des catégories</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-md-1" class=" text-center">nom categorie </th>
+
+            <th class="col-md-1" class=" text-center">description</th>
+            <th class="col-md-1" class=" text-center">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of categorie">
+            <td class=" text-center">{{c.libelle}}</td>
+            <td class=" text-center">{{c.description}}</td>
+            <td class=" text-center">
+              <button class=" btn btn-fill btn-info"[routerLink]="['../edit',c.libelle] "><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" (click)="delete(c.libelle)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!--boxbody defaut-->
+
+</div>
+<!--box-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

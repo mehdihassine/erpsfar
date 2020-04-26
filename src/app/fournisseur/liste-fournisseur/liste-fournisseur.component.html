@@ -1,0 +1,140 @@
+<!--<div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title"class=" text-center" >Liste des Fournisseur</h3> 
+    </div>
+    <div class=" card-body">
+        <div class=" table-responsive">
+          <table class=" table tablesorter" id="">
+            <thead class=" text-primary">
+              <tr>
+                <th class=" text-center">id</th>
+                <th class=" text-center">nom</th>
+                <th class=" text-center">telephone</th>
+                <th class=" text-center">E_mail</th>
+                <th class=" text-center">Ville</th>
+                <th class=" text-center">Code postal</th>
+                <th class=" text-center">telephone Fax</th>
+                <th width="110" class=" text-center">Action</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let f of fournisseur">
+                <td class=" text-center">{{f.idfr}}</td>
+                <td class=" text-center">{{f.nomfr}}</td>
+                <td class=" text-center">{{f.telfr}}</td>
+                <td class=" text-center">{{f.mailfr}}</td>
+                <td class=" text-center">{{f.villefr}}</td>
+                <td class=" text-center">{{f.fax}}</td>
+                <td class=" text-center">{{f.codepostal}}</td>
+                <td class=" text-center"><button class="btn btn-warning btn-sm"  ><i class="fa fa-edit"></i></button> 
+                  <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supprimer(f.idfr)"><i class="fa fa-trash"></i></button></td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      
+    </div>
+    
+   
+  </div>-->
+  
+
+
+<!-- Default box -->
+<div class="box">
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><b>Liste des Fournisseur </b></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block btn-success btn-sm"(click)=" nouveaufournisseur()">Créer nouveau fournisseur</button>
+    </div>
+    <div class="box-tools pull-right">
+      &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-primary btn-primary btn-sm"(click)="affiche()"><b>afficher liste</b></button>
+    </div>
+  </div>
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"> Rechercher fournisseur</h3>
+    </div>
+
+
+    <div class="box-body">
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="codarticle">Nom Fournisseur</label>
+            <form class="form-inline md-form mr-auto mb-4">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="nomfournisseur" name="nomfournisseur" [(ngModel)]="nomfournisseur" required>
+              <button class="btn btn-primary btn-sm" type="submit"(click)="rechfr()"  ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+            </form>
+          </div>
+        </div> 
+        <!-- (click)="rechprod()" (click)="affliste()"-->
+
+      </div>
+      <!--row1-->
+
+      <div class="row">
+      </div>
+      <!--row1-->
+
+    </div>
+    <!-- boxbody-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border">
+      <h3 class="box-title">Liste des fournisseurs</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+      
+            <th class="col-md-2">Nom</th>
+            <th   class="col-md-2">Adresse </th>
+            <th  class="col-md-2">E_mail</th>
+            <th  class="col-md-2">N°telephone</th>
+            <th  class="col-md-2">N°Fax</th>
+            <th  class="col-md-2">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of fournisseur">
+            <td><b>{{e.nomfr}}</b></td>
+            <td>{{e.adresse}},&nbsp;{{e.villefr}},&nbsp;{{e.codepostal}}</td>
+            <td>{{e.mailfr}}</td>
+            <td>{{e.telfr}}</td>
+            <td>{{e.fax}}</td>
+              <td><button class=" btn btn-fill btn-info" [routerLink]="['../edit',e.idfr]"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;"  (click)="supprimer(e.idfr)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+<!--[routerLink]="['../edit',c.libelle] (click)="afficheliste()" (click)="rechcategorie() (click)="delete(e.idfr)""-->
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!--boxbody defaut-->
+
+</div>
+<!--box-->

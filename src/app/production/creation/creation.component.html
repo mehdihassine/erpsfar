@@ -1,0 +1,137 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Création Liste  de Production  ({{dateprod2}})</b></h3>
+  
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block btn-danger btn-sm" (click)="annuler(dateprod)">Annuler tout</button>
+      </div>
+      <div class="box-tools pull-right">
+      </div>
+     
+    </div>
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title">Saisie Liste Production</h3>
+      </div>
+  
+  
+      <div class="box-body">
+  
+        <div class="row">
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codarticle">Code produit</label>
+              <input type="text" class="form-control" id="codarticle"[(ngModel)]="codarticle" name="codarticle"
+                value="{{txtbox}}" required>
+            </div>
+          </div>
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="libelle">Quantité</label>
+              <input type="text" class="form-control" id="quantite" [(ngModel)]="quantite" name="quantite" value="{{txtbox2}}" required>
+            </div>
+          </div>
+         
+          <div class="col-md-3">
+            
+          </div>
+
+          <div class="col-md-2 ml-auto">
+            <label for="libelle">Prix production</label>
+            </div>
+            <div class="col-md-2 ml-auto">
+            <div class="form-group">
+            <input type="text" class="form-control input-lg" class="text-center bold"  id="montanttotal" name="montanttotal" [(ngModel)]="montanttotal" value="{{montanttotal}}" disabled="disabled" required>                   
+          </div>
+            </div>
+         
+         
+        </div>
+        <!--row1-->
+  
+  
+  
+  
+        <div class="row">
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <button type="button" class="btn btn-block btn-warning btn-sm"(click)="ajouter()" >Ajouter</button>
+            </div>
+          </div>
+  
+          <div class="col-md-5 ml-auto">
+          </div>
+  
+  
+          
+  
+  
+        </div>
+        <!--row1-->
+  
+  
+  
+  
+      </div>
+      <!-- boxbody-->
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border">
+        <h3 class="box-title">Détails Liste</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class=" text-center" class="col-md-1">N° ligne</th>
+              <th class=" text-center" class="col-md-1">Code produit</th>
+              <th  class=" text-center" class="col-md-1">Libellé </th>
+              <th class=" text-center" class="col-md-1">Quantité </th>
+              <th class=" text-center" class="col-md-1">Prix unit</th>
+              <th class=" text-center" class="col-md-1">Prix total</th>
+              <th class=" text-center" class="col-md-2">Date création</th>
+              <th class=" text-center" class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of aff">
+              <td>{{e.nligne}}</td>
+              <td><b>{{e.id_produit}}</b></td>
+              <td>{{e.nomProduit}}</td>
+              <td>{{e.qteproduction}}</td>
+              <td>{{e.prixvente}}</td>
+              <td>{{e.qteproduction*e.prixvente}}</td>
+              <td>{{e.datesys}}</td>
+              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppartprod(e.nligne)" ><i
+                    class="fa fa-trash"></i></button></td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->

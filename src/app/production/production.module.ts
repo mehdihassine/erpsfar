@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ProductionRoutingModule } from './production-routing.module';
+import { ListeProductionComponent } from './liste-production/liste-production.component';
+import { ModifierProductionComponent } from './modifier-production/modifier-production.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ResteProductionComponent } from './reste-production/reste-production.component';
+import { BeneficeProductionComponent } from './benefice-production/benefice-production.component';
+import { from } from 'rxjs';
+import { CreationComponent } from './creation/creation.component';
+
+
+@NgModule({
+  declarations: [ListeProductionComponent, ModifierProductionComponent, ResteProductionComponent, BeneficeProductionComponent, CreationComponent],
+  imports: [
+    CommonModule,
+    ProductionRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ]
+})
+export class ProductionModule { }

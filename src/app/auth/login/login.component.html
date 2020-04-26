@@ -1,0 +1,109 @@
+
+
+<!--<div class="login-box">
+    <div class="login-logo">
+      <a href=""><b>Espace</b>Directeur</a>
+    </div>
+   
+    <div class="login-box-body">
+      <p class="login-box-msg">Connexion </p>
+  
+      <form action="" method="post">
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="-Email" name="mail"[(ngModel)]="mail" required>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Password"name="pass"[(ngModel)]="pass" required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+         
+        
+          <div class="col-xs-5" >
+            <button type="submit" class="btn btn-primary btn-sm " (click)="verifUser()">Se Connecter</button>
+          </div>
+         
+        </div>
+      </form>
+  
+     
+
+  
+    
+    </div>
+    
+  </div>
+-->
+
+
+
+
+
+<head>
+	<title>Login V15</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+
+</head>
+
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('assets/dist/img/logo1.png');">
+				
+				</div>
+				
+
+				<form class="login100-form validate-form">
+
+					<div *ngIf="(log )" id="mail" class="wrap-input100 validate-input m-b-26" data-validate="Username is required" >
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="mail" placeholder="Enter Email" name="mail"[(ngModel)]="mail" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div *ngIf="(!log )" class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="login" placeholder="Enter username" name="login"[(ngModel)]="login" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div *ngIf="(!log )" class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password"name="pass"[(ngModel)]="pass" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							
+						</div>
+
+						<div>
+							<a *ngIf="(!log )" style="cursor: pointer;" (click)="forgotpass()" class="txt1" >
+								Forgot Password?
+							</a>
+							<a *ngIf="(log )"style="cursor: pointer;" (click)="retourlogin()" class="txt1" >
+								Retour Login
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button *ngIf="(!log )" class="login100-form-btn" (click)="verifUser()">
+							Se Connecter
+						</button>
+						<button  *ngIf="(log )"class="login100-form-btn" (click)="resetpass()" >
+							Envoyer
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+

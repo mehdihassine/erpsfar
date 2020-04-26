@@ -1,0 +1,167 @@
+<div class="box">
+
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Modifier employé(e)</b></h3>
+      <div class="box-tools pull-right">
+  
+            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retourlist()" >Retour liste</button>
+  
+      </div>
+      <!--(click)="retourliste()-->
+  
+    </div>
+  
+  
+    
+  
+  
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Informations générales</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codearticle">Nom </label>
+              <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom"placeholder="" value="{{nom}}" required>
+            </div>
+          </div>  
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="libelle">Prenom</label>
+              <input type="text" class="form-control" id="prenom"name="prenom" [(ngModel)]="prenom" placeholder=""value="{{prenom}}"  required>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="codearticle">Adress</label>
+              <input type="text" class="form-control" id="adress" name="adress" [(ngModel)]="adress"placeholder="" value="{{adress}}" required>
+            </div>
+          </div>  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codearticle">N°telephone</label>
+              <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="telephone"placeholder="" value="{{telephone}}" required>
+            </div>
+          </div>  
+  
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="codearticle">Carte d'identité</label>
+              <input type="text" class="form-control" id="cin" name="cin" [(ngModel)]="cin"placeholder="" value="{{cin}}" required>
+            </div>
+          </div>  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="codearticle">N° CNSS</label>
+              <input type="text" class="form-control" id="cnss" name="cnss" [(ngModel)]="cnss"placeholder="" value="{{cnss}}"required>
+            </div>
+          </div> 
+  
+          
+         
+  
+        </div>
+        <div class="row">
+          
+    
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Type de contrat</label>
+              <select class="form-control select2" class="form-control" style="width: 100%;" id="typec" name="typec" [(ngModel)]="typec"   value="{{typec}}"required>
+                <option selected value="" disabled>{{typebox}}</option>
+                <option value="contrat CDI">Contrat CDI</option>
+                <option value="contrat CDD">Contrat CDD</option>
+                <option value="saisonnier">Saisonnier</option>
+                <option value="stagiaire">Stagiaire</option>
+              </select>
+            </div>
+    
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Spécialité</label>
+              <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="specialite" name="specialite"  [(ngModel)]="specialite"value="{{specialite}}" required>
+                <option  selected value="" disabled>{{typebox}}</option>
+                <option *ngFor="let s of listespecialiter" [value] = s.libelle>{{s.libelle}}</option>
+              </select>    
+            </div>
+          </div>
+  
+  
+        </div>
+  
+  
+  
+        <div class="row">
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <button type="button" class="btn btn-block btn-success btn-sm"(click)="edit()" >Modifier employé(e)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  
+  
+  
+  
+    <!-- /.box-defaut -->
+  
+    <div class="box box-default">
+    
+      <div class="box-header with-border">
+        <h3 class="box-title">Détails employé(e)</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-md-1">Matricule</th>
+              <th   class="col-md-2">Nom Prénom </th>
+              <th  class="col-md-2">Adresse</th>
+              <th  class="col-md-2">N°telephone</th>
+              <th  class="col-md-1">CIN</th>
+              <th  class="col-md-1">CNSS</th>
+              <th  class="col-md-1">Contrat</th>
+              <th  class="col-md-1">Spécialité</th>
+              <th  class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let e of employees">
+              <td><b>{{e.idEmployee}}</b></td>
+              <td>{{e.nomEmployee}}&nbsp;{{e.prenomEmployee}}</td>
+              <td>{{e.adressEmployee}}</td>
+              <td>{{e.telEmployee}}</td>
+              <td>{{e.cinEmployee}}</td>
+              <td>{{e.cnssEmployee}}</td>
+              <td>{{e.type_contrat}}</td>
+              <td>{{e.libelle}}</td>
+              <td><button class="btn btn-success btn-sm" style="margin-left: 10px;" (click)=" retourlist() " ><i class="fa fa-check"></i></button></td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  </div>

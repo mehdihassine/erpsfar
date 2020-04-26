@@ -1,0 +1,53 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title" class="text-center">Liste des Produits</h3>
+  </div>
+  <div class="box-body">
+    <form>  
+      <div class="row">
+        <div class="col-md-6">
+          <div class=" form-group">
+            <label>diamètre</label>
+            <input class=" form-control" type="text" id="diametre" [(ngModel)]="diametre" name="diametre" required  />
+          </div>
+        </div> 
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label> NOM Produit</label>
+          <input class=" form-control" type="text" id="nom" [(ngModel)]="nom_produit" name="nom_produit" required  />
+        </div>
+      </div> 
+        <div class=" col-md-6">
+          <div class=" form-group">
+            <label> PRIX Produit</label>
+            <input class=" form-control"  type="text" id="prixP" [(ngModel)]="prix_produit" name="prix_produit" required  />
+          </div>
+        </div> 
+        <div class=" col-md-6">
+          <div class=" form-group">
+            <label> PRIX Vente </label>
+            <input class=" form-control" type="text" value=""id="prixV" [(ngModel)]="prix_vente" name="prix_vente" required />
+          </div>
+        </div>
+        <div class=" col-md-6">
+          <div class=" form-group">
+            <label>TYPE Produit</label>
+            <input class=" form-control"  type="text" id="type" [(ngModel)]="type_produit" name="type_produit" required/>
+          </div>
+        </div> 
+        <div class=" col-md-12">
+          <div class=" form-group">
+            <label>Description article</label>
+            <textarea class=" form-control"type="text" row="6"  id="desc" [(ngModel)]="desc" name="desc" required ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer"> 
+    <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="add()" >Valider</button> 
+  </div>
+
+
+  <!-- /.box-body -->
+</div>

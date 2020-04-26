@@ -1,0 +1,162 @@
+<div class="box">
+
+
+    <div class="box-header with-border">
+      <h3 class="box-title"><b>Modification article</b></h3>
+      
+  
+    </div>
+  
+  
+    
+  
+  
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Informations générales</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codearticle">Code article</label>
+              <input type="text" class="form-control" id="codearticle" name="codearticle" [(ngModel)]="codearticle"placeholder="" value="{{codearticle}}" required>
+            </div>
+          </div>  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="libelle">Libellé article</label>
+              <input type="text" class="form-control" id="libelle"name="libelle" [(ngModel)]="libelle" placeholder=""value="{{libelle}}"  required>
+            </div>
+          </div>
+  
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="description">Description article</label>
+              <textarea class="form-control" rows="1" id="description" name="description" [(ngModel)]="description" value="{{description}}"required></textarea>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  
+  
+  
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Données logestiques</h3>
+      
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div class="row">
+  
+  
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Type article</label>
+            <select class="form-control select2" style="width: 100%;" id="type" name="type" [(ngModel)]="type" value="{{type}}" required>
+              <option selected value="" disabled>choisir</option>
+              <option value="matiere premiere">matière première</option>
+              <option value="consommable">Consommables</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Nature article</label>
+            <select class="form-control select2" style="width: 100%;" id="nature" name="nature" [(ngModel)]="nature"   value="{{nature}}"required>
+              <option selected value="" disabled>choisir</option>
+              <option value="solide">Solide</option>
+              <option value="liquide">Liquide</option>
+              <option value="dangereux">Dangereux</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Type de stockage</label>
+            <select class="form-control select2" style="width: 100%;"  name="typestockage" [(ngModel)]="typestockage" id="typestockage" value="{{typestockage}}" required>
+            <option selected value="" disabled>choisir</option>
+              <option value="normal">Normal</option>
+              <option value="froid">Froid</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="libelle">Seuil min réappro</label>
+            <input type="text" class="form-control" id="seuil" name="seuil" [(ngModel)]="seuil" placeholder=""  value="{{seuil}}" required>
+          </div>
+        </div>
+  
+      </div>
+  
+    <!-- /.box-body -->
+    <div class="row">
+  
+    <div class="col-md-3">
+      <div class="form-group">
+        <button type="button" class="btn btn-block btn-success btn-sm"(click)="edit(idarticle)" >Modifie Article</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+    <!-- /.box-defaut -->
+  
+    <div class="box box-default">
+    
+      <div class="box-header with-border">
+        <h3 class="box-title">Détails Liste</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-md-1">Code article</th>
+              <th   class="col-md-1">Libellé </th>
+              <th  class="col-md-2">Description</th>
+              <th  class="col-md-1">Type</th>
+              <th  class="col-md-1">Nature</th>
+              <th  class="col-md-1">stockage</th>
+              <th  class="col-md-1">Seuil min</th>
+              <th  class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of listearticle">
+              <td>{{e.codearticle}}</td>
+              <td><b>{{e.libellearticle}}</b></td>
+              <td>{{e.description}}</td>
+              <td>{{e.typearticle}}</td>
+              <td>{{e.nature}}</td>
+              <td>{{e.typestockage}}</td>
+              <td>{{e.seuilmin}}</td>
+              <td><button class="btn btn-success btn-sm" style="margin-left: 10px;" (click)=" retourliste() " ><i class="fa fa-check"></i></button></td>
+            </tr>
+   
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  </div>
+  
+  
+
+
