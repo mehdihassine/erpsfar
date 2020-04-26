@@ -34,6 +34,7 @@ const routes: Routes = [
  {path:'specialitee',loadChildren:'./specialitee/specialitee.module#SpecialiteeModule'},
  {path:'utilisateur',loadChildren:'./utilisateur/utilisateur.module#UtilisateurModule'},
  {path: 'msg', component: MessagesComponent},
+ //commentaire walid
  ]
 }
 
