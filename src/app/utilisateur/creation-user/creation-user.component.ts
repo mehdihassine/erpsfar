@@ -17,7 +17,7 @@ export class CreationUserComponent implements OnInit {
    rolebox:any='choisir'; 
     loginuser:any;
   
-    mdpuser:any;
+    mdpuser:any; 
    
     utilisateur:any=[];
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService) { }

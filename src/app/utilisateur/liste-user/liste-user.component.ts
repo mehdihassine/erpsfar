@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListeUserComponent implements OnInit {
   utilisateur:any=[];
+  iduser: any;
  
 
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService) { }
@@ -34,5 +35,11 @@ export class ListeUserComponent implements OnInit {
       this.refresh();
     },error=>console.log(error));
   } 
+
+
+  profil(iduser){
+    this.router.navigate(["/home/utilisateur/modifier/"+iduser]);
+    
+  }
 }
 
