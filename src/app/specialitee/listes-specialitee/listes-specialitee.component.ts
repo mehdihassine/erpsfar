@@ -42,7 +42,7 @@ export class ListesSpecialiteeComponent implements OnInit {
         console.log(data);
          this.toastr.success(data.RESPONSE);
 
-         setTimeout(() => {this.refresh();},3000);
+        this.refresh();
 
         
       },error=>console.log(error));

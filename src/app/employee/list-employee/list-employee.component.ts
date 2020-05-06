@@ -72,7 +72,7 @@ typec:any;
         console.log(data);
          this.toastr.success(data.RESPONSE);
 
-         setTimeout(() => {this.refresh();},2000);
+       this.refresh();
 
         
       },error=>console.log(error));

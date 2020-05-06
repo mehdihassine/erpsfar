@@ -1,71 +1,29 @@
-<!--<div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title"class=" text-center" >Liste des Fournisseur</h3> 
-    </div>
-    <div class=" card-body">
-        <div class=" table-responsive">
-          <table class=" table tablesorter" id="">
-            <thead class=" text-primary">
-              <tr>
-                <th class=" text-center">id</th>
-                <th class=" text-center">nom</th>
-                <th class=" text-center">telephone</th>
-                <th class=" text-center">E_mail</th>
-                <th class=" text-center">Ville</th>
-                <th class=" text-center">Code postal</th>
-                <th class=" text-center">telephone Fax</th>
-                <th width="110" class=" text-center">Action</th>
-    
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let f of fournisseur">
-                <td class=" text-center">{{f.idfr}}</td>
-                <td class=" text-center">{{f.nomfr}}</td>
-                <td class=" text-center">{{f.telfr}}</td>
-                <td class=" text-center">{{f.mailfr}}</td>
-                <td class=" text-center">{{f.villefr}}</td>
-                <td class=" text-center">{{f.fax}}</td>
-                <td class=" text-center">{{f.codepostal}}</td>
-                <td class=" text-center"><button class="btn btn-warning btn-sm"  ><i class="fa fa-edit"></i></button> 
-                  <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supprimer(f.idfr)"><i class="fa fa-trash"></i></button></td>
-              </tr>
-             
-            </tbody>
-          </table>
-        </div>
-      
-    </div>
-    
-   
-  </div>-->
-  
 
 
 <!-- Default box -->
-<div class="box">
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
 
-  <div class="box-header with-border">
+  <div class="box-header with-border"  style="background-color:rgba(7, 79, 161, 0.534);">
     <h3 class="box-title"><b>Liste des Fournisseur </b></h3>
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-block btn-success btn-sm"(click)=" nouveaufournisseur()">Créer nouveau fournisseur</button>
+      <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"  (click)=" nouveaufournisseur()">Créer nouveau fournisseur</button>
     </div>
     <div class="box-tools pull-right">
       &nbsp;&nbsp;&nbsp;
     </div>
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-primary btn-primary btn-sm"(click)="affiche()"><b>afficher liste</b></button>
+      <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;" (click)="affiche()"><b>afficher liste</b></button>
     </div>
   </div>
 
   <div class="box box-default">
 
-    <div class="box-header with-border">
+    <div class="box-header with-border" style="background-color:rgba(109, 125, 177, 0.39);">
       <h3 class="box-title"> Rechercher fournisseur</h3>
     </div>
 
 
-    <div class="box-body">
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
 
       <div class="row">
         <div class="col-md-5">
@@ -95,7 +53,7 @@
 
   <div class="box box-default">
 
-    <div class="box-header with-border">
+    <div class="box-header with-border" style="background-color:rgba(109, 125, 177, 0.39);">
       <h3 class="box-title">Liste des fournisseurs</h3>
 
       <div class="box-tools pull-right">
@@ -104,7 +62,7 @@
 
     <div class="box-body">
       <table id="example1" class="table table-bordered">
-        <thead>
+        <thead style="background-color:rgba(109, 125, 177, 0.164);">
           <tr>
       
             <th class="col-md-2">Nom</th>
@@ -124,7 +82,7 @@
             <td>{{e.telfr}}</td>
             <td>{{e.fax}}</td>
               <td><button class=" btn btn-fill btn-info" [routerLink]="['../edit',e.idfr]"><i class="fa fa-edit"></i></button>
-              <button class="btn btn-danger btn-fill"style="margin-left: 10px;"  (click)="supprimer(e.idfr)"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
 <!--[routerLink]="['../edit',c.libelle] (click)="afficheliste()" (click)="rechcategorie() (click)="delete(e.idfr)""-->
@@ -138,3 +96,22 @@
 
 </div>
 <!--box-->
+<div class="modal modal-danger fade" id="delete" *ngFor = "let e of fournisseur">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Voulez vous vraiment supprimer ?? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+        <button type="submit" class="btn btn-outline"  (click)="supprimer(e.idfr)" data-dismiss="modal" >Oui , supprimer</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+</div>

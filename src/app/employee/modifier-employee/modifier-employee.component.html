@@ -1,11 +1,11 @@
-<div class="box">
+<div class="box"style="background-color:rgba(109, 125, 177, 0.198);">
 
 
-    <div class="box-header with-border">
+    <div class="box-header with-border" style="background-color:rgba(7, 79, 161, 0.616);" >
       <h3 class="box-title"><b>Modifier employé(e)</b></h3>
       <div class="box-tools pull-right">
   
-            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retourlist()" >Retour liste</button>
+            <button type="button" class="btn btn-block btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"  (click)="retourlist()" >Retour liste</button>
   
       </div>
       <!--(click)="retourliste()-->
@@ -17,14 +17,14 @@
   
   
     <div class="box box-default">
-      <div class="box-header with-border">
+      <div class="box-header with-border" style="background-color:rgba(109, 125, 177, 0.493);" >
         <h3 class="box-title">Informations générales</h3>
   
         <div class="box-tools pull-right">
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body">
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);" >
         <div class="row">
           <div class="col-md-2">
             <div class="form-group">
@@ -108,7 +108,7 @@
   
           <div class="col-md-3">
             <div class="form-group">
-              <button type="button" class="btn btn-block btn-success btn-sm"(click)="edit()" >Modifier employé(e)</button>
+              <button type="button" class="btn btn-block btn-sm"(click)="edit()"  style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;">Modifier employé(e)</button>
             </div>
           </div>
         </div>
@@ -123,14 +123,14 @@
   
     <div class="box box-default">
     
-      <div class="box-header with-border">
+      <div class="box-header with-border" style="background-color:rgba(109, 125, 177, 0.493);">
         <h3 class="box-title">Détails employé(e)</h3>
   
         <div class="box-tools pull-right">
         </div>
       </div>
   
-      <div class="box-body">
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
         <table id="example1" class="table table-bordered">
           <thead>
             <tr>
@@ -138,14 +138,14 @@
               <th   class="col-md-2">Nom Prénom </th>
               <th  class="col-md-2">Adresse</th>
               <th  class="col-md-2">N°telephone</th>
-              <th  class="col-md-1">CIN</th>
+              <th  class="col-md-1">CIN</th> 
               <th  class="col-md-1">CNSS</th>
               <th  class="col-md-1">Contrat</th>
               <th  class="col-md-1">Spécialité</th>
               <th  class="col-md-1">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="background-color:rgb(254, 254, 255);">
             <tr *ngFor = "let e of employees">
               <td><b>{{e.idEmployee}}</b></td>
               <td>{{e.nomEmployee}}&nbsp;{{e.prenomEmployee}}</td>

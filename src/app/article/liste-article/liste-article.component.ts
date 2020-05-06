@@ -37,6 +37,7 @@ export class ListeArticleComponent implements OnInit {
     this.service.supprimerarticle(codearticle).subscribe(data=>{
       console.log(data);
       this.refresh();
+     
     },error=>console.log(error));
   } 
  
