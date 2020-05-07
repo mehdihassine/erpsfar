@@ -1,5 +1,5 @@
-<div class="box">
-  <div class="box-header with-border">
+<!-- <div class="box">
+  <div class="box-header with-border headertitle">
     <h3 class="box-title" class="text-center">Liste des Produits</h3>
   </div>
   <div class="box-body">
@@ -49,5 +49,258 @@
   </div>
 
 
-  <!-- /.box-body -->
+  
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<div class="box" >
+
+
+  <div class="box-header with-border headertitle" > 
+    <h3 class="box-title"><b>Création Produit </b></h3>
+    <div class="box-tools pull-right">
+
+          <button type="button" class="btn btn-primary btn-sm"   >Retour liste</button>
+
+    </div>
+    <!--(click)="retourliste()-->
+  </div>
+
+
+   
+
+
+  <div class="box box-default">
+    <div class="box-header with-border" >
+      <h3 class="box-title"  >Informations générales</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="diametre">diametre </label>
+            <input  type="text" class="form-control" id="diametre" name="diametre" [(ngModel)]="diametre "placeholder="" value="diametre" required>
+          </div>
+        </div>   
+
+        <div class="col-md-2" >
+          <div class="form-group">
+            <label for="nom">Nom produit</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom" placeholder=""value="nom"  required>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Type</label>
+            <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="type" name="type"  [(ngModel)]="type"value="typebox" required>
+              <option  selected value="" disabled>{{typebox}}</option>
+              <option *ngFor="let s of listescategorie" [value] = s.libelle>{{s.libelle}}</option>
+            </select>    
+          </div>
+        </div>
+       
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="cout">Coût de Revien</label>
+            <input type="text" class="form-control" id="cout" name="cout" [(ngModel)]="cout"placeholder="" value="cout" required>
+          </div>
+        </div>  
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="vente">Prix vente</label>
+            <input type="text" class="form-control" id="vente" name="vente" [(ngModel)]="vente"placeholder="" required>
+          </div>
+        </div> 
+
+        
+       
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="tva">TVA%</label>
+            <input type="text" class="form-control" id="tva" name="tva" [(ngModel)]="tva"placeholder="" required>
+          </div>
+        </div> 
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="description"placeholder="" required></textarea> 
+          </div>
+        </div> 
+  
+        
+       
+
+
+      </div>
+
+
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <button type="button" class="btn btn-block  btn-sm" (click)="add()" >Créer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+   
+
+
+  <!-- /.box-defaut -->
+
+  <div class="box box-default"  >
+  
+    <div class="box-header with-border" >
+      <h3 class="box-title">Détails produit</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div id="tableau" class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead >
+          <tr>
+            <th class="col-md-1">diamétre</th>
+            <th   class="col-md-2">Nom produit </th>
+            <th  class="col-md-2">Type</th>
+            <th  class="col-md-2">Coût de Revient </th>
+            <th  class="col-md-2">Prix vente</th>
+            <th  class="col-md-3">Description</th>
+         
+            <th  class="col-md-1">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let e of produit">
+            <td><b>{{e.diametre}}</b></td>
+            <td>{{e.nomProduit}}</td>
+            <td>{{e.libelle}}</td>
+            <td>{{e.coutrevien}}</td>
+            <td>{{e.prixvente}}</td>
+            <td>{{e.descriptionProduit}}</td>
+           
+            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px; "><i class="fa fa-trash"></i></button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div> 
+  <!--boxbody defaut (click)="supprimer(e.idEmployee) "-->
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './home/home.component';
+import { RedirectComponent } from './redirect/redirect.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     MenuComponent,
     MessagesComponent,
-    HomeComponent
+    HomeComponent,
+    RedirectComponent
   ],
 
   imports: [

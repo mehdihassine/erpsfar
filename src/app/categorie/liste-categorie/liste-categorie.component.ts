@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ListeCategorieComponent implements OnInit {
 categorie:any[]; 
 libelle : any ; 
-  
+   
   constructor(private service:ApiCategorieService,private toastr: ToastrService, private router:Router) { }
 
   ngOnInit(): void {

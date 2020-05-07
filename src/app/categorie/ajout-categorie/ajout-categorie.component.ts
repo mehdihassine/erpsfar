@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
  
 })
 export class AjoutCategorieComponent implements OnInit {
-  categorie:any=[];
+  categorie:any=[]; 
   libelle:any;
   description:string;
 libellebox:any;

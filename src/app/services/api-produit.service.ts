@@ -12,13 +12,21 @@ export class ApiProduitService {
   getAllproduit():Observable <any>{
     return this.http.get(this.urlAP+"liste_produit.php");
   }
-  getProduitByID(id):Observable<any>{
+  getProduitByID(id):Observable<any>{ 
     
     return this.http.get(this.urlAP+"get.php?X="+id);
   }
-  addproduit(diametre,nom_Produit,coutrevien,prix_vente,description,type_produit):Observable<any>{
-    const body={diamaitre:diametre,name:nom_Produit ,prixP:coutrevien,prixV:prix_vente,desc:description,type:type_produit}
-    return this.http.post(this.urlAP+"ajoute_produit.php",body);
+  addproduit(diametre,nom,cout,vente,type,description,tva):Observable<any>{
+    const body={
+      diametre:diametre,
+       nom:nom ,
+       cout:cout,
+       vente:vente,
+       type:type,
+       description:description,
+       tva:tva
+        }
+    return this.http.post(this.urlAP+"ajouterproduit.php",body);
   }
   deleteproduit(id):Observable<any>{
     
@@ -37,6 +45,18 @@ editproduit( idProduit,diametre,nomProduit,coutrevien,prixvente,descriptionProdu
     return this.http.post(this.urlAP+"modifier_produit.php",body);
   }
   
+
+
+  getAllgategorie():Observable<any>{
+    return this.http.get(this.urlAP+"listcategorie.php");
+  }
+
+
+
+
+
+
+
 }
 
 

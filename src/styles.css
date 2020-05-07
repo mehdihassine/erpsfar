@@ -188,3 +188,12 @@ button.toast-close-button {
     width: 25em;
   }
 }
+
+.headertitle {
+  background-color:rgba(7, 79, 161, 0.616) !important;
+}
+
+.headertitle:hover {
+  background-color:rgba(5, 64, 131, 0.616) !important;
+  color : white;
+  box-shadow: 0 0 12px #000000;}
