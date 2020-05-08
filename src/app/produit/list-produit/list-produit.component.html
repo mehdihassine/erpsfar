@@ -1,44 +1,247 @@
-<div class="box">
-  <div class="box-header with-border headertitle">
-    <h3 class="box-title" class=" text-center">Liste des PRODUIT</h3>
-  </div>
-  <div class=" card-body">
-    <div class=" table-responsive">
-      <table class=" table tablesorter" >
-        <thead class=" text-primary">
-          <tr>
-            <th class=" text-center">id</th>
-            <th class=" text-center"> Diametre</th>
-            <th class=" text-center"> nom Produit</th>
-            <th class=" text-center">cout de revien </th>
-            <th class=" text-center">prix Vente</th>
-            <th class=" text-center">description</th>
-            <th class=" text-center">Type PRODUIT</th>
-            <th class=" text-center">Action</th>
+ 
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
 
+  <div class="box-header with-border  headertitle"  >
+    <h3 class="box-title"><b>Liste des produit </b></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="nouveauproduit()">Créer nouveau produit</button>
+    </div>
+    <div class="box-tools pull-right">
+      &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affiche()" ><b>afficher liste</b></button>
+    </div>
+  </div>
+<!-- (click)=" nouveauemployee()"(click)="affiche()"-->
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre" >
+      <h3 class="box-title"> Rechercher produit</h3>
+    </div>
+
+
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
+
+      <div class="row">
+
+
+        <div class="col-md-8">
+          <div class="input-group">
+          <span class="input-group-btn">
+            <div class="form-group">
+              
+              <input type="text" class="form-control" id="nom" placeholder="Nom produit"  name="nom" [(ngModel)]="nom" style="width: 130px;"  value= "nom" required>
+            </div>
+          </span>
+          
+
+          <span class="input-group-btn">
+            <p>&nbsp;&nbsp;</p>
+          </span>
+  
+       
+          <span class="input-group-btn">
+          <select class="form-control"[(ngModel)]="type" class="form-control select2" style="width: 150px;" id="type" name="type" value="typebox" required>
+            <option  selected value="" disabled>{{typebox}}</option>
+            <option *ngFor="let s of listescategorie" [value] = s.libelle>{{s.libelle}}</option>
+          </select> 
+        </span>
+
+        <span class="input-group-btn">
+          <p>&nbsp;&nbsp;</p>
+        </span>
+
+      <span class="input-group-btn">
+        <p>&nbsp;&nbsp;</p>
+      </span>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-sm" type="submit" (click)="Recherche()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+          </span>
+        </div>
+
+        </div>
+
+
+     
+
+
+
+
+
+
+
+        <!-- (click)="rechprod()" (click)="affliste()"-->
+      
+      </div>
+      <!--row1-->
+
+      <div class="row">
+       
+      </div>
+      <!--row1-->
+
+    </div>
+    <!-- boxbody-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre" >
+      <h3 class="box-title">Liste des produits</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+      <table id="example1" class="table table-bordered">
+        <thead >
+          <tr >
+            <th class="col-md-1">Diametre</th>
+            <th   class="col-md-2">Nom produit </th>
+            <th  class="col-md-2">Coût de revien</th>
+            <th  class="col-md-1">Prix Vente</th>
+            <th  class="col-md-1">Type</th>
+            <th  class="col-md-3">description</th>
+          
+            <th  class="col-md-2">Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let p of produit">
-            <td class=" text-center"><a [routerLink]="['../edit',p.idProduit]"><b>{{p.idProduit}}</b></a></td>
-            <td class=" text-center">{{p.diametre}}</td>
-            <td class=" text-center">{{p.nomProduit}}</td>
-            <td class=" text-center">{{p.coutrevien}}</td>
-            <td class=" text-center">{{p.prixvente}}</td>
-            <td class=" text-center">{{p.descriptionProduit}}</td>
-            <td class=" text-center">{{p.libelle}}</td> 
-           
-
-            <td>
-              <button class=" btn btn-fill btn-info" [routerLink]="['../edit',p.idProduit]"><i class="fa fa-eye"></i></button>
-              <button class="btn btn-warning btn-sm"style="margin-left: 10px;"  (click)="delete(p.idProduit)"><i class="fa fa-trash"></i></button>
+        <tbody style="background-color:rgba(254, 254, 255);">
+        
+            <tr *ngFor="let p of produit">
+              
+              <td >{{p.diametre}}</td>
+              <td >{{p.nomProduit}}</td>
+              <td >{{p.coutrevien}}</td>
+              <td >{{p.prixvente}}</td>
+            
+              <td >{{p.libelle}}</td> 
+              <td >{{p.descriptionProduit}}</td>
+            <td >
+              <button class=" btn btn-fill btn-info"[routerLink]="['../edit',p.idProduit]"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
 
-        </tbody>
-      </table>
+  
+        </tbody>  
+      </table>     
     </div>
-  </div>
-  <!-- /.box-body -->
+   
+  <!--boxbody defaut-->
 
 </div>
+<!--box-->
+ 
+
+
+
+<div class="modal modal-danger fade" id="delete" *ngFor = "let p of produit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Voulez vous vraiment supprimer ?? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+        <button type="submit" class="btn btn-outline" (click)="delete(p.idProduit)" data-dismiss="modal" >Oui , supprimer</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

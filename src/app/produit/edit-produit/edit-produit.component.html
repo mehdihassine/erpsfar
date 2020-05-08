@@ -1,5 +1,5 @@
-<div class="box">
-    <div class="box-header with-border headertitle">
+<!-- <div class="box">
+    <div class="box-header with-border soustitre headertitle">
       <h3 class="box-title" class="text-center">Liste des Produits</h3>
     </div>
     <div class="box-body">
@@ -8,25 +8,25 @@
           <div class="col-md-6">
             <div class=" form-group">
               <label>diamètre</label>
-              <input class=" form-control" type="text" id="diametre" [(ngModel)]="diametre" name="diametre"  value="{{table.diametre}}"required  />
+              <input class=" form-control" type="text" id="diametre" [(ngModel)]="diametre" name="diametre"  required  />
             </div>
           </div> 
         <div class="col-md-6">
           <div class=" form-group">
             <label> NOM Produit</label>
-            <input class=" form-control" type="text" id="diametre" [(ngModel)]="nomProduit" name="nomProduit"  value="{{table.nomProduit}}"required  />
+            <input class=" form-control" type="text" id="diametre" [(ngModel)]="nomProduit" name="nomProduit"  "required  />
           </div>
         </div> 
           <div class=" col-md-6">
             <div class=" form-group">
               <label> cout de revien</label>
-              <input class=" form-control"  type="text" id="prixProduit" [(ngModel)]="coutrevien" name="coutrevien"  value="{{table.coutrevien}}"required  />
+              <input class=" form-control"  type="text" id="prixProduit" [(ngModel)]="coutrevien" name="coutrevien"  required  />
             </div>
           </div> 
           <div class=" col-md-6">
             <div class=" form-group">
               <label> PRIX Vente </label>
-              <input class=" form-control" type="text" value=""id="prixvente" [(ngModel)]="prixvente" name="prixvente"  value="{{table.prixvente}}"required />
+              <input class=" form-control" type="text" value=""id="prixvente" [(ngModel)]="prixvente" name="prixvente"  required />
             </div>
           </div>
           <div class=" col-md-6">
@@ -38,19 +38,170 @@
           <div class=" col-md-12">
             <div class=" form-group">
               <label>Description article</label>
-              <textarea class=" form-control"type="text" row="6"  id="desc" [(ngModel)]="descriptionProduit" name="descriptionProduit"  value="{{table.descriptionProduit}}"required ></textarea>
+              <textarea class=" form-control"type="text" row="6"  id="desc" [(ngModel)]="descriptionProduit" name="descriptionProduit" required ></textarea>
             </div>
           </div>
         </div>
       </form>
     </div>
     <div class="card-footer"> 
-      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="edit(table.idProduit)" >modifier</button> 
+      <button class="btn btn-fill btn-primary" style="margin-left: 10px;"  >modifier</button> 
       <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="retouliste()" >retour</button> 
       <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="delete(table.idProduit)" >supprimer</button> 
     </div>
   
   
-    <!-- /.box-body -->
+   
+  </div> -->
+  <div class="box" >
+
+
+    <div class="box-header with-border  headertitle" > 
+      <h3 class="box-title"><b>Création Produit </b></h3>
+      <div class="box-tools pull-right">
+  
+            <button type="button" class="btn btn-primary btn-sm" (click)="retourliste()"  >Retour liste</button>
+  
+      </div>
+      <!--(click)="retourliste()-->
+    </div>
+  
+  
+     
+  
+  
+    <div class="box box-default">
+      <div class="box-header with-border soustitre" >
+        <h3 class="box-title"  >Informations générales</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="diametre">diametre </label>
+              <input  type="text" class="form-control" id="diametre" name="diametre" [(ngModel)]="diametre "placeholder="" value="diametre" value="{{diametre}}" required>
+            </div>
+          </div>   
+  
+          <div class="col-md-2" >
+            <div class="form-group">
+              <label for="nom">Nom produit</label>
+              <input type="text" class="form-control" id="nomProduit" name="nomProduit" [(ngModel)]="nomProduit" placeholder=""value="nomProduit" value="{{nomProduit}} " required>
+            </div>
+          </div>
+  
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Type</label>
+              <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="type" name="type"  [(ngModel)]="type"value="{{type}}"  required>
+                <option  selected value="" disabled>{{typebox}}</option>
+                <option *ngFor="let s of listescategorie" [value] = s.libelle>{{s.libelle}}</option>
+              </select>    
+            </div>
+          </div>
+         
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="cout">Coût de Revien</label>
+              <input type="text" class="form-control" id="coutrevien" name="coutrevien" [(ngModel)]="coutrevien"placeholder=""   value="{{coutrevien}}"required>
+            </div>
+          </div>  
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="vente">Prix vente</label>
+              <input type="text" class="form-control" id="prixvente" name="prixvente" [(ngModel)]="prixvente"placeholder="" value="{{prixvente}}" required>
+            </div>
+          </div> 
+  
+          
+         
+  
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="tva">TVA%</label>
+              <input type="text" class="form-control" id="tva" name="tva" [(ngModel)]="tva"placeholder="" value="{{tva}}" required>
+            </div>
+          </div> 
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" class="form-control" id="descriptionProduit" name="descriptionProduit" [(ngModel)]="descriptionProduit" placeholder=""   value="{{descriptionProduit}}"required></textarea> 
+            </div>
+          </div> 
+    
+          
+         
+  
+  
+        </div>
+  
+  
+  
+        <div class="row">
+  
+          <div class="col-md-3">
+            <div class="form-group">
+              <button type="button" class="btn btn-block  btn-sm" (click)="edit()" >modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+     
+  
+  
+    <!-- /.box-defaut -->
+  
+    <div class="box box-default"  >
+    
+      <div class="box-header with-border soustitre" >
+        <h3 class="box-title">Détails produit</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div id="tableau" class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead >
+            <tr>
+              <th class="col-md-1">diamétre</th>
+              <th   class="col-md-2">Nom produit </th>
+              <th  class="col-md-2">Type</th>
+              <th  class="col-md-2">Coût de Revient </th>
+              <th  class="col-md-2">Prix vente</th>
+              <th  class="col-md-3">Description</th>
+           
+              <th  class="col-md-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let e of produit">
+              <td><b>{{e.diametre}}</b></td>
+              <td>{{e.nomProduit}}</td>
+              <td>{{e.libelle}}</td>
+              <td>{{e.coutrevien}}</td>
+              <td>{{e.prixvente}}</td>
+              <td>{{e.descriptionProduit}}</td>
+             
+              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;  "(click)="delete(e.idProduit)"><i class="fa fa-trash"></i></button></td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div> 
+    <!--boxbody defaut (click)="supprimer(e.idEmployee) "-->
   </div>
   

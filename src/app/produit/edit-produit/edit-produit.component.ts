@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiProduitService } from 'src/app/services/api-produit.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { error } from 'protractor';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-produit',
@@ -9,16 +10,21 @@ import { error } from 'protractor';
   styleUrls: ['./edit-produit.component.css']
 })
 export class EditProduitComponent implements OnInit {
-  table:any={};
+  produit:any={};
+ 
   id: any;
   nomProduit: any;
   diametre: any;
   coutrevien: any;
   prixvente: any;
   descriptionProduit: any;
-  table2:any={}; 
+  produit2:any={}; 
   typeProduit_id: any;
-  constructor(private service: ApiProduitService, private activateroute: ActivatedRoute, private router: Router) {
+  listescategorie: any=[];
+  typebox: string;
+  type:any;
+  tva: any;
+  constructor(private service: ApiProduitService,private toastr :ToastrService, private activateroute: ActivatedRoute, private router: Router) {
     
     this.id = this.activateroute.snapshot.paramMap.get("id");
   }
@@ -28,42 +34,134 @@ export class EditProduitComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.getProduitByID(this.id).subscribe(data => {
-      this.table = data[0];
-      console.log(JSON.stringify(this.table));
-      console.log(this.table);
-    }, error => console.log(error));
+   this.getproduit();
+   this.getcategorie();
   }
+getproduit(){
+
+  this.service.getProduitByID(this.id).subscribe(data => {
+    this.produit = data[0];
+    console.log(JSON.stringify(this.produit));
+    console.log(this.produit);
+this.diametre=this.produit.diametre;
+this.nomProduit=this.produit.nomProduit;
+this.coutrevien=this.produit.coutrevien;
+this.prixvente=this.produit.prixvente;
+this.descriptionProduit=this.produit.descriptionProduit;
+this.type=this.produit.libelle;
+this.tva=this.produit.tva;
+
+
+this.produit=[];
+  }, error => console.log(error));
+}
+
+getcategorie(){
+ 
+  this.service.getAllgategorie().subscribe(data => {
+if(data.RESPONSE){
+this.toastr.warning("liste specialiter vide !! "); 
+}else
+    {
+      this.listescategorie = data;
+      this.typebox="categorie";
+}  
+    console.log(this.listescategorie);
+    },error => console.log(error));
+}
 
 
 
-  edit(id) {
+
+
+
+
+
+
+
+
+  edit() {
+
     
-    if (this.id) { this.table.id = this.id }
-    if (this.nomProduit) { this.table.nomProduit = this.nomProduit }
-    if (this.diametre) { this.table.diametre = this.diametre }
-    if (this.coutrevien) { this.table.coutrevien = this.coutrevien }
-    if (this.prixvente) { this.table.prixvente = this.prixvente }
-    if (this.descriptionProduit) { this.table.descriptionProduit = this.descriptionProduit }
-    if (this.typeProduit_id) { this.table.typeProduit_id = this.typeProduit_id }
 
-    this.service.editproduit(this.table.id,this.table.diametre,this.table.nomProduit,
-      this.table.coutrevien,this.table.prixvente,this.table.descriptionProduit,this.table.typeProduit_id).subscribe(data => {
-      console.log(this.table.nomProduit);
-      console.log(this.table);
-      console.log(data.RESPONSE);
+    var reg = /^[0-9]+$/;
+    if (!this.nomProduit ) {
+      this.toastr.error('champ nom  obligatoire!!');
+    }
+  
+    else if ((!this.coutrevien.match(reg))||(!this.coutrevien)) {
+      this.toastr.error('champ coût de revient  obligatoirement numerique!!');
+    }
+    
+   
+    else if((!this.prixvente.match(reg))||(!this.prixvente)){
+    
+      this.toastr.error('champ prix vente  obligatoirement numerique!!');
+    }
+   
+  
+    
+    else if (!this.type) {
+      this.toastr.error('champ type de produit obligatoire!!');
+    }
 
-      this.router.navigate(["produit/all"]);
-    }, error => console.log(error));
-  }
+
+
+else{
+ 
+  if (this.id) { this.produit.id = this.id }
+  if (this.nomProduit) { this.produit.nomProduit = this.nomProduit }
+  if (this.diametre) { this.produit.diametre = this.diametre }
+  if (this.coutrevien) { this.produit.coutrevien = this.coutrevien }
+  if (this.prixvente) { this.produit.prixvente = this.prixvente }
+  if (this.descriptionProduit) { this.produit.descriptionProduit = this.descriptionProduit }
+  if (this.type) { this.produit.type = this.type }
+  if (this.tva) { this.produit.tva = this.tva }
+
+  this.service.editproduit(this.produit.id,this.produit.diametre,this.produit.nomProduit,
+    this.produit.coutrevien,this.produit.prixvente,this.produit.descriptionProduit,this.produit.type,this.produit.tva).subscribe(data => {
+    console.log(data);
+    if(data.RESPONSE){
+      this.toastr.warning(data.RESPONSE);
+      //toestr
+            }
+            else{
+      
+            this.produit[0] = data[1];
+            this.toastr.success("modifier avec succes")
+          }
+  }, error => console.log(error));
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
          
 
 
 
-  retouliste() {
-    this.router.navigate(["produit/all"]);
+  retourliste() {
+    this.router.navigate(["home/produit/all"]);
   }
 
 
@@ -71,8 +169,8 @@ export class EditProduitComponent implements OnInit {
     this.service.deleteproduit(id).subscribe(data => {
 
       console.log(data);
-      this.retouliste();
-      alert('Confirmer suppression Produit [' + this.table.nom_produit + '] ?');
+      this.retourliste();
+      alert('Confirmer suppression Produit [' + this.produit.nom_produit + '] ?');
     }, error => console.log(error));
   }
 

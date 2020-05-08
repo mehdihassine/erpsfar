@@ -30,17 +30,18 @@ export class ApiProduitService {
   }
   deleteproduit(id):Observable<any>{
     
-    return this.http.delete(this.urlAP+"supprimer_produit.php?X="+id);
+    return this.http.get(this.urlAP+"supprimer_produit.php?X="+id);
   }
 
-editproduit( idProduit,diametre,nomProduit,coutrevien,prixvente,descriptionProduit,typeProduit_id):Observable<any>{
+editproduit( idProduit,diametre,nomProduit,coutrevien,prixvente,descriptionProduit,type,tva):Observable<any>{
     const body={idProduit: idProduit,
       diametre:diametre,
       nomProduit:nomProduit ,
       coutrevien:coutrevien,
       prixvente:prixvente,
       descriptionProduit:descriptionProduit,
-      type:typeProduit_id};
+      type:type,
+    tva:tva};
     console.log(body);
     return this.http.post(this.urlAP+"modifier_produit.php",body);
   }
@@ -51,7 +52,13 @@ editproduit( idProduit,diametre,nomProduit,coutrevien,prixvente,descriptionProdu
     return this.http.get(this.urlAP+"listcategorie.php");
   }
 
+  rechnom(nom):Observable<any>{
+    return this.http.get(this.urlAP+"rechnom.php?nom="+nom);
+  }
 
+  rechtype(type):Observable<any>{
+    return this.http.get(this.urlAP+"rechtype.php?type="+type);
+  }
 
 
 

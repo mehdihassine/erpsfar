@@ -48,18 +48,18 @@ facture:any =[];
    
     if (type == "vente") { //RESULT KO
 
-      this.router.navigate(["facture/detail/"+nfacture]);
+      this.router.navigate(["home/facture/detail/"+nfacture]);
     }
       
     else if (type =="divers") {
    
-    this.router.navigate(["facture/detaildiv/"+nfacture]);
+    this.router.navigate(["home/facture/detaildiv/"+nfacture]);
       
   }
 
   else if (type === "achat") {
    
-    this.router.navigate(["facture/detailachat/"+nfacture]);
+    this.router.navigate(["home/facture/detailachat/"+nfacture]);
       
   }
  

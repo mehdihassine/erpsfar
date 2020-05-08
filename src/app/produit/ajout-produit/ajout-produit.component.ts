@@ -106,11 +106,29 @@ else{
 }
 
 
+refresh(){
+
+  this.produit=[];
+  
+  }
+  
+  
+  supprimer(idProduit){
+  
+    this.service.deleteproduit(idProduit).subscribe(data=>{
+      this.toastr.warning(data.RESPONSE);
+      this.refresh();
+    },error=>console.log(error));
+  }
+
+retourlist(){
+
+  this.router.navigate(["home/produit/all"]);
+  
+
+  
+  }
 }
-
-
-
-
 
 
 /*
@@ -186,15 +204,7 @@ add() {
 
 
 }
-retourlist(){
 
-this.router.navigate(["home/employee/all"]);
-
-
-
-
-
-}
 refresh(){
 
 this.employees=[];

@@ -7,8 +7,8 @@
 }
 
 
-#sous-titre{
-    background-color:rgba(109, 125, 177, 0.493);
+.soustitre{
+    background-color:rgba(109, 125, 177, 0.493)!important;
 }
 
 tbody{

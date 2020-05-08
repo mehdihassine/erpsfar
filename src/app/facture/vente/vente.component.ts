@@ -186,7 +186,7 @@ var resultat:any = [];
 
   if (result === "0") { //RESULT KO
     alert(' Erreur facture ['+this.nfacture+']');
-    this.router.navigate(["facture/vente/"]);}
+    this.router.navigate(["home/facture/vente/"]);}
 
 
 
@@ -199,7 +199,7 @@ else{
       this.setnlignezero();
       this.cleartextbox();
 
-      this.router.navigate(["facture/detail/"+nfacture]);
+      this.router.navigate(["home/facture/detail/"+nfacture]);
       
     }, error => console.log(error));
 }
