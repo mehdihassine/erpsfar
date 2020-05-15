@@ -69,9 +69,10 @@
         <table id="example1" class="table table-bordered">
           <thead style="background-color:rgba(109, 125, 177, 0.164);">
             <tr>
-              <th class="col-md-1">ID article</th>
+             
                 <th class="col-md-1">Code article</th>
                 <th   class="col-md-1">Libellé </th>
+                <th   class="col-md-1">Unité </th>
                 <th  class="col-md-2">Description</th>
                 <th  class="col-md-1">Type</th>
                 <th  class="col-md-1">Nature</th>
@@ -82,9 +83,10 @@
           </thead>
           <tbody>
             <tr *ngFor="let e of listeajout">
-              <td>{{e.idarticle}}</td>
+             
                 <td>{{e.codearticle}}</td>
                 <td><b>{{e.libellearticle}}</b></td>
+                <td>{{e.unite}}</td>
                 <td>{{e.description}}</td>
                 <td>{{e.typearticle}}</td>
                 <td>{{e.nature}}</td>

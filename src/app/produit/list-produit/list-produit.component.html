@@ -115,7 +115,7 @@
         </thead>
         <tbody style="background-color:rgba(254, 254, 255);">
         
-            <tr *ngFor="let p of produit">
+            <tr *ngFor="let p of produit" >
               
               <td >{{p.diametre}}</td>
               <td >{{p.nomProduit}}</td>
@@ -124,9 +124,9 @@
             
               <td >{{p.libelle}}</td> 
               <td >{{p.descriptionProduit}}</td>
-            <td >
+            <td  >
               <button class=" btn btn-fill btn-info"[routerLink]="['../edit',p.idProduit]"><i class="fa fa-edit"></i></button>
-              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" (click)="idproduit(p.idProduit)" data-target="#delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
 
@@ -143,7 +143,7 @@
 
 
 
-<div class="modal modal-danger fade" id="delete" *ngFor = "let p of produit">
+<div class="modal modal-danger fade" id="delete" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -152,11 +152,11 @@
         <h4 class="modal-title" class="text-center">confirmation suppression </h4>
       </div>
       <div class="modal-body">
-        <p class="text-center">Voulez vous vraiment supprimer ?? </p>
+        <p class="text-center">Voulez vous vraiment supprimer ?? {{idPr}} </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
-        <button type="submit" class="btn btn-outline" (click)="delete(p.idProduit)" data-dismiss="modal" >Oui , supprimer</button>
+        <button type="submit" class="btn btn-outline" (click)="delete(idPr)" data-dismiss="modal" >Oui , supprimer</button>
       </div>
     </div>
     <!-- /.modal-content -->

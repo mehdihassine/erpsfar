@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { until } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ApiArticleService {
 
 
   
-  ajoutarticle(codearticle,libelle,description,type,nature, typestockage, seuil):Observable<any>{
+  ajoutarticle(codearticle,libelle,description,type,nature, typestockage, seuil,unite):Observable<any>{
     const body={
       codearticle:codearticle,
       libelle:libelle,
@@ -22,7 +23,8 @@ export class ApiArticleService {
       type:type,
       nature:nature,
       typestockage:typestockage,
-      seuil:seuil
+      seuil:seuil,
+      unite:unite
       
     };
     return this.http.post(this.urlAP+"ajoutarticle.php",body);
@@ -55,7 +57,7 @@ export class ApiArticleService {
   }
   
 
-  editarticle(idarticle,codearticle,libelle,description,type,nature,typestockage,seuil):Observable<any>{
+  editarticle(idarticle,codearticle,libelle,description,type,nature,typestockage,seuil,unite):Observable<any>{
     const body={
       idarticle:idarticle,
       codearticle:codearticle,
@@ -64,7 +66,8 @@ export class ApiArticleService {
       type:type,
       nature:nature,
       typestockage:typestockage,
-      seuil:seuil
+      seuil:seuil,
+      unite:unite
       
       };
     return this.http.post(this.urlAP+"modifierarticle.php",body);

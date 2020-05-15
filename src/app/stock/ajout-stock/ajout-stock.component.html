@@ -5,16 +5,16 @@
 <div class="box">
 
   <div class="box-header with-border  headertitle">
-    <h3 class="box-title"><b>Reception article</b></h3>
+    <h3 class="box-title"><b>Reception article {{nreception}}</b></h3>
 
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-block btn-danger btn-sm">Annuler</button>
+      <button type="button" class="btn btn-block btn-danger btn-sm"(click)="annuler(nreception)">Annuler</button>
     </div>
     <div class="box-tools pull-right">
       &nbsp;&nbsp;&nbsp;
     </div>
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-primary btn-success btn-sm"><b>Valider réception</b></button>
+      <button type="button" class="btn btn-primary btn-success btn-sm" (click)="valider(nreception)"><b>Valider réception</b></button>
     </div>
 
   </div>
@@ -43,14 +43,14 @@
         <div class="col-md-3">
           <div class="form-group">
             <label for="libelle">Libellé article</label>
-            <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle" placeholder=""
+            <input type="text" class="form-control" id="libellearticle" name="libellearticle" [ngModel]="libellearticle" placeholder="" [value]="getlibelle()"
               disabled="disabled" disabled required>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2"style="width:100px">
           <div class="form-group">
-            <label for="codarticle">Quantite</label>
-            <input type="text" class="form-control" id="codarticle" name="codarticle" [(ngModel)]="codarticle"
+            <label for="quantite">Quantite</label>
+            <input type="text" class="form-control" id="quantite" name="quantite" [(ngModel)]="quantite"
               placeholder="" required>
           </div>
         </div>
@@ -62,7 +62,20 @@
               placeholder="" required>
           </div>
         </div>
-
+        <div class="col-md-2"style="width:100px">
+          <div class="form-group">
+            <label for="remise">Remise</label>
+            <input type="text" class="form-control" id="remise" name="remise" [(ngModel)]="remise"
+              placeholder="" required>
+          </div>
+        </div>
+        <div class="col-md-2"style="width:100px">
+          <div class="form-group">
+            <label for="taxe">Taxes</label>
+            <input type="text" class="form-control" id="taxe" name="taxe" [(ngModel)]="taxe"
+              placeholder="" required>
+          </div>
+        </div>
 
       </div>
       <!-- /.row -->
@@ -70,13 +83,10 @@
         <div class="col-md-2">
           <div class="form-group">
             <label>Fournisseur</label>
-            <select class="form-control select2" style="width: 100%;" id="fournisseur" name="fournisseur"
-              [(ngModel)]="fournisseur" required>
-              <option selected="selected" disabled="disabled">Choisir</option>
-              <option value="fou1">Fou 1</option>
-              <option value="fou2">Fou 2</option>
-              <option value="fou3">Fou 3</option>
-            </select>
+            <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="fournisseur" name="fournisseur"  [(ngModel)]="fournisseur"value="typebox" required>
+              <option  selected value="" disabled>{{typebox}}</option>
+              <option *ngFor="let s of listefournisseur" [value] = s.nomfr>{{s.nomfr}}</option>
+            </select>   
           </div>
         </div>
 
@@ -87,12 +97,23 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="datefinv" name="datefinv" [(ngModel)]="datefinv"
+              <input type="text" class="form-control pull-right" id="datepicker" name="datefinv" [(ngModel)]="datefinv"
                 required>
             </div>
           </div>
 
         </div>
+
+       
+
+
+
+
+
+
+
+
+
         <div class="col-md-4">
           <div class="form-group">
             <label for="description">Commentaire Reception</label>
@@ -131,13 +152,20 @@
             <div class="form-group">
               <label>Type de stockage</label>
               <select class="form-control select2" style="width: 100%;" id="typestockage" name="typestockage"
-                [(ngModel)]="typestockage" required>
-                <option selected="selected" disabled="disabled">Choisir</option>
+                required disabled>
+                <option selected="selected"disabled="disabled">{{typestockage}}</option>
                 <option value="Normal">Normal</option>
                 <option value="Froid">Froid</option>
               </select>
             </div>
           </div>
+          <div class="col-md-7">
+            <div class="box-tools pull-right" style="padding-right: 76px; padding-top: 24px;">
+              <button type="button" class="btn btn-primary btn-success btn-sm"(click)="ajouter()" ><b>Ajoutée</b></button>
+            </div>
+        
+          </div>
+         
 
 
 
@@ -174,14 +202,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" ><i class="fa fa-trash"></i></button></td>
+          <tr *ngFor = "let s of stock" >
+            <td>{{s.nligne}}</td>
+            <td>{{s.codearticle}}</td>
+            <td>{{s.libellearticle}}</td>
+            <td>{{s.qteentree}}</td>
+            <td>{{s.prixunitaire}}</td>
+            <td>{{s.prixTotal}}</td>
+            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppartreception(s.nligne)"><i class="fa fa-trash"></i></button></td>
           </tr>
 
         </tbody>
@@ -191,5 +219,4 @@
   </div>
 
 </div>
-
 

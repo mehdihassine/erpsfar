@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive, Input } from '@angular/core';
 import { ApiProduitService } from 'src/app/services/api-produit.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -9,10 +10,15 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './list-produit.component.html'
 
 })
+
+
+
 export class ListProduitComponent implements OnInit {
+
+  
  
   typebox: any ; 
- 
+  idp:any;
   nom : any ; 
   type: any ; 
  
@@ -21,6 +27,7 @@ export class ListProduitComponent implements OnInit {
  
 produit :any=[];
   idProduit: any;
+  idPr: any;
 
   constructor(private service:ApiProduitService, private router: Router,private toastr :ToastrService ) { }
 
@@ -61,9 +68,17 @@ produit :any=[];
     },error=> console.log (error));
     
   }
-  delete(idProduit){
-    console.log(idProduit);
-    this.service.deleteproduit(idProduit).subscribe(data=>{
+
+  idproduit(idproduit){
+   
+ this.idPr=idproduit;
+
+  }
+
+
+  delete(idPr){
+    console.log(idPr);
+    this.service.deleteproduit(idPr).subscribe(data=>{
       console.log(data);
       this.toastr.success(data.RESPONSE);
       this.refresh();

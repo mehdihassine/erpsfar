@@ -20,7 +20,7 @@ export class ModifierArticleComponent implements OnInit {
   nature: any;
   typestockage: any;
   seuil: any;
-
+unite:any; 
   typestockagebox: string;
   naturebox: string;
   typebox: string;
@@ -57,8 +57,9 @@ export class ModifierArticleComponent implements OnInit {
       this.nature=this.listearticle.nature ; 
       this.typestockage=this.listearticle.typestockage ;
       this.seuil=this.listearticle.seuilmin ; 
-this.listearticle=this.listearticle[0];
+      this.unite=this.listearticle.unite ;
 
+this.listearticle=this.listearticle[0];
 
       
     
@@ -101,12 +102,12 @@ this.listearticle=this.listearticle[0];
       if (this.nature) { this.listearticle.nature = this.nature ;}
       if (this.typestockage) { this.listearticle.typestockage = this.typestockage; }
       if (this.seuil) { this.listearticle.seuil = this.seuil ;}
-
+      if (this.unite) { this.listearticle.unite = this.unite ;}
 
     
     
       this.service.editarticle(this.listearticle.idarticle,this.listearticle.codearticle, this.listearticle.libelle, this.listearticle.description,
-        this.listearticle.type,this.listearticle.nature, this.listearticle.typestockage,this.listearticle.seuil).subscribe(data => {
+        this.listearticle.type,this.listearticle.nature, this.listearticle.typestockage,this.listearticle.seuil, this.listearticle.unite).subscribe(data => {
       
         console.log(data);
 

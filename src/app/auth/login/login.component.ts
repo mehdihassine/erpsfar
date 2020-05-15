@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./fonts/Linearicons-Free-v1.0.0/icon-font.min.css','./vendor/animate/animate.css','./vendor/css-hamburgers/hamburgers.min.css','./vendor/animsition/css/animsition.min.css','./vendor/select2/select2.min.css',
- './vendor/daterangepicker/daterangepicker.css','./css/util.css','./css/main.css','./vendor/bootstrap/css/bootstrap.min.css','./fonts/font-awesome-4.7.0/css/font-awesome.min.css'
+ './vendor/daterangepicker/daterangepicker.css','./css/util.css','./css/main.css','./vendor/bootstrap/css/bootstrap.min.css','./fonts/font-awesome-4.7.0/css/font-awesome.min.css','./login.component.scss'
 
 
 ]
@@ -21,6 +21,8 @@ pass="";
 
   visibilite = 'style="visibility: hidden;"';
   photo: any;
+  loading: boolean = false;
+
 
   constructor(private service:ApiAuthService,private router:Router,private toaster:ToastrService) { }
 
@@ -29,6 +31,12 @@ pass="";
   }
 
   verifUser(){
+
+    
+    
+    this.loading = true;
+    
+
     console.log("user name:" +this.login);
     console.log("password:" +this.pass);
     this.service.verifUser(this.login,this.pass).subscribe(data =>{
@@ -44,10 +52,13 @@ pass="";
      // console.log("PHOTO: " +this.photo);
       console.log("role:" +this.role);
                   this.router.navigate(["/home"]);
+                  this.loading = false;
+
     }
 
     else{
       this.toaster.error("LOGIN ou PASSWORD incorrect!!!");
+      this.loading = false;
     }
 
     },error=>{

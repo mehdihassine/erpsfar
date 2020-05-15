@@ -39,8 +39,13 @@
             <input type="text" class="form-control" id="libelle"name="libelle" [(ngModel)]="libelle" placeholder=""value="libellebox"  required>
           </div>
         </div>
-
-        <div class="col-md-5">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="libelle">Unité </label>
+            <input type="text" class="form-control" id="unite"name="unite" [(ngModel)]="unite" placeholder=""value="unitebox"  required>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="form-group">
             <label for="description">Description article</label>
             <textarea class="form-control" rows="1" id="description" name="description" [(ngModel)]="description" value="descriptionbox"required></textarea>
@@ -134,6 +139,7 @@
           <tr>
             <th class="col-md-1">Code article</th>
             <th   class="col-md-1">Libellé </th>
+            <th  class="col-md-1">Unité</th>
             <th  class="col-md-2">Description</th>
             <th  class="col-md-1">Type</th>
             <th  class="col-md-1">Nature</th>
@@ -146,6 +152,7 @@
           <tr *ngFor="let e of listeajout">
             <td>{{e.codearticle}}</td>
             <td><b>{{e.libellearticle}}</b></td>
+            <td>{{e.unite}}</td>
             <td>{{e.description}}</td>
             <td>{{e.typearticle}}</td>
             <td>{{e.nature}}</td>

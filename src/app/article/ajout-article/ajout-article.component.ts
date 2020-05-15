@@ -24,6 +24,7 @@ export class AjoutArticleComponent implements OnInit {
   descriptionbox: string;
   codearticlebox: string;
   seuilbox: string;
+  unite:any;
   constructor(private service: ApiArticleService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -48,6 +49,9 @@ this.listeajout=[];
     else if (!this.libelle) {
       this.toastr.error('champ libelle obligatoire!!');
     }
+    else if (!this.unite) {
+      this.toastr.error('champ unite obligatoire!!');
+    }
     else if (!this.type) {
       this.toastr.error('champ type article obligatoire!!');
     }
@@ -66,7 +70,7 @@ this.listeajout=[];
 
     else {
 
-      this.service.ajoutarticle(this.codearticle, this.libelle, this.description, this.type, this.nature, this.typestockage, this.seuil).subscribe(data => {
+      this.service.ajoutarticle(this.codearticle, this.libelle, this.description, this.type, this.nature, this.typestockage, this.seuil,this.unite).subscribe(data => {
 
         this.listeajout = data;
 
