@@ -1,0 +1,184 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
+
+    <div class="box-header with-border soustitre headertitle"   style="background-color:rgba(7, 79, 161, 0.534);">
+      <h3 class="box-title"><b>Liste des reception </b></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="creernouveau()" >Créer nouveau reception</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affiche()"  ><b>afficher liste</b></button>
+      </div>
+    </div>
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre"  >
+        <h3 class="box-title"> Rechercher reception</h3>
+      </div>
+  
+  
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
+  
+        <div class="row">
+  
+  
+          <div class="col-md-8">
+            <div class="input-group">
+            <span class="input-group-btn">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" id="nreception" placeholder="N° reception"  name="nreception" [(ngModel)]="nreception" style="width: 100px;"  value= "nreception" required>
+              </div>
+            </span>
+            
+  
+            <span class="input-group-btn">
+              <p>&nbsp;&nbsp;</p>
+            </span>
+    
+            <span class="input-group-btn">
+                <div class="form-group">
+                  
+                  <input type="text" class="form-control" id="numfact" placeholder="N° facture"  name="numfact" [(ngModel)]="numfact" style="width: 100px;"  value= "numfact" required>
+                </div>
+              </span>
+            <span class="input-group-btn">
+                <p>&nbsp;&nbsp;</p>
+              </span>  
+            <span class="input-group-btn">
+            <select class="form-control"[(ngModel)]="fournisseur" class="form-control select2" style="width: 150px;" id="fournisseur" name="fournisseur" value="typebox" required>
+              <option  selected value="" disabled>{{typebox}}</option>
+              <option *ngFor="let s of listesfournisseur" [value] = s.nomfr>{{s.nomfr}}</option>
+            </select> 
+          </span>
+  
+          
+  
+      
+           
+  
+  
+  
+  
+  
+          
+  
+          
+  
+  
+  
+        <span class="input-group-btn">
+          <p>&nbsp;&nbsp;</p>
+        </span>
+  
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-sm" type="submit" (click)="Recherche()"  ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+            </span>
+          </div>
+  
+          </div>
+  
+  
+       
+  
+  
+  
+  
+  
+  
+  
+          <!-- (click)="rechprod()" (click)="affliste()"-->
+        
+        </div>
+        <!--row1-->
+  
+        <div class="row">
+         
+        </div>
+        <!--row1-->
+  
+      </div>
+      <!-- boxbody-->
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre" >
+        <h3 class="box-title">Liste des réceptions</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+        <table id="example1" class="table table-bordered">
+          <thead >
+            <tr >
+              <th >N°reception</th>
+              <th   >Nbr articles </th>
+              <th >fournisseur</th>
+              <th  >N°facture</th>
+              <th >Qte Totatl</th>
+              <th >Date Achat</th>
+              <th >Montant TTC</th>
+              <th >Action</th>
+            </tr>
+          </thead>
+          <tbody style="background-color:rgba(254, 254, 255);">
+            <tr *ngFor = "let e of stock">
+              <td><b>{{e.nreception}}</b></td>
+              <td>{{e.nbrarticle}}</td>
+              <td>{{e.nomfr}}</td>
+              <td>{{e.numfact}}</td>
+              <td>{{e.quantiterecep}}</td>
+              <td>{{e.dateachat}}</td>
+              <td>{{e.prixTotal}}</td>
+              
+              <td >
+                <button class="btn btn-warning btn-sm" style="margin-left: 10px;" [routerLink]="['../detail',e.nreception]">
+                  <i class="fa fa-gear"></i></button>
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" (click)="idrecep(e.nreception)" data-target="#delete"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+  
+    
+          </tbody>  
+        </table>     
+      </div>
+     
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->
+   
+
+  <div class="modal modal-danger fade" id="delete" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Voulez vous vraiment supprimer ?? {{idrecp}} </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+          <button type="submit" class="btn btn-outline" (click)="delete(idrecp)" data-dismiss="modal" >Oui , supprimer</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+  </div>

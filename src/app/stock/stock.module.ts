@@ -7,10 +7,12 @@ import { AjoutStockComponent } from './ajout-stock/ajout-stock.component';
 import { ListeStockComponent } from './liste-stock/liste-stock.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ListeReceptionComponent } from './liste-reception/liste-reception.component';
+import { DetailRecpeptionComponent } from './detail-recpeption/detail-recpeption.component';
 
 
 @NgModule({
-  declarations: [ AjoutStockComponent, ListeStockComponent],
+  declarations: [ AjoutStockComponent, ListeStockComponent, ListeReceptionComponent, DetailRecpeptionComponent],
   imports: [
     CommonModule,
     StockRoutingModule,

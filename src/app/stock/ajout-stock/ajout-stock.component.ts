@@ -27,7 +27,7 @@ export class AjoutStockComponent implements OnInit {
   libellearticle:any; 
   index: number;
   public nligne1: number = 0;
-  
+  numfact:any;
   stock:any=[];
   nreception: any;
   table3: string;
@@ -170,7 +170,7 @@ else{
   this.increment();
   console.log('reception = ' + this.nreception + ' ' + 'article= ' + this.codarticle);
   
-  this.service.addreception(this.nreception, this.nligne1, this.codarticle, this.quantite, this.type, this.fournisseur,this.prixachat,this.datefinv,this.remise,this.taxe,this.description).subscribe(data3 => {
+  this.service.addreception(this.nreception, this.nligne1, this.codarticle, this.quantite, this.type, this.fournisseur,this.prixachat,this.datefinv,this.remise,this.taxe,this.description,this.numfact).subscribe(data3 => {
     table3 = data3;
     console.log(data3);
     this.toastr.show("article ajoutee ");
@@ -305,7 +305,7 @@ else{
     this.cleartextbox();
     this.newreception();
 
-    //this.router.navigate(["home/facture/detail/"+nreception]);
+    this.router.navigate(["home/stock/liste"]);
     
   }, error => console.log(error));
 }

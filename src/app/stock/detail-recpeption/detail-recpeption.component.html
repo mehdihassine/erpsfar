@@ -1,0 +1,91 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
+
+    <div class="box-header with-border soustitre headertitle"   style="background-color:rgba(7, 79, 161, 0.534);">
+      <h3 class="box-title"><b>Detail  de reception </b></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm" (click)="retour()"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;" ><b>Retour</b></button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      
+    </div>
+  
+  
+   
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre" >
+        <h3 class="box-title">Liste des articles</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+        <table id="example1" class="table table-bordered">
+          <thead >
+            <tr >
+              <th >code article </th>
+              <th >libelle </th>
+              <th >Quantite </th>
+              <th  >Prix d'achat</th>
+              <th >Remise</th>
+              <th >Taxes</th>
+              <th >Date Achat</th>
+              
+              <th >Action</th>
+            </tr>
+          </thead>
+          <tbody style="background-color:rgba(254, 254, 255);">
+            <tr *ngFor = "let e of stock">
+              <td><b>{{e.codearticle}}</b></td>
+              <td>{{e.libellearticle}}</td>
+              <td>{{e.qteentree}}</td>
+              <td>{{e.prixunitaire}}</td>
+              <td>{{e.remise}}</td>
+              <td>{{e.taxes}}</td>
+              <td>{{e.dateachat}}</td>
+              
+              
+              <td >
+               
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" (click)="codeart(e.codearticle)" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+  
+    
+          </tbody>  
+        </table>     
+      </div>
+     
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->
+   
+  <div class="modal modal-danger fade" id="delete" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Voulez vous vraiment supprimer ?? {{idart}} </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+          <button type="submit" class="btn btn-outline" (click)="delete(idart)" data-dismiss="modal" >Oui , supprimer</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+  </div>

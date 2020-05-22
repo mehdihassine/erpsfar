@@ -1,45 +1,182 @@
-<div class="box">
-  <div class="box-header with-border  headertitle">
-    <h3 class="box-title" class=" text-center">Liste des reception</h3></div>
-  <div class=" card-body">
-    <div class=" table-responsive">
-      <table class=" table tablesorter" id="">
-        <thead class=" text-primary">
-          <tr>
-            <th class=" text-center">N°reception</th>
-            <th class=" text-center">code_article</th>
-            <th class=" text-center">Quantite</th>
-            <th class=" text-center">N°Support</th>
-            <th class=" text-center">N°emplacement</th>
-            <th class=" text-center">Fournisseur</th>
-            <th class=" text-center">Date reception</th>
-            <th class=" text-center">DLC</th>
-            <th class=" text-center">Prix Unitaire</th>
-            <th class=" text-center">Action</th>
+<!-- Content Wrapper. Contains page content -->
 
+
+<!-- Default box -->
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
+
+  <div class="box-header with-border soustitre headertitle"   style="background-color:rgba(7, 79, 161, 0.534);">
+    <h3 class="box-title"><b>Liste des Stocks </b></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="creernouveau()" >Créer nouveau reception</button>
+    </div>
+    <div class="box-tools pull-right">
+      &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affiche()"  ><b>afficher liste</b></button>
+    </div>
+  </div>
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre"  >
+      <h3 class="box-title"> Rechercher articles</h3>
+    </div>
+
+
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
+
+      <div class="row">
+
+
+        <div class="col-md-8">
+          <div class="input-group">
+          <span class="input-group-btn">
+            <div class="form-group">
+              
+              <input type="text" class="form-control" id="nreception" placeholder="N° reception"  name="nreception" [(ngModel)]="nreception" style="width: 100px;"  value= "nreception" required>
+            </div>
+          </span>
+          
+
+          <span class="input-group-btn">
+            <p>&nbsp;&nbsp;</p>
+          </span>
+  
+          <span class="input-group-btn">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" id="numfact" placeholder="N° facture"  name="numfact" [(ngModel)]="numfact" style="width: 100px;"  value= "numfact" required>
+              </div>
+            </span>
+          <span class="input-group-btn">
+              <p>&nbsp;&nbsp;</p>
+            </span>  
+          <span class="input-group-btn">
+          <select class="form-control"[(ngModel)]="fournisseur" class="form-control select2" style="width: 150px;" id="fournisseur" name="fournisseur" value="typebox" required>
+            <option  selected value="" disabled>{{typebox}}</option>
+            <option *ngFor="let s of listesfournisseur" [value] = s.nomfr>{{s.nomfr}}</option>
+          </select> 
+        </span>
+
+        
+
+    
+         
+
+
+
+
+
+        
+
+        
+
+
+
+      <span class="input-group-btn">
+        <p>&nbsp;&nbsp;</p>
+      </span>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-sm" type="submit" (click)="Recherche()"  ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+          </span>
+        </div>
+
+        </div>
+
+
+     
+
+
+
+
+
+
+
+        <!-- (click)="rechprod()" (click)="affliste()"-->
+      
+      </div>
+      <!--row1-->
+
+      <div class="row">
+       
+      </div>
+      <!--row1-->
+
+    </div>
+    <!-- boxbody-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre" >
+      <h3 class="box-title">Liste des réceptions</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+      <table id="example1" class="table table-bordered">
+        <thead >
+          <tr >
+            <th >code article</th>
+            <th   >Libelle </th>
+            <th >Quantite Total</th>
+            <th  >Emplacement</th>
+            <th >Type de stockage</th>
+            <th >Notification</th>
+            <th >Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let r of reception">
-            <td class=" text-center">{{r.idrecep}}</td>
-            <td class=" text-center">{{r.art}}</td>
-            <td class=" text-center">{{r.qte}}</td>
-            <td class=" text-center">{{r.idsupport}}</td>
-            <td class=" text-center">{{r.idemplacement}}</td>
-            <td class=" text-center">{{r.fournisseur}}</td>
-            <td class=" text-center">{{r.datrecep}}</td>
-            <td class=" text-center">{{r.datfin}}</td>
-            <td class=" text-center">{{r.prixttc}}</td>
-            <td>
-              <button class=" btn btn-fill btn-info" ><i class="fa fa-edit"></i></button>
-              <button class="btn btn-warning btn-sm"style="margin-left: 10px;"(click)="supprime(r.idrecep)"><i class="fa fa-trash"></i></button>
+        <tbody style="background-color:rgba(254, 254, 255);">
+          <tr *ngFor = "let e of stock">
+            <td><b>{{e.codearticle}}</b></td>
+            <td>{{e.libellearticle}}</td>
+            <td>{{e.quantitetot}}</td>
+            <td>{{e.emplacement}}</td>
+            <td>{{e.typestockage}}</td>
+            <td></td>
+            
+            
+            <td >
+             
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" (click)="idrecep(e.nreception)" data-target="#delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
 
-        </tbody>
-      </table>
+  
+        </tbody>  
+      </table>     
     </div>
-  </div>
-  <!-- /.box-body -->
+   
+  <!--boxbody defaut-->
 
+</div>
+<!--box-->
+ 
+
+<div class="modal modal-danger fade" id="delete" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Voulez vous vraiment supprimer ?? {{idrecp}} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+        <button type="submit" class="btn btn-outline" (click)="delete(idrecp)" data-dismiss="modal" >Oui , supprimer</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
 </div>

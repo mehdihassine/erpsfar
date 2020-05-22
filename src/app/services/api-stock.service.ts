@@ -30,7 +30,7 @@ export class ApiStockService {
   getartreception(nreception): Observable<any> {
     return this.http.get(this.urlAP + "getartreception.php?nreception="+nreception);
   }
-  addreception(nreception,nligne1,codarticle,quantite,type,fournisseur,prixachat,datefinv,remise,taxe,description):Observable<any>{
+  addreception(nreception,nligne1,codarticle,quantite,type,fournisseur,prixachat,datefinv,remise,taxe,description,numfact):Observable<any>{
     const body={
       nreception:nreception,
       nligne1:nligne1,
@@ -42,7 +42,8 @@ export class ApiStockService {
       taxe:taxe,
       datefinv:datefinv,
       type:type,
-      description:description
+      description:description,
+      numfact:numfact
     }
     return this.http.post(this.urlAP + "addreception.php", body);
   }
@@ -69,16 +70,33 @@ export class ApiStockService {
     return this.http.get(this.urlAP+"verifereception.php?nreception="+nreception);
   } 
 
- 
+ getrecpall():Observable<any>{
+  return this.http.get(this.urlAP+"listerecep.php");
+}
 
+refreshart(nreception):Observable<any>{
+  return this.http.get(this.urlAP+"refreshart.php?nreception="+nreception);
+}
+deleterecep(nreception):Observable<any>{
+  return this.http.get(this.urlAP+"supprimerreception.php?nreception="+nreception);
+}
 
+rechreception(nreception):Observable<any>{
+  return this.http.get(this.urlAP+"rechnreception.php?nreception="+nreception);
+}
 
-
-
-
-
-
-
+rechnumfact(numfact):Observable<any>{
+  return this.http.get(this.urlAP+"rechnumfact.php?numfact="+numfact);
+}
+rechfournisseur(fournisseur):Observable<any>{
+  return this.http.get(this.urlAP+"rechfournisseur.php?fournisseur="+fournisseur);
+}
+deletearticle(codearticle,nreception):Observable<any>{
+  return this.http.get(this.urlAP+"supprimerarticle.php?codearticle="+codearticle+"&nreception="+nreception);
+}
+getstock():Observable<any>{
+  return this.http.get(this.urlAP+"listestock.php");
+}
 
 
 }

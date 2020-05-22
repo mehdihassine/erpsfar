@@ -5,6 +5,8 @@ import { ListeStockComponent } from './liste-stock/liste-stock.component';
 
 
 import { SortieStockComponent } from './sortie-stock/sortie-stock.component';
+import { ListeReceptionComponent } from './liste-reception/liste-reception.component';
+import { DetailRecpeptionComponent } from './detail-recpeption/detail-recpeption.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
  
   {path:'liste', component:ListeStockComponent},
  
-  {path:'sortie',component:SortieStockComponent}
+  {path:'sortie',component:SortieStockComponent},
+  {path:'all',component:ListeReceptionComponent},
+  {path:'detail/:id',component:DetailRecpeptionComponent}
 ];
 
 @NgModule({
