@@ -94,14 +94,14 @@
           <tbody>
             <tr *ngFor="let e of facture">
               <td>{{e.nfacture}}</td>
-              <td>{{e.type}}</td>
+              <td>{{e.types}}</td>
               <td>{{e.nligne}}</td>
               <td>{{e.datesys}}</td>
               <td>{{e.montanttotal}}</td>
               <td>{{e.etat}}</td>
               <td>
 
-                <button class="btn btn-success btn-sm" style="margin-left: 10px;" (click)="typefacture(e.nfacture,e.type)">
+                <button class="btn btn-success btn-sm" style="margin-left: 10px;" (click)="typefacture(e.nfacture,e.types)">
                   <i class="fa fa-eye"></i></button>&nbsp;&nbsp;
 
                 

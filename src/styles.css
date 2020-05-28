@@ -204,3 +204,9 @@ button.toast-close-button {
   .soustitre{
     background-color:rgba(109, 125, 177, 0.493)!important;
 }
+.soustitre:hover {
+  background-color:rgba(109, 125, 177, 0.493) !important;
+  color : white;
+  box-shadow: 0 0 12px #000000;
+
+}

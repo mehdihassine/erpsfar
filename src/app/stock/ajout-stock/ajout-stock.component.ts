@@ -305,7 +305,7 @@ else{
     this.cleartextbox();
     this.newreception();
 
-    this.router.navigate(["home/stock/liste"]);
+    this.router.navigate(["home/stock/all"]);
     
   }, error => console.log(error));
 }
