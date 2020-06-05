@@ -7,6 +7,8 @@ import { ListeStockComponent } from './liste-stock/liste-stock.component';
 import { SortieStockComponent } from './sortie-stock/sortie-stock.component';
 import { ListeReceptionComponent } from './liste-reception/liste-reception.component';
 import { DetailRecpeptionComponent } from './detail-recpeption/detail-recpeption.component';
+import { ListeSortieComponent } from './liste-sortie/liste-sortie.component';
+import { DetailSortieComponent } from './detail-sortie/detail-sortie.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,9 @@ const routes: Routes = [
  
   {path:'sortie',component:SortieStockComponent},
   {path:'all',component:ListeReceptionComponent},
-  {path:'detail/:id',component:DetailRecpeptionComponent}
+  {path:'detail/:id',component:DetailRecpeptionComponent},
+  {path:'sorti',component:ListeSortieComponent},
+  {path:'det/:ids',component:DetailSortieComponent},
 ];
 
 @NgModule({

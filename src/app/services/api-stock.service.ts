@@ -9,20 +9,15 @@ export class ApiStockService {
   urlAP ="http://127.0.0.1/apis_pfe/stock/"
   constructor(private http : HttpClient) { }
  
-
+//ajout stock
 
   getallarticle():Observable <any>{
     return this.http.get(this.urlAP+"getallarticle.php")
   }
 
-
-
-
   getAllfournisseur():Observable<any>{
     return this.http.get(this.urlAP+"listfournisseur.php");
   }
-
-
   getarticle():Observable<any>{
     return this.http.get(this.urlAP+"listarticle.php");
   }
@@ -58,17 +53,19 @@ export class ApiStockService {
     return this.http.get(this.urlAP+"suppreception.php?nreception="+nreception);
   } 
 
-
-
-
-  validerreception(nreception):Observable<any>{
+   validerreception(nreception):Observable<any>{
     return this.http.get(this.urlAP+"validerreception.php?nreception="+nreception);
   } 
   
-
   verifereception(nreception):Observable<any>{
     return this.http.get(this.urlAP+"verifereception.php?nreception="+nreception);
   } 
+
+
+
+
+
+//liste reception
 
  getrecpall():Observable<any>{
   return this.http.get(this.urlAP+"listerecep.php");
@@ -91,6 +88,12 @@ rechnumfact(numfact):Observable<any>{
 rechfournisseur(fournisseur):Observable<any>{
   return this.http.get(this.urlAP+"rechfournisseur.php?fournisseur="+fournisseur);
 }
+
+
+
+
+
+//liste stock
 deletearticle(codearticle,nreception):Observable<any>{
   return this.http.get(this.urlAP+"supprimerarticle.php?codearticle="+codearticle+"&nreception="+nreception);
 }
@@ -99,6 +102,53 @@ getstock():Observable<any>{
 }
 
 
+
+
+
+// sortie stock
+
+
+
+getartsort(datesort):Observable<any>{
+  return this.http.get(this.urlAP+"getartsort.php?datesort="+datesort);
+} 
+getlastligne(datesort):Observable<any>{
+  return this.http.get(this.urlAP+"getlastligne.php?datesort="+datesort);
+} 
+addsortiestock(datesort,nligne1,codarticle,quantite,motif){
+  const body={
+    datesort:datesort,
+    nligne1:nligne1,
+codarticle:codarticle,
+quantite:quantite,
+motif:motif
+  }
+  return this.http.post(this.urlAP +"addsortie.php", body);
+}
+
+
+annulersort(datesortie):Observable<any>{
+  return this.http.get(this.urlAP+"suppsort.php?datesortie="+datesortie);
+}
+//liste sortie
+
+getarticleall():Observable<any>{
+  return this.http.get(this.urlAP+"listearticle.php");
+
+}
+recherchesortie(datesortie):Observable<any>{
+
+  return this.http.get(this.urlAP+"recherchesortie.php?datesortie="+datesortie);
+} 
+
+
+//detail sorti
+refart(datesortie):Observable<any>{
+  return this.http.get(this.urlAP+"refart.php?datesortie="+datesortie);
+}
+deletearticlesortie(codearticle,datesortie):Observable<any>{
+  return this.http.get(this.urlAP+"supprimerarticles.php?codearticle="+codearticle+"&datesortie="+datesortie);
+}
 }
 
 

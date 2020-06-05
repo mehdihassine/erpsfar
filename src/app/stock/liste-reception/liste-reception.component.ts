@@ -47,7 +47,15 @@ this.toastr.warning("liste fournisseur vide !! ");
 refrechliste(){
   this.service.getrecpall().subscribe(data=>{
     console.log(data); 
+    if(data.RESPONSE){
+      this.stock=[];
+      this.toastr.warning("liste reception vide !! ");
+    
+    }
+    else{
   this.stock=data ; 
+    }
+  
   },error=> console.log (error));
 
 }

@@ -144,22 +144,23 @@
           <div class="col-md-3">
             <div class="form-group">
               <label>Emplacement de stockage</label>
-              <select class="form-control select2" style="width: 100%;" id="type" name="type" [(ngModel)]="type"
-                required>
-                <option selected="selected" disabled="disabled">Choisir</option>
-                <option value="emplacement1">emplacement 1</option>
+              <select class="form-control select2" style="width: 100%;" id="type" name="type" [(ngModel)]="type" value="typebox2"
+              required >
+              <option selected="selected"disabled="disabled">{{typebox2}}</option>
+              <option value="emplacement1">emplacement 1</option>
                 <option value="emplacement2">emplacement 2</option>
                 <option value="emplacement3">emplacement 3</option>
                 <option value="emplacement4">emplacement 4</option>
-              </select>
+            </select>
+              
             </div>
           </div>
           <div class="col-md-2">
             <div class="form-group">
               <label>Type de stockage</label>
-              <select class="form-control select2" style="width: 100%;" id="typestockage" name="typestockage"
+              <select class="form-control select2" style="width: 100%;" id="typestockage" name="typestockage" value="typebox2"
                 required disabled>
-                <option selected="selected"disabled="disabled">{{typestockage}}</option>
+                <option selected="selected"disabled="disabled">{{typebox2}}</option>
                 <option value="Normal">Normal</option>
                 <option value="Froid">Froid</option>
               </select>

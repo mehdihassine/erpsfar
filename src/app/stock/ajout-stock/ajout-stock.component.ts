@@ -20,6 +20,8 @@ export class AjoutStockComponent implements OnInit {
   listefournisseur:any=[];
   listearticle:any=[];
   typebox:any='choisir';
+  typebox1:any='choisir';
+  typebox2:any='choisir';
   article:any; 
   remise:any;
   taxe:any; 

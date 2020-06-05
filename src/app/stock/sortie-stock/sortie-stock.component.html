@@ -1,4 +1,4 @@
-<div class="box">
+<!-- <div class="box">
     <div class="box-header with-border  headertitle">
       <h3 class="box-title" class="text-center">Sortie Stock</h3>
     </div>
@@ -44,6 +44,144 @@
     </div>
   
   
-    <!-- /.box-body -->
+    
   </div>
-  
+   -->
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+  <div class="box-header with-border  headertitle">
+    <h3 class="box-title"><b>Création Liste  de Sortie {{datesortie2}} </b></h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-block btn-danger btn-sm"(click)="annuler(datesortie)" >Annuler tout</button>
+    </div>
+    <div class="box-tools pull-right">
+    </div>
+   
+  </div>
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre">
+      <h3 class="box-title">Saisie Liste stock</h3>
+    </div>
+
+
+    <div class="box-body">
+
+      <div class="row">
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="codarticle">Code article</label>
+            <input type="text" class="form-control" id="codarticle" name="codarticle" [(ngModel)]="codarticle"
+              placeholder="" required>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label> Quantite</label>
+            <input class=" form-control" type="text" id="quantite" name="quantite" [(ngModel)]="quantite" required  />
+          </div>
+        </div>
+       
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Utilisation</label>
+            <select class="form-control select2" style="width: 100%;" id="motif" name="motif" [(ngModel)]="motif"
+              required>
+              <option selected="selected" disabled="disabled">selectioner un Motif</option>
+              <option value="Fabrication">Fabrication</option>
+              <option value="destruction">destruction</option>
+              <option value="Retour">Retour</option>
+              
+            </select>
+          </div>
+        </div>
+        
+       
+       
+       
+      </div>
+      <!--row1(click)="annuler(dateprod)"-->
+
+
+      
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="ajouter()">Ajouter</button>
+          </div>
+        </div>
+
+        <div class="col-md-5 ml-auto">
+        </div>
+
+
+        
+
+
+      </div>
+      <!--row1-->
+
+
+
+
+    </div>
+    <!-- boxbody(click)="ajouter()"-->
+
+  </div>
+  <!--boxbody defaut-->
+
+
+  <div class="box box-default">
+
+    <div class="box-header with-border soustitre">
+      <h3 class="box-title">Détails Liste</h3>
+
+      <div class="box-tools pull-right">
+      </div>
+    </div>
+
+    <div class="box-body">
+      <table id="example1" class="table table-bordered">
+        <thead>
+          <tr>
+            <th >N° ligne</th>
+            <th >Code article</th>
+            <th >Libellé </th>
+            <th >Quantité </th>
+            <th>motif</th>
+           
+            <th >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of aff">
+            <td>{{e.nligne}}</td>
+            <td><b>{{e.codearticle}}</b></td>
+            <td>{{e.libellearticle}}</td>
+            <td>{{e.qtesortie}}</td>
+            <td>{{e.motif}}</td>
+          
+            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;"  ><i
+                  class="fa fa-trash"></i></button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!--boxbody defaut (click)="suppartprod(e.nligne)"-->
+
+</div>
+<!--box-->

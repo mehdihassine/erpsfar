@@ -1,0 +1,106 @@
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box">
+
+    <div class="box-header with-border  headertitle">
+      <h3 class="box-title"><b>Liste des sorties de stock</b></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="nouveau()" >Créer nouveau sortie</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affliste()"  ><b>afficher liste</b></button>
+      </div>
+    </div>
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre">
+        <h3 class="box-title"> Rechercher liste</h3>
+      </div>
+  
+  
+      <div class="box-body">
+  
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="codarticle">date sortie</label>
+              <input type="text" class="form-control" id="datesortie" name="datesortie" [(ngModel)]="datesortie" required>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="libelle"></label>
+              <button type="button" class="btn btn-block btn-success" (click)="rechsortie()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+            </div>
+          </div>
+         
+        </div>
+        <!--row1-->
+  
+        <div class="row">
+        </div>
+        <!--row1-->
+  
+      </div>
+      <!-- boxbody-->
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre">
+        <h3 class="box-title">Liste des sorties</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-md-3">date sortie </th>
+  
+              <th class="col-md-3">Nbre produit</th>
+              <th class="col-md-3">Quantite</th>
+              
+              <th class="col-md-2">Action</th>
+  
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of stock">
+              <td>{{e.datesortie}}</td>
+  
+              <td>{{e.nbrarticle}}</td>
+              <td>{{e.quantiterecep}}</td>
+              
+              <td>
+                <button class="btn btn-warning btn-sm" style="margin-left: 10px;" [routerLink]="['../det',e.datesortie]">
+                  <i class="fa fa-gear"></i></button>&nbsp;&nbsp;
+                <button class="btn btn-danger btn-sm" style="margin-left: 10px;" ><i
+                    class="fa fa-trash"></i></button>
+  
+              </td>
+            </tr>
+  
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->
