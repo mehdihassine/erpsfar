@@ -10,7 +10,7 @@ import { ListeComponent } from './liste/liste.component';
 
 const routes: Routes = [
   {path:'vente',component:VenteComponent},
-  {path:'achat',component:AchatComponent},
+  {path:'achat/:id',component:AchatComponent},
   {path:'diver',component:DiverComponent},
   {path:'detail/:id',component:DetailventeComponent},
   {path:'detaildiv/:div',component:DetaildivComponent},

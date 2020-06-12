@@ -18,49 +18,66 @@
   
     <div class="box box-default">
       <div class="box-header with-border soustitre">
-        <h3 class="box-title">Informations générales</h3>
-  
-        <div class="box-tools pull-right">
-        </div>
+        <h3 class="box-title">Informations générales</h3> 
       </div>
       <!-- /.box-header -->
+      <form [formGroup]="addUSR" (ngSubmit)="saveUser()"> 
       <div class="box-body">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="codearticle">Nom </label>
-              <input type="text" class="form-control" id="nomuser" name="nomuser" [(ngModel)]="nomuser"placeholder="" value="nomuser" required>
+              <input type="text" class="form-control" id="nomuser" name="nomuser" formControlName="nomuser" placeholder=""  >
+              
+              <div *ngIf="nomuser.touched && nomuser.invalid">
+                <small *ngIf="nomuser.errors.required" class="text-danger"><i class="fa fa-user"></i>  Nom  est requis<br></small>
+                <small *ngIf="nomuser.errors.minLength" class="text-danger"><i class="fa fa-user"></i>  Nom  doit etres 3  caracteres au minimum<br></small>
+              </div>
+
+
             </div>
           </div>  
   
-          <div class="col-md-2">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="libelle">Prénom</label>
-              <input type="text" class="form-control" id="prenomuser"name="prenomuser" [(ngModel)]="prenomuser" placeholder=""value="prenomuser"  required>
+              <input type="text" class="form-control" id="prenomuser"name="prenomuser" formControlName="prenomuser" placeholder="" >
+              <div *ngIf="prenomuser.touched && prenomuser.invalid">
+                <small *ngIf="prenomuser.errors.required" class="text-danger">Prénom  est requis<br></small>
+              </div>
             </div>
           </div>
   
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="codearticle">email</label>
-              <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email"placeholder="" value="email" required>
+              <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder=""  >
+              <div *ngIf="email.touched && email.invalid">
+                <small *ngIf="email.errors.required" class="text-danger">E-mail  est requis<br></small>
+              </div>
             </div>
           </div>  
          
   
         </div>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="codearticle">Login Utilisateur </label>
-              <input type="text" class="form-control" id="loginuser" name="loginuser" [(ngModel)]="loginuser"placeholder="" value="loginuser" required>
+              <input type="text" class="form-control" id="loginuser" name="loginuser" formControlName="loginuser" placeholder="" >
+              <div *ngIf="loginuser.touched && loginuser.invalid">
+                <small *ngIf="loginuser.errors.required" class="text-danger">loginuser  est requis<br></small>
+              </div>
             </div>
           </div>  
   
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="codearticle">Mot de Passe</label>
-              <input type="text" class="form-control" id="mdpuser" name="mdpuser" [(ngModel)]="mdpuser"placeholder="" value="mdpuser" required>
+              <input type="text" class="form-control" id="mdpuser" name="mdpuser" formControlName="mdpuser" placeholder="">
+              <div *ngIf="mdpuser.touched && mdpuser.invalid">
+                <small *ngIf="mdpuser.errors.required" class="text-danger">Password  est requis<br></small>
+              </div>
             </div>
           </div> 
   
@@ -70,15 +87,18 @@
         <div class="row">
            
              
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <div class="form-group">
                   <label>Role</label>
-                  <select class="form-control select2" style="width: 100%;" id="role" name="role" [(ngModel)]="role"   value="rolebox"required>
-                    <option selected value="" disabled>{{rolebox}}</option>
+                  <select class="form-control select2" style="width: 100%;" id="role" name="role" formControlName="role"  >
+                    <option selected   disabled>Choisir Role</option>
                     <option value="Directeur">Directeur</option>
                     <option value="Chef de Production">Chef de Production</option>
                     <option value="Secretaire">Sécretaire</option>
                   </select>
+                  <div *ngIf="role.touched && role.invalid">
+                    <small *ngIf="role.errors.required" class="text-danger">role  est requis<br></small>
+                  </div>
                 </div>
               </div>
             
@@ -88,11 +108,12 @@
   
           <div class="col-md-3">
             <div class="form-group">
-              <button type="button" class="btn btn-block btn-success btn-sm" (click)="creer()">Créer Utilisateur</button>
-            </div>
+              <button type="submit" class="btn btn-block btn-success btn-sm" [disabled]="addUSR.invalid">valider</button>
+             </div>
           </div>
         </div>
       </div>
+    </form>
     </div>
     <!-- /.row -->
   

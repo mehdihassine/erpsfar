@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UtilisateurRoutingModule } from './utilisateur-routing.module';
 import { CreationUserComponent } from './creation-user/creation-user.component';
 import { ListeUserComponent } from './liste-user/liste-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 
@@ -15,6 +15,7 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
     CommonModule,
     UtilisateurRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })

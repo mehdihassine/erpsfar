@@ -13,16 +13,8 @@ export class UtilisateurService {
   
   
   
-  ajoutuser(nomuser,prenomuser,email,loginuser,mdpuser,role):Observable<any>{
-    const body={
-      nomuser:nomuser,
-      prenomuser:prenomuser,
-      email:email,
-      loginuser:loginuser,
-      mdpuser:mdpuser,
-      role:role
-    }
-    return this.http.post(this.urlAP+"ajoututilisateur.php",body); 
+  ajoutuser(usr):Observable <any>{
+    return this.http.post(this.urlAP+"ajoututilisateur.php",usr); 
   }
   getAlluser():Observable <any>{
     return this.http.get(this.urlAP+"listeuser.php");

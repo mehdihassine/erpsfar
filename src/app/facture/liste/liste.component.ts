@@ -59,7 +59,7 @@ facture:any =[];
 
   else if (type === "achat") {
    
-    this.router.navigate(["home/facture/detailachat/"+nfacture]);
+    this.router.navigate(["home/facture/achat/"+nfacture]);
       
   }
  

@@ -79,11 +79,18 @@ export class FactureService {
 
 
 
+//service detail achat
 
+sumpiedfactureachat(nfacture): Observable<any> {
+  return this.http.get(this.urlAP + "piedfactureachat.php?nfacture="+nfacture);
+}
+prixtotalfactureachat(nfacture): Observable<any> {
+  return this.http.get(this.urlAP + "montanttotalfactachat.php?nfacture="+nfacture);
+}
 
-
-
-
+getartfactureachat(nfacture): Observable<any> {
+  return this.http.get(this.urlAP + "getartfactureachat.php?nfacture="+nfacture);
+}
 
 
 

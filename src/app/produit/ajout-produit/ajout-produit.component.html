@@ -119,7 +119,7 @@
           <div class="form-group">
             <label>Type</label>
             <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="type" name="type"  [(ngModel)]="type"value="typebox" required>
-              <option  selected value="" disabled>{{typebox}}</option>
+              <option  selected value="" disabled>choisir</option>
               <option *ngFor="let s of listescategorie" [value] = s.libelle>{{s.libelle}}</option>
             </select>    
           </div>
