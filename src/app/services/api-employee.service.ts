@@ -14,18 +14,9 @@ export class ApiEmployeeService {
     return this.http.get(this.urlAP+"listspecialiter.php");
   }
 
-  addemploye(nom,prenom,adress,telephone,cin,cnss,typec,specialite):Observable<any>{
-    const body={
-       nom:nom ,
-        prenom:prenom,
-        adress:adress,
-         telephone:telephone,
-         cin:cin,
-         cnss:cnss,
-         typec:typec,
-         specialite:specialite
-        }
-    return this.http.post(this.urlAP+"ajouteremployer.php",body);
+  addemploye(user){
+    
+    return this.http.post(this.urlAP+"ajouteremployer.php",user);
   }
 
 

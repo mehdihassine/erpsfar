@@ -3,36 +3,56 @@ import { ApiEmployeeService } from 'src/app/services/api-employee.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Employeer } from 'src/app/models/employee';
+
 @Component({
   selector: 'app-ajout-employee',
   templateUrl: './ajout-employee.component.html'
  
 })
 export class AjoutEmployeeComponent implements OnInit {
+  addEmploye:FormGroup;
   idemployee:any;
-  nom:any;
-  prenom:any;
-  adress:any;
-  telephone:any;
-  cin:any;
-  cnss:any;
-  typec:any;
-  specialite:any;
+ 
   typebox:any="choisir";
   typecbox:any="choisir";
   employees:any=[];
   listespecialiter:any=[];
-  constructor( private service:ApiEmployeeService, private router:Router,private toastr:ToastrService) { }
+  specialites: any;
+  constructor( private service:ApiEmployeeService, private router:Router,private toastr:ToastrService,private fb: FormBuilder) {
+    let formControls={
+      nom :  new FormControl('', [Validators.required, Validators.minLength(3)]),
+      prenom :   new FormControl('', Validators.required),
+      adress :   new FormControl('', Validators.required),
+      telephone :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      cin :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      cnss :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      typec :   new FormControl('', Validators.required),
+      specialite :   new FormControl('', Validators.required),
+    
+    }
+    this.addEmploye=this.fb.group(formControls);
+   }
+   get nom(){return this.addEmploye.get('nom')}
+   get prenom(){return this.addEmploye.get('prenom')}
+   get adress(){return this.addEmploye.get('adress')}
+   get telephone(){return this.addEmploye.get('telephone')}
+   get cin(){return this.addEmploye.get('cin')}
+   get cnss(){return this.addEmploye.get('cnss')}
+   get typec(){return this.addEmploye.get('typec')}
+   get specialite(){return this.addEmploye.get('specialite')}
+
 
   ngOnInit(): void {
-    this.cleartxtbox();
+   
     this.getlistespecialite(); 
   }
 
 
 
   getlistespecialite(){
-    this.specialite="";
+  this.specialites="";
     this.service.getAllspecialiter().subscribe(data => {
   if(data.RESPONSE){
 this.toastr.warning("liste specialiter vide !! "); 
@@ -46,7 +66,7 @@ this.toastr.warning("liste specialiter vide !! ");
   
   }
 
-  cleartxtbox(){
+ /* cleartxtbox(){
 
     this.nom="";
     this.prenom="";
@@ -60,72 +80,37 @@ this.toastr.warning("liste specialiter vide !! ");
     this.typecbox="choisir";
 
   }
-
+*/
 
 
   add() {
    
-    var reg = /^[0-9]+$/;
-
-
-    if (!this.nom) {
-      this.toastr.error('champ nom  obligatoire!!');
-    }
-
-    else if (!this.prenom) {
-      this.toastr.error('champ prenom obligatoire!!');
-    }
-    
-    else if (!this.adress) {
-      this.toastr.error('champ adress obligatoire!!');
-    }
-    else if((!this.telephone.match(reg))||(!this.telephone)){
-    
-      this.toastr.error('champ telephone obligatoirement numerique!!');
-    }
-   
-
-    else if ((!this.cin.match(reg))||(!this.cin)){
-      this.toastr.error('champ cart identitée obligatoirement numerique!!');
-     }
-      else if  ((!this.cnss.match(reg))||(!this.cnss)){
-        this.toastr.error('champ numero CNSS obligatoirement numerique!!');
-       }
-    else if (!this.typec) {
-      this.toastr.error('champ type contrat obligatoire!!');
-    }
-    else if (!this.specialite) {
-      this.toastr.error('champ specialité obligatoire!!');
-    }
-
-
-    else {
-
-
-
-
-
-
-    this.service.addemploye(this.nom,this.prenom,this.adress,this.telephone,this.cin,this.cnss,this.typec,this.specialite).subscribe(data => {
-      console.log(data);
+   let data=this.addEmploye.value;
+   let user=new Employeer(data.nom,data.prenom,data.adress,data.telephone,data.cin,data.cnss,
+    data.typec,data.specialite);
+console.log(user);
+console.log(data.specialite); 
+    this.service.addemploye(user).subscribe(data2 => {
+      console.log(data2);
      
-      if(data.RESPONSE){
+      if(data2['RESPONSE']){
       
-        this.toastr.error(data.RESPONSE);
+        this.toastr.error(data2['RESPONSE']);
       
       }
       else{
-        this.employees[0]=(data[1]);
-        console.log( this.employees[0]);
-
+        this.employees=data2;
+        console.log( data2+" ---------------------- : "+data2[0]);
+        console.log( "ressssssssssssssss : "+this.employees[0]);
+        this.addEmploye.reset();
       }
-      this.cleartxtbox();
+     
     
 },error=>console.log(error));
 
 
 
-}
+
 
 
 
