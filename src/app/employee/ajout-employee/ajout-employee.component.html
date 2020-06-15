@@ -65,7 +65,7 @@
             <input type="text" class="form-control" id="telephone" name="telephone" formControlName="telephone"placeholder="">
             <div *ngIf="telephone.touched && telephone.invalid">
               <small *ngIf="telephone.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  telephone  est requis<br></small>
-              <small *ngIf="telephone.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  adress  doit etres 8  caracteres au minimum<br></small>
+              <small *ngIf="telephone.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  telephone  doit etres 8  caracteres au minimum<br></small>
             </div>
           </div>
         </div>  

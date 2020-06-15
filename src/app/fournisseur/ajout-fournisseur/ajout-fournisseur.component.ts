@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ApiFournisseurService } from 'src/app/services/api-fournisseur.service';
 import { error } from 'protractor';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Fournisseur } from 'src/app/models/fournisseur';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-ajout-fournisseur',
@@ -10,20 +13,36 @@ import { ToastrService } from 'ngx-toastr';
   
 })
 export class AjoutFournisseurComponent implements OnInit {
-  nomfournisseur:any; 
-  adresse:any;
-   ville:any;
-    codepostal :any;
-    email:any;
-    telephone:any;
-     fax:any;
+ 
    
      fournisseur:any=[];
+  addFournisseur:FormGroup;
+  nom: any;
+;
 
-  constructor(private service:ApiFournisseurService, private router: Router,private toastr:ToastrService) { }
-
+  constructor(private service:ApiFournisseurService, private router: Router,private toastr:ToastrService,private fb: FormBuilder) {
+    let formControls={
+      nomfournisseur:new FormControl('',[Validators.required]),
+      adress:new FormControl('',[Validators.required]),
+      ville:new FormControl('',[Validators.required]),
+      codepostal:new FormControl('',[Validators.required]),
+      email: new FormControl('', [  Validators.required, Validators.pattern("[^ @]*@[^ @]*"),Validators.email]),
+    
+      telephone:new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      fax:new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+    }
+    this.addFournisseur=this.fb.group(formControls);
+   }
+   get nomfournisseur(){return this.addFournisseur.get('nomfournisseur')}
+   get adress(){return this.addFournisseur.get('adress')}
+   get ville(){return this.addFournisseur.get('ville')}
+   get codepostal(){return this.addFournisseur.get('codepostal')}
+   get email(){return this.addFournisseur.get('email')}
+   get telephone(){return this.addFournisseur.get('telephone')}
+   get fax(){return this.addFournisseur.get('fax')}
+  
   ngOnInit(): void {
-    this.cleartxtbox();
+   // this.cleartxtbox();
   }
 
 
@@ -32,31 +51,6 @@ export class AjoutFournisseurComponent implements OnInit {
 
 
 
-
-/* var reg = /^[0-9]+$/;
-
-
-    if (!this.codearticle) {
-      this.toastr.error('champ code article  obligatoire!!');
-    }
-
-    else if (!this.libelle) {
-      this.toastr.error('champ libelle obligatoire!!');
-    }
-    else if (!this.type) {
-      this.toastr.error('champ type article obligatoire!!');
-    }
-
-    else if (!this.nature) {
-      this.toastr.error('champ nature article obligatoire!!');
-    }
-
-    else if (!this.typestockage) {
-      this.typestockage = 'normal';
-    }
-    else if (!this.seuil.match(reg)) {
-      this.toastr.error('champ seuil numerique!!');
-    }*/
 
 
 refresh(){ //nadioulha fel supprimer 
@@ -66,70 +60,48 @@ refresh(){ //nadioulha fel supprimer
 
 add(){
 
-
-  var reg = /^[0-9]+$/;
-  var regemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-
-//  if (!this.nomfournisseur) {
-  //  this.toastr.error('champ nom fournisseur obligatoire!!');
-  //}
-
-  if (!this.adresse) {
-    this.toastr.error('champ adresse obligatoire!!');
-  }
-  else if (!this.ville) {
-    this.toastr.error('champ ville obligatoire!!');
-  }
-
-  else if (!this.codepostal.match(reg)) {
-    this.toastr.error('champ codepostal numerique!!');
-  }
-
-  else if (!this.telephone.match(reg)) {
-    this.toastr.error('champ telephone numerique!!');
-  }
-  else if (!this.fax.match(reg)) {
-    this.toastr.error('champ fax numerique!!');
-  }
-  else if (!this.email.match(regemail)) {
-    this.toastr.error('champ email invalide!!');
-  }
-else{
+let data =this.addFournisseur.value;
+this.nom=data.nomfournisseur;
+console.log(this.nom);
+console.log(data.ville);
+console.log(data.adress);
+console.log(data.ville);
+let user =new Fournisseur(data.nomfournisseur,data.telephone,data.email,data.ville,data.fax,data.codepostal,data.adress)
 
 
 
 
 
  
-  this.service.addfournisseur(this.nomfournisseur,this.telephone,this.email,this.ville,this.fax,this.codepostal,this.adresse).subscribe(data=>{
+  this.service.addfournisseur(user).subscribe(data=>{
     console.log(data);
-    if(data.RESPONSE){
-      this.toastr.error(data.RESPONSE);
+    if(data['RESPONSE']){
+      this.toastr.error(data['RESPONSE']);
     }
     else {
-      this.toastr.success("Fournisseur [ "+this.nomfournisseur+" ] crée avec success");
+      this.toastr.success("Fournisseur [ "+this.nom+" ] crée avec success");
       this.fournisseur=data; 
+      this.addFournisseur.reset();
     }
 
 
-   this.cleartxtbox();
+   //this.cleartxtbox();
   },error=>console.log(error));
+
+
 }
 
-}
 
-
-cleartxtbox(){
+// cleartxtbox(){
  
-  this.nomfournisseur="";
-  this.adresse="";
-  this.ville="";
-  this.codepostal="";
-  this.email="";
-  this.telephone="";
-  this.fax="";
-}
+//   this.nomfournisseur="";
+//   this.adresse="";
+//   this.ville="";
+//   this.codepostal="";
+//   this.email="";
+//   this.telephone="";
+//   this.fax="";
+// }
 
 
 

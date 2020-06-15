@@ -14,15 +14,8 @@ export class ApiFournisseurService {
   getfournisseurByID(id):Observable<any>{
     return this.http.get(this.urlAP+"getfr.php?X="+id);
   }
-addfournisseur(nomfourniseur,telephone,email,ville, fax,codepostal,adress):Observable<any>{
-  const bod ={nomfourniseur:nomfourniseur,
-    telephone:telephone,
-    email:email,
-    ville:ville,
-    fax:fax,
-    codepostal:codepostal,
-    adress:adress}
-  return this.http.post(this.urlAP+"ajouter.php",bod);
+addfournisseur(user):Observable<any>{
+  return this.http.post(this.urlAP+"ajouter.php",user);
 
 }
 

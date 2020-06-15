@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ListeFournisseurComponent implements OnInit {
 fournisseur: any=[];
 nomfournisseur:any;
+  idPr: any;
   constructor(private service :ApiFournisseurService , private router: Router,private toastr:ToastrService) { }
   
   ngOnInit(): void {
@@ -27,7 +28,11 @@ nomfournisseur:any;
   }
 
 
-
+  idfrournisseur(idfr){
+   
+    this.idPr=idfr;
+   
+     }
 
 
   affiche(){
@@ -47,8 +52,8 @@ nomfournisseur:any;
 
 
   }
-  supprimer(id){
-    this.service.deletefournisseur(id).subscribe(data=>{
+  supprimer(idPr){
+    this.service.deletefournisseur(idPr).subscribe(data=>{
       this.toastr.success(data.RESPONSE);
       console.log(data);
       this.refresh();

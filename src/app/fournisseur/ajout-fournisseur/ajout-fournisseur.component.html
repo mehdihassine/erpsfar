@@ -24,32 +24,49 @@
       </div>
     </div>
     <!-- /.box-header -->
+    <form [formGroup]="addFournisseur"(ngSubmit)="add()">
     <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
       <div class="row">
         <div class="col-md-2">
           <div class="form-group">
             <label for="codearticle">Nom </label>
-            <input type="text" class="form-control" id="nomfournisseur" name="nomfournisseur" [(ngModel)]="nomfournisseur"placeholder="" value="nomfournisseur" required>
+            <input type="text" class="form-control" id="nomfournisseur" name="nomfournisseur" formControlName="nomfournisseur"placeholder="" >
+            <div *ngIf="nomfournisseur.touched && nomfournisseur.invalid">
+              <small *ngIf="nomfournisseur.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  Nom  est requis<br></small>
+            
+            </div>
           </div>
         </div>  
 
         <div class="col-md-4">
           <div class="form-group">
             <label for="libelle">Adresse</label>
-            <input type="text" class="form-control" id="adresse"name="adresse" [(ngModel)]="adresse" placeholder=""value="adresse"  required>
-          </div>
+            <input type="text" class="form-control" id="adress"name="adresse" formControlName="adress" placeholder="">
+            <div *ngIf="adress.touched && adress.invalid">
+              <small *ngIf="adress.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  adresse  est requis<br></small>
+              <small *ngIf="adress.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  adresse  doit etres 3  caracteres au minimum<br></small>
+            </div>
+          </div> 
         </div>
 
         <div class="col-md-2">
           <div class="form-group">
             <label for="codearticle">Ville</label>
-            <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="ville"placeholder="" value="ville" required>
+            <input type="text" class="form-control" id="ville" name="ville" formControlName="ville"placeholder="" >
+            <div *ngIf="ville.touched && ville.invalid">
+              <small *ngIf="ville.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  ville  est requis<br></small>
+              <small *ngIf="ville.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  ville  doit etres 3  caracteres au minimum<br></small>
+            </div>
           </div>
         </div>  
         <div class="col-md-2">
           <div class="form-group">
             <label for="codearticle">Code postal</label>
-            <input type="text" class="form-control" id="codepostal" name="codepostal" [(ngModel)]="codepostal"placeholder="" value="codepostal" required>
+            <input type="text" class="form-control" id="codepostal" name="codepostal" formControlName="codepostal"placeholder="" >
+            <div *ngIf="codepostal.touched && codepostal.invalid">
+              <small *ngIf="codepostal.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  codepostal  est requis<br></small>
+              <small *ngIf="codepostal.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  codepostal  doit etres 3  caracteres au minimum<br></small>
+            </div>
           </div>
         </div>  
 
@@ -58,21 +75,33 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="codearticle">Adress E_mail </label>
-            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email"placeholder="" value="email" required>
+            <input type="text" class="form-control" id="email" name="email" formControlName="email"placeholder="" >
+            <div *ngIf="email.touched && email.invalid">
+              <small *ngIf="email.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  E_mail  est requis<br></small>
+              <small *ngIf="email.errors.pattern" class="text-danger"><i class="fa fa-times-circle"></i> L'adresse e-mail doit contenir au moins le caractère @<br></small>
+            </div>
           </div>
         </div>  
 
         <div class="col-md-3">
           <div class="form-group">
             <label for="codearticle">N° telephone</label>
-            <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="telephone"placeholder="" value="telephone" required>
+            <input type="text" class="form-control" id="telephone" name="telephone" formControlName="telephone"placeholder="">
+            <div *ngIf="telephone.touched && telephone.invalid">
+              <small *ngIf="telephone.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  telephone  est requis<br></small>
+              <small *ngIf="telephone.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  telephone  doit etres 8  caracteres au minimum<br></small>
+            </div>
           </div>
         </div> 
 
         <div class="col-md-3">
           <div class="form-group">
             <label for="codearticle">N° Fax</label>
-            <input type="text" class="form-control" id="fax" name="fax" [(ngModel)]="fax"placeholder="" value="fax" required>
+            <input type="text" class="form-control" id="fax" name="fax" formControlName="fax"placeholder="" >
+            <div *ngIf="fax.touched && fax.invalid">
+              <small *ngIf="fax.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  fax  est requis<br></small>
+              <small *ngIf="fax.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i>  fax  doit etres 8  caracteres au minimum<br></small>
+            </div>
           </div>
         </div>  
        
@@ -82,11 +111,12 @@
 
         <div class="col-md-3">
           <div class="form-group">
-            <button type="button"  class="btn btn-block  btn-sm"style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="add()" >Créer Fournisseur</button>
+            <button type="submit"  class="btn btn-block  btn-sm"style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"[disabled]="addFournisseur.invalid" >Créer Fournisseur</button>
           </div>
         </div>
       </div>
     </div>
+  </form>
   </div>
   <!-- /.row -->
 
@@ -182,59 +212,3 @@
 
 
 
-<!--<div class="box">
-  <div class="box-header with-border soustitre">
-    <h3 class="box-title" class="text-center">Ajoute Fournisseur</h3>
-  </div>
-  <div class="box-body">
-    <form>  
-      <div class="row">
-      <div class="col-md-6">
-        <div class=" form-group">
-          <label> NOM Societe</label>
-          <input class=" form-control" type="text" id="nom" [(ngModel)]="nomfr" name="nomfr" required  />
-        </div>
-      </div> 
-        
-        <div class=" col-md-6">
-          <div class=" form-group">
-            <label> Telephone </label>
-            <input class=" form-control" type="text" value=""id="telephone" [(ngModel)]="telfr" name="telfr" required />
-          </div>
-        </div>
-        <div class=" col-md-6">
-          <div class=" form-group">
-            <label>E_mail</label>
-            <input class=" form-control"  type="text" id="email" [(ngModel)]="mailfr" name="mailfr" required/>
-          </div>
-        </div> 
-        
-        <div class="col-md-6">
-          <div class=" form-group">
-            <label> ville</label>
-            <input class=" form-control" type="text" id="ville" [(ngModel)]="villefr" name="villefr" required  />
-          </div>
-        </div> 
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label> Telephone Fax</label>
-              <input class=" form-control" type="text" value=""id="teleph" [(ngModel)]="fax" name="fax" required />
-            </div>
-          </div>
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label>Code Postal</label>
-              <input class=" form-control" type="text" value=""id="code" [(ngModel)]="codepostal" name="codepostal" required />
-            </div>
-          </div>
-        
-      </div>
-    </form>
-  </div>
-  <div class="card-footer"> 
-    <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="add()" >Valider</button> 
-  </div>
-
-
-  
-</div>-->

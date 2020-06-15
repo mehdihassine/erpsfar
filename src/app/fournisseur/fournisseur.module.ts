@@ -5,7 +5,7 @@ import { FournisseurRoutingModule } from './fournisseur-routing.module';
 import { AjoutFournisseurComponent } from './ajout-fournisseur/ajout-fournisseur.component';
 import { EditFournisseurComponent } from './edit-fournisseur/edit-fournisseur.component';
 import { ListeFournisseurComponent } from './liste-fournisseur/liste-fournisseur.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FournisseurRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })

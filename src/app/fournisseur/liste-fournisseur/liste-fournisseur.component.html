@@ -82,7 +82,7 @@
             <td>{{e.telfr}}</td>
             <td>{{e.fax}}</td>
               <td><button class=" btn btn-fill btn-info" [routerLink]="['../edit',e.idfr]"><i class="fa fa-edit"></i></button>
-              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" (click)="idfrournisseur(e.idfr)" data-target="#delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
 <!--[routerLink]="['../edit',c.libelle] (click)="afficheliste()" (click)="rechcategorie() (click)="delete(e.idfr)""-->
@@ -109,7 +109,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
-        <button type="submit" class="btn btn-outline"  (click)="supprimer(e.idfr)" data-dismiss="modal" >Oui , supprimer</button>
+        <button type="submit" class="btn btn-outline" (click)="supprimer(idPr)" data-dismiss="modal" >Oui , supprimer</button>
       </div>
     </div>
     <!-- /.modal-content -->

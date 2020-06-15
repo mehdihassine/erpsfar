@@ -30,8 +30,8 @@
               <input type="text" class="form-control" id="nomuser" name="nomuser" formControlName="nomuser" placeholder=""  >
               
               <div *ngIf="nomuser.touched && nomuser.invalid">
-                <small *ngIf="nomuser.errors.required" class="text-danger"><i class="fa fa-user"></i>  Nom  est requis<br></small>
-                <small *ngIf="nomuser.errors.minLength" class="text-danger"><i class="fa fa-user"></i>  Nom  doit etres 3  caracteres au minimum<br></small>
+                <small *ngIf="nomuser.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  Nom  est requis<br></small>
+                <small *ngIf="nomuser.errors.minLength" class="text-danger"><i class=" fa fa-times-circle"></i> Nom  doit etres 3  caracteres au minimum<br></small>
               </div>
 
 
@@ -43,7 +43,7 @@
               <label for="libelle">Prénom</label>
               <input type="text" class="form-control" id="prenomuser"name="prenomuser" formControlName="prenomuser" placeholder="" >
               <div *ngIf="prenomuser.touched && prenomuser.invalid">
-                <small *ngIf="prenomuser.errors.required" class="text-danger">Prénom  est requis<br></small>
+                <small *ngIf="prenomuser.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>Prénom  est requis<br></small>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
               <label for="codearticle">email</label>
               <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder=""  >
               <div *ngIf="email.touched && email.invalid">
-                <small *ngIf="email.errors.required" class="text-danger">E-mail  est requis<br></small>
+                <small *ngIf="email.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>E-mail  est requis<br></small>
               </div>
             </div>
           </div>  
@@ -66,7 +66,7 @@
               <label for="codearticle">Login Utilisateur </label>
               <input type="text" class="form-control" id="loginuser" name="loginuser" formControlName="loginuser" placeholder="" >
               <div *ngIf="loginuser.touched && loginuser.invalid">
-                <small *ngIf="loginuser.errors.required" class="text-danger">loginuser  est requis<br></small>
+                <small *ngIf="loginuser.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>loginuser  est requis<br></small>
               </div>
             </div>
           </div>  
@@ -76,7 +76,7 @@
               <label for="codearticle">Mot de Passe</label>
               <input type="text" class="form-control" id="mdpuser" name="mdpuser" formControlName="mdpuser" placeholder="">
               <div *ngIf="mdpuser.touched && mdpuser.invalid">
-                <small *ngIf="mdpuser.errors.required" class="text-danger">Password  est requis<br></small>
+                <small *ngIf="mdpuser.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>Password  est requis<br></small>
               </div>
             </div>
           </div> 
@@ -97,7 +97,7 @@
                     <option value="Secretaire">Sécretaire</option>
                   </select>
                   <div *ngIf="role.touched && role.invalid">
-                    <small *ngIf="role.errors.required" class="text-danger">role  est requis<br></small>
+                    <small *ngIf="role.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>role  est requis<br></small>
                   </div>
                 </div>
               </div>
