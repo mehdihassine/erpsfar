@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SpecialiteeService } from 'src/app/services/specialitee.service';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { Specialite } from 'src/app/models/specialiter';
 
 @Component({
   selector: 'app-ajouter-specialitee',
@@ -11,18 +13,30 @@ import { SpecialiteeService } from 'src/app/services/specialitee.service';
 })
 export class AjouterSpecialiteeComponent implements OnInit {
   specialite:any=[];
-  libelle:any;
-  salairej:any ;
-  salairet:any;
+  salairets:any;
 libellebox:any;
 descriptionbox:any; 
   idtype: any;
   salairej1:any;
-  constructor(private service:SpecialiteeService ,private router:Router,private toastr: ToastrService) { } 
+  addSpecialite: FormGroup;
+  nom: any;
+  salairetbox: number;
+  constructor(private service:SpecialiteeService ,private router:Router,private toastr: ToastrService, private fb: FormBuilder) {
+    let formControls={
+      libelle:new FormControl('',Validators.required),
+     /// salairej:new FormControl('',Validators.required),
+      salairet:new FormControl('',Validators.required),
+    }
+    this.addSpecialite=this.fb.group(formControls);
+   } 
+
+get libelle (){return this.addSpecialite.get('libelle')}
+// get salairej(){return  this.addSpecialite.get('salairej')}
+get salairet(){return  this.addSpecialite.get('salairet')}
 
   ngOnInit(): void {
-this.cleartxtboox();
-this.salairj();
+//this.cleartxtboox();
+//this.salairj();
   }
 
 refresh(){
@@ -36,47 +50,37 @@ this.specialite=[];
 
 
 
-salairj(){
+// salairj(){
 
-  this.salairej = (this.salairet/26).toFixed(2);
-//this.salairej = Math.round(this.salairej1).toFixed(2);
+//   this.salairej1 = (this.salairetbox/26).toFixed(2);
+// //this.salairej = Math.round(this.salairej1).toFixed(2);
 
-}
+// }
 
 
 
 
   ajouter() {
+let data=this.addSpecialite.value;
+let user =new Specialite(data.libelle,data.salairet);
+  this.nom=data.libelle;
 
-    var reg = /^[0-9]+$/;
-
-
-if (!this.libelle)
-{
-
-  this.toastr.error('champ libelle obligatoire!!');
-}
-
-
-
-else if (this.salairet.match(reg)){
-
-  this.service.ajoutspecialite(this.libelle, this.salairet,this.salairej).subscribe(data => {
+  this.service.ajoutspecialite(user).subscribe(data => {
 
     this.specialite=data;
     
     console.log(data);
-    console.log(data.RESPONSE);
+    console.log(data['RESPONSE']);
     
-    if (data.RESPONSE == "0"){
+    if (data['RESPONSE'] == "0"){
       this.specialite=[];
-      this.toastr.error('Catégorie ['+this.libelle+'] déjà existante');
+      this.toastr.error('Catégorie ['+this.nom+'] déjà existante');
     }
     else {
-    this.toastr.success('Catégorie ['+this.libelle+'] ajoutée avec success!!');
+    this.toastr.success('Catégorie ['+this.nom+'] ajoutée avec success!!');
     }
     
-    this.cleartxtboox();
+    //this.cleartxtboox();
           
         }, error => console.log(error));    
 
@@ -84,11 +88,6 @@ else if (this.salairet.match(reg)){
 
 }
 
-else {
-  this.toastr.error('champ salaire mensuelle obligatoirement numerique!!');
-
-
-}
 
    
 
@@ -96,7 +95,7 @@ else {
 
 
 
-  }
+  
   
 
 
@@ -115,13 +114,13 @@ else {
 
 
 
-cleartxtboox(){
+// cleartxtboox(){
   
-  this.libelle="";
-  this.libellebox="";
-  this.salairet="";
-  this.salairej="";
-}
+//   this.libelle="";
+//   this.libellebox="";
+//   this.salairet="";
+//   this.salairej="";
+// }
 
 
 

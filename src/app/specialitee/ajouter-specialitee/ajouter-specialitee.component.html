@@ -26,6 +26,7 @@
       <!-- /.box-defaut -->
        
         <!-- /.box-header -->
+        <form [formGroup]="addSpecialite"(ngSubmit)="ajouter()">
         <div class="box-body"  style="background-color:rgba(109, 125, 177, 0.198);">
           
           <div class="row">
@@ -34,22 +35,28 @@
                 <div class="form-group">
   
                   <label class="control-label">libelle specialité </label>
-                  <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle"  required value="libellebox">
+                  <input type="text" class="form-control" id="libelle" name="libelle" formControlName="libelle"  >
+                  <div *ngIf="libelle.touched && libelle.invalid">
+                    <small *ngIf="libelle.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>libelle  est requis<br></small>
+                  </div>
                 </div>
               </div>
       
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="description">Salaire mensuelle</label>
-                  <input type="text" class="form-control" id="salairet" name="salairet" [(ngModel)]="salairet" required value="salairetbox">
+                  <input type="text" class="form-control" id="salairet" name="salairet" formControlName="salairet" value="salairetbox">
+                  <div *ngIf="salairet.touched && salairet.invalid">
+                    <small *ngIf="salairet.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>salairet  est requis<br></small>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <!-- <div class="col-md-2">
                 <div class="form-group">
                   <label for="description">Salaire journalié</label>
-                  <input type="text" class="form-control" id="salairej" name="salairej" disabled   [(ngModel)]="salairej" required [value]="salairj()">
+                  <input type="text" class="form-control" id="salairej" name="salairej" disabled   formControlName="salairej" [value]="salairj()">
                 </div>
-              </div>
+              </div> -->
            
       
             </div>
@@ -58,13 +65,13 @@
             <div class="row">
             <div class="col-md-2">
               <div class="form-group">
-                <button type="button" class="btn btn-block  btn-sm"style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="ajouter()" >Créer  </button>
+                <button type="submit" class="btn btn-block  btn-sm"style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"[disabled]="addSpecialite.invalid" >Créer  </button>
               </div>
             </div>
           </div>
   
         </div>
-          
+      </form> 
   
         </div>
   </div>

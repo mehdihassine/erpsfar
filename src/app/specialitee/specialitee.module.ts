@@ -5,7 +5,7 @@ import { SpecialiteeRoutingModule } from './specialitee-routing.module';
 import { AjouterSpecialiteeComponent } from './ajouter-specialitee/ajouter-specialitee.component';
 import { ListesSpecialiteeComponent } from './listes-specialitee/listes-specialitee.component';
 import { ModifierSpecialiteeComponent } from './modifier-specialitee/modifier-specialitee.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     SpecialiteeRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
   ]

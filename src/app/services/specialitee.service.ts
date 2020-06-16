@@ -20,9 +20,9 @@ export class SpecialiteeService {
 
 
 
-  ajoutspecialite(libelle , salairet,salairej):Observable<any>{
-    const body={libelle:libelle,salairet:salairet,salairej:salairej};
-    return this.http.post(this.urlAP+"ajouterspecialite.php",body);
+  ajoutspecialite(user){
+    
+    return this.http.post(this.urlAP+"ajouterspecialite.php",user);
     }
 
 
