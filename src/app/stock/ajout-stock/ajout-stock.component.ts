@@ -106,7 +106,7 @@ getlibelle(){
     else{
       if((this.codarticle==undefined)||(this.codarticle=="")){
         this.libellearticle="";
-        this.typestockage="";
+        this.typestockage="choisir";
       }
       else{
         this.libellearticle="**article inexistant**";
