@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiProduitService } from 'src/app/services/api-produit.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Produit } from 'src/app/models/produit';
 
 @Component({
   selector: 'app-ajout-produit',
@@ -9,21 +11,36 @@ import { ToastrService } from 'ngx-toastr';
 styleUrls:['./ajout-produit.component.css']
 })
 export class AjoutProduitComponent implements OnInit {
-  nom_produit: string; prix_produit: string; prix_vente: string; desc: string; type_produit: string;
-  diametre:any;
-  nom:any;
-  cout:any;
-  vente:any;
- description:any; 
- tva:any;
-  type:any;
+  
+  
+  types:any;
   typebox:any="choisir";
   
   produit:any=[];
   listescategorie:any=[];
   typecbox: any="choisir";
+  addProduit: FormGroup;
   
-  constructor(private service:ApiProduitService, private router: Router,private toastr :ToastrService) { }
+  constructor(private service:ApiProduitService, private router: Router,private toastr :ToastrService,private fb: FormBuilder) {
+     let formControls={
+    nom :  new FormControl('', [Validators.required, Validators.minLength(3)]),
+    cout :   new FormControl('', Validators.required),
+    vente :   new FormControl('', Validators.required),
+    type :  new FormControl('', [Validators.required]),
+    tva :  new FormControl('', [Validators.required]),
+    diametre:new FormControl(),
+    description:new FormControl(),
+  }
+  this.addProduit=this.fb.group(formControls);
+ }
+ get nom(){return this.addProduit.get('nom')}
+   get cout(){return this.addProduit.get('cout')}
+   get vente(){return this.addProduit.get('vente')}
+   get type(){return this.addProduit.get('type')}
+   get tva(){return this.addProduit.get('tva')}
+   get diametre(){return this.addProduit.get('diametre')}
+   get description(){return this.addProduit.get('description')}
+ 
 
   ngOnInit(): void {
     this.cleartxt();
@@ -32,18 +49,11 @@ export class AjoutProduitComponent implements OnInit {
 
   cleartxt(){
 
-this.diametre="";
-this.nom="";
-this.cout="";
-this.vente="";
-this.description="";
-this.typebox="choisir";
-this.type="";
-    this.tva="";
+this.addProduit.reset();
   }
 
 getcategorie(){
-  this.type="";
+  this.types="";
   this.service.getAllgategorie().subscribe(data => {
 if(data.RESPONSE){
 this.toastr.warning("liste specialiter vide !! "); 
@@ -60,47 +70,28 @@ this.toastr.warning("liste specialiter vide !! ");
 
 
   add() {
-    var reg = /^[0-9]+$/;
-    if (!this.nom) {
-      this.toastr.error('champ nom  obligatoire!!');
-    }
-  
-    else if ((!this.cout.match(reg))||(!this.cout)) {
-      this.toastr.error('champ coût de revient  obligatoirement numerique!!');
-    }
-    
+   let data=this.addProduit.value; 
+   let user =new Produit(data.diametre,data.nom,data.cout,data.vente,data.type,data.description,data.tva)
+console.log(data.diametre)
+console.log(data.description)
+    this.service.addproduit(user).subscribe(data => {
    
-    else if((!this.vente.match(reg))||(!this.vente)){
-    
-      this.toastr.error('champ prix vente  obligatoirement numerique!!');
-    }
-   
-  
-    
-    else if (!this.type) {
-      this.toastr.error('champ type de produit obligatoire!!');
-    }
-
-else{
-
-    this.service.addproduit(this.diametre,this.nom, this.cout, this.vente, this.type, this.description,this.tva).subscribe(data => {
-     
       console.log(data);
    
-      if(data.RESPONSE){
+      if(data['RESPONSE']){
       
-        this.toastr.error(data.RESPONSE);
+        this.toastr.error(data['RESPONSE']);
       
       }
       else{
-        this.produit[0]=(data[1]);
-        console.log( this.produit[0]);
+        this.produit=data;
+        this.cleartxt();
   
       }
-      this.cleartxt();
+      
      
     }, error => console.log(error));
-  }
+  
 
 
 }

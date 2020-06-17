@@ -5,7 +5,7 @@ import { CategorieRoutingModule } from './categorie-routing.module';
 import { AjoutCategorieComponent } from './ajout-categorie/ajout-categorie.component';
 import { ListeCategorieComponent } from './liste-categorie/liste-categorie.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifierComponent } from './modifier/modifier.component';
 
 
@@ -16,6 +16,7 @@ import { ModifierComponent } from './modifier/modifier.component';
   imports: [
     CommonModule,
     CategorieRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
     

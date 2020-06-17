@@ -20,7 +20,7 @@ export class SpecialiteeService {
 
 
 
-  ajoutspecialite(user){
+  ajoutspecialite(user):Observable<any>{
     
     return this.http.post(this.urlAP+"ajouterspecialite.php",user);
     }

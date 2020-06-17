@@ -77,6 +77,7 @@ let user =new Specialite(data.libelle,data.salairet);
       this.toastr.error('Catégorie ['+this.nom+'] déjà existante');
     }
     else {
+      this.addSpecialite.reset();
     this.toastr.success('Catégorie ['+this.nom+'] ajoutée avec success!!');
     }
     

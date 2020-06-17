@@ -16,17 +16,9 @@ export class ApiProduitService {
     
     return this.http.get(this.urlAP+"get.php?X="+id);
   }
-  addproduit(diametre,nom,cout,vente,type,description,tva):Observable<any>{
-    const body={
-      diametre:diametre,
-       nom:nom ,
-       cout:cout,
-       vente:vente,
-       type:type,
-       description:description,
-       tva:tva
-        }
-    return this.http.post(this.urlAP+"ajouterproduit.php",body);
+  addproduit(user){
+   
+    return this.http.post(this.urlAP+"ajouterproduit.php",user);
   }
   deleteproduit(id):Observable<any>{
     

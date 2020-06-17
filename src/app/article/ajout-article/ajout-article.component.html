@@ -1,171 +1,239 @@
-<div class="box" style="background-color:rgba(109, 125, 177, 0.198);">
-
-
-  <div class="box-header with-border  headertitle">
+<div class="box" style="background-color: rgba(109, 125, 177, 0.198);">
+  <div class="box-header with-border headertitle">
     <h3 class="box-title"><b>Création article</b></h3>
     <div class="box-tools pull-right">
-
-          <button type="button" class="btn btn-block btn-sm" style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;" (click)="retourliste()" >Retour liste</button>
-
+      <button
+        type="button"
+        class="btn btn-block btn-sm"
+        style="background-color: rgba(32, 23, 153, 0.781); color: cornsilk;"
+        (click)="retourliste()"
+      >
+        Retour liste
+      </button>
     </div>
-
-
   </div>
- 
-
-  
-
 
   <div class="box box-default">
-    <div class="box-header with-border soustitre" >
+    <div class="box-header with-border soustitre">
       <h3 class="box-title">Informations générales</h3>
 
-      <div class="box-tools pull-right">
-      </div>
+      <div class="box-tools pull-right"></div>
     </div>
     <!-- /.box-header -->
-    <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
+    <div class="box-body" style="background-color: rgba(109, 125, 177, 0.198);">
       <div class="row">
         <div class="col-md-2">
           <div class="form-group">
             <label for="codearticle">Code article</label>
-            <input type="text" class="form-control" id="codearticle" name="codearticle" [(ngModel)]="codearticle"placeholder="" value="codearticlebox" required>
+            <input
+              type="text"
+              class="form-control"
+              id="codearticle"
+              name="codearticle"
+              [(ngModel)]="codearticle"
+              placeholder=""
+              value="codearticlebox"
+              required
+            />
           </div>
-        </div>  
+        </div>
 
         <div class="col-md-3">
           <div class="form-group">
             <label for="libelle">Libellé article</label>
-            <input type="text" class="form-control" id="libelle"name="libelle" [(ngModel)]="libelle" placeholder=""value="libellebox"  required>
+            <input
+              type="text"
+              class="form-control"
+              id="libelle"
+              name="libelle"
+              [(ngModel)]="libelle"
+              placeholder=""
+              value="libellebox"
+              required
+            />
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
             <label for="libelle">Unité </label>
-            <input type="text" class="form-control" id="unite"name="unite" [(ngModel)]="unite" placeholder=""value="unitebox"  required>
+            <input
+              type="text"
+              class="form-control"
+              id="unite"
+              name="unite"
+              [(ngModel)]="unite"
+              placeholder=""
+              value="unitebox"
+              required
+            />
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="description">Description article</label>
-            <textarea class="form-control" rows="1" id="description" name="description" [(ngModel)]="description" value="descriptionbox"required></textarea>
+            <textarea
+              class="form-control"
+              rows="1"
+              id="description"
+              name="description"
+              [(ngModel)]="description"
+              value="descriptionbox"
+              required
+            ></textarea>
           </div>
         </div>
-
       </div>
     </div>
   </div>
   <!-- /.row -->
 
-
-
-<div class="box box-default">
-  <div class="box-header with-border soustitre">
-    <h3 class="box-title">Données logestiques</h3>
-    
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
-    <div class="row">
-
-
-      <div class="col-md-2">
-        <div class="form-group">
-          <label>Type article</label>
-          <select class="form-control select2" style="width: 100%;" id="type" name="type" [(ngModel)]="type" value="typebox" required>
-            <option selected value="" disabled>{{typebox}}</option>
-            <option value="matiere premiere">matière première</option>
-            <option value="consommable">Consommables</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-md-2">
-        <div class="form-group">
-          <label>Nature article</label>
-          <select class="form-control select2" style="width: 100%;" id="nature" name="nature" [(ngModel)]="nature"   value="naturebox"required>
-            <option selected value="" disabled>{{naturebox}}</option>
-            <option value="solide">Solide</option>
-            <option value="liquide">Liquide</option>
-            <option value="dangereux">Dangereux</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="form-group">
-          <label>Type de stockage</label>
-          <select class="form-control select2" style="width: 100%;"  name="typestockage" [(ngModel)]="typestockage" id="typestockage" value="typestockagebox" required>
-          <option selected value="" disabled>{{typestockagebox}}</option>
-            <option value="normal">Normal</option>
-            <option value="froid">Froid</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="libelle">Seuil min réappro</label>
-          <input type="text" class="form-control" id="seuil" name="seuil" [(ngModel)]="seuil" placeholder=""  value="seuilbox" required>
-        </div>
-      </div>
-
+  <div class="box box-default">
+    <div class="box-header with-border soustitre">
+      <h3 class="box-title">Données logestiques</h3>
     </div>
+    <!-- /.box-header -->
+    <div class="box-body" style="background-color: rgba(109, 125, 177, 0.198);">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Type article</label>
+            <select
+              class="form-control select2"
+              style="width: 100%;"
+              id="type"
+              name="type"
+              [(ngModel)]="type"
+              value="typebox"
+              required
+            >
+              <option selected value="" disabled>{{ typebox }}</option>
+              <option value="matiere premiere">matière première</option>
+              <option value="consommable">Consommables</option>
+            </select>
+          </div>
+        </div>
 
-  <!-- /.box-body -->
-  <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Nature article</label>
+            <select
+              class="form-control select2"
+              style="width: 100%;"
+              id="nature"
+              name="nature"
+              [(ngModel)]="nature"
+              value="naturebox"
+              required
+            >
+              <option selected value="" disabled>{{ naturebox }}</option>
+              <option value="solide">Solide</option>
+              <option value="liquide">Liquide</option>
+              <option value="dangereux">Dangereux</option>
+            </select>
+          </div>
+        </div>
 
-  <div class="col-md-3">
-    <div class="form-group">
-      <button type="button" class="btn btn-block  btn-sm"style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="creer()" >Créer Article</button>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Type de stockage</label>
+            <select
+              class="form-control select2"
+              style="width: 100%;"
+              name="typestockage"
+              [(ngModel)]="typestockage"
+              id="typestockage"
+              value="typestockagebox"
+              required
+            >
+              <option selected value="" disabled>{{ typestockagebox }}</option>
+              <option value="normal">Normal</option>
+              <option value="froid">Froid</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="libelle">Seuil min réappro</label>
+            <input
+              type="text"
+              class="form-control"
+              id="seuil"
+              name="seuil"
+              [(ngModel)]="seuil"
+              placeholder=""
+              value="seuilbox"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- /.box-body -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <button
+              type="button"
+              class="btn btn-block btn-sm"
+              style="background-color: rgba(194, 0, 0, 0.63); color: cornsilk;"
+              (click)="creer()"
+            >
+              Créer Article
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</div>
   <!-- /.box-defaut -->
 
   <div class="box box-default">
-  
-    <div class="box-header with-border soustitre" >
+    <div class="box-header with-border soustitre">
       <h3 class="box-title">Détails Liste</h3>
 
-      <div class="box-tools pull-right">
-      </div>
+      <div class="box-tools pull-right"></div>
     </div>
 
     <div class="box-body">
       <table id="example1" class="table table-bordered">
-        <thead style="background-color:rgba(109, 125, 177, 0.198);">
+        <thead style="background-color: rgba(109, 125, 177, 0.198);">
           <tr>
             <th class="col-md-1">Code article</th>
-            <th   class="col-md-1">Libellé </th>
-            <th  class="col-md-1">Unité</th>
-            <th  class="col-md-2">Description</th>
-            <th  class="col-md-1">Type</th>
-            <th  class="col-md-1">Nature</th>
-            <th  class="col-md-1">stockage</th>
-            <th  class="col-md-1">Seuil min</th>
-            <th  class="col-md-1">Action</th>
+            <th class="col-md-1">Libellé</th>
+            <th class="col-md-1">Unité</th>
+            <th class="col-md-2">Description</th>
+            <th class="col-md-1">Type</th>
+            <th class="col-md-1">Nature</th>
+            <th class="col-md-1">stockage</th>
+            <th class="col-md-1">Seuil min</th>
+            <th class="col-md-1">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let e of listeajout">
-            <td>{{e.codearticle}}</td>
-            <td><b>{{e.libellearticle}}</b></td>
-            <td>{{e.unite}}</td>
-            <td>{{e.description}}</td>
-            <td>{{e.typearticle}}</td>
-            <td>{{e.nature}}</td>
-            <td>{{e.typestockage}}</td>
-            <td>{{e.seuilmin}}</td>
-            <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supparticle(e.codearticle)"><i
-                  class="fa fa-trash"></i></button></td>
+            <td>{{ e.codearticle }}</td>
+            <td>
+              <b>{{ e.libellearticle }}</b>
+            </td>
+            <td>{{ e.unite }}</td>
+            <td>{{ e.description }}</td>
+            <td>{{ e.typearticle }}</td>
+            <td>{{ e.nature }}</td>
+            <td>{{ e.typestockage }}</td>
+            <td>{{ e.seuilmin }}</td>
+            <td>
+              <button
+                class="btn btn-danger btn-sm"
+                style="margin-left: 10px;"
+                (click)="supparticle(e.codearticle)"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
           </tr>
-
         </tbody>
       </table>
     </div>
-
   </div>
   <!--boxbody defaut-->
 </div>

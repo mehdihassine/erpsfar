@@ -15,9 +15,9 @@ export class ApiCategorieService {
 
 
 
-  ajoutCategorie(libelle , description):Observable<any>{
-    const body={libelle:libelle,description:description};
-    return this.http.post(this.urlAP+"ajoutercategorie.php",body);
+  ajoutCategorie(user){
+   
+    return this.http.post(this.urlAP+"ajoutercategorie.php",user);
     }
 
 

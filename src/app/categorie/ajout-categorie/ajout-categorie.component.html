@@ -41,6 +41,7 @@
     <!-- /.box-defaut -->
      
       <!-- /.box-header -->
+      <form [formGroup]="addCategorie"(ngSubmit)="ajouter()">
       <div class="box-body">
         
         <div class="row">
@@ -49,14 +50,22 @@
               <div class="form-group">
 
                 <label class="control-label">libelle catégorie</label>
-                <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle"  required value="libellebox">
+                <input type="text" class="form-control" id="libelle" name="libelle" formControlName="libelle">
+                <div *ngIf="libelle.touched && libelle.invalid">
+                  <small *ngIf="libelle.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  libelle  est requis<br></small>
+                  
+                </div>
               </div>
             </div>
     
             <div class="col-md-3">
               <div class="form-group">
                 <label for="description">description catégorie</label>
-                <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required value="descriptionbox">
+                <input type="text" class="form-control" id="description" name="description" formControlName="description" >
+                <div *ngIf="description.touched && description.invalid">
+                  <small *ngIf="description.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  description  est requis<br></small>
+                  
+                </div>
               </div>
             </div>
             
@@ -68,13 +77,13 @@
           <div class="row">
           <div class="col-md-2">
             <div class="form-group">
-              <button type="button" class="btn btn-block btn-success btn-sm"(click)="ajouter()" >Ajouter</button>
+              <button type="submit" class="btn btn-block btn-success btn-sm"[disabled]="addCategorie.invalid" >Ajouter</button>
             </div>
           </div>
         </div>
 
       </div>
-        
+    </form>
 
       </div>
 </div>
