@@ -34,9 +34,9 @@ export class VenteService {
   } 
   
   /* les service detail vente */  
-  rechercheproduit(id_produit):Observable<any>{
+  rechercheproduit(idproduit):Observable<any>{
   
-    return this.http.get(this.urlAP+"rechercheproduit.php?id_produit="+id_produit);
+    return this.http.get(this.urlAP+"rechercheproduit.php?idproduit="+idproduit);
   } 
 
  
@@ -57,6 +57,32 @@ export class VenteService {
   
   
   }
+
+  recherchedate(datprod):Observable<any>{
+    return  this.http.get(this.urlAP+"rechercheprod.php?datprod="+datprod);
+  }
+
+
+
+  refreshprod(datprod):Observable<any>{
+    return this.http.get(this.urlAP+"refreshart.php?datprod="+datprod);
+  }
+
+
+
+
+  beneficetotal(datprod):Observable<any>{
+    return this.http.get(this.urlAP+"beneficeproduit.php?datprod="+datprod);
+  
+  
+  }
+
+
+
+
+
+
+
 
 
 }

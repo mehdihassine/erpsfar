@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VenteService } from 'src/app/services/vente.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-liste-vente',
@@ -41,8 +42,8 @@ statut:any;
 datecreation: any;
 codarticle: string;
 benficetotal:any;
-
-  constructor(private service :VenteService , private router: Router) { }
+datprod :any;
+  constructor(private service :VenteService , private router: Router,private toastr:ToastrService) { }
 production:any ={}
 
   ngOnInit(): void {
@@ -65,11 +66,34 @@ production:any ={}
     },error=>console.log(error));
   }
   
+  Rechercher(){
+this.service.recherchedate(this.datprod).subscribe(data=>{
+  console.log("date  production: "+this.datprod);
+  var responserecherche = data[0].respo
+
+  if((responserecherche === "erreurprod")||(this.datprod==undefined)){
+    this.toastr.warning('Commande [ '+this.datprod+' ] introuvable');
+   
+    }else{
+    this.production=data; 
+    }
+  }, error => console.log(error));
+
+  }
+
+
 
 //recherche cdv
-rechprod(){
-  this.service.rechercheprod(this.dateprod).subscribe(data => {
-    console.log("recherche : "+this.dateprod);
+Recherche(){
+  if (!this.datprod){
+    this.toastr.warning("verifier votre date de production ");
+
+  }
+  else{
+
+
+  this.service.recherchedate(this.datprod).subscribe(data => {
+    console.log("recherche : "+this.datprod);
     this.production=[];
     this.production=(data);
     console.log(data);
@@ -78,15 +102,15 @@ var responserecherche = data[0].respo;
 this.benficetotal= data[0].benficeProd;
 
 if(responserecherche === "erreurprod"){
-  alert('Commande [ '+this.dateprod+' ] introuvable');
+  this.toastr.warning('Commande introuvable');
   this.refresh();
   console.log("retour liste");
 }
-this.dateprod="";
+this.datprod="";
 
   }, error => console.log(error));
 }
-
+}
 
 affliste(){
   console.log("afficher liste");

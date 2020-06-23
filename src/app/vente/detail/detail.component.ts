@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VenteService } from 'src/app/services/vente.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 
 })
 export class DetailComponent implements OnInit {
-  id_produit:any;
+  idproduit:any;
   montanttotal:any;
   statut:any;
    dateprod: any;
@@ -17,7 +18,7 @@ export class DetailComponent implements OnInit {
   benficetotal:any;
   benficetotalproduit: any;
   
-    constructor(private service :VenteService , private router: Router) { }
+    constructor(private service :VenteService , private router: Router,private toaster:ToastrService) { }
   production:any ={}
   
     ngOnInit(): void {
@@ -42,9 +43,14 @@ export class DetailComponent implements OnInit {
     
   
   //recherche cdv
-  rechprod(){
-    this.service.rechercheproduit(this.id_produit).subscribe(data => {
-      console.log("recherche : "+this.id_produit);
+  Recherche(){
+    if (!this.idproduit){
+      this.toaster.warning("champs recherche est vide !! ");
+      this.refresh();
+    }
+    else{
+    this.service.rechercheproduit(this.idproduit).subscribe(data => {
+      console.log("recherche : "+this.idproduit);
       this.production=[];
       this.production=(data);
       console.log(data);
@@ -54,25 +60,18 @@ export class DetailComponent implements OnInit {
   
 //
 
-this.prixprodrech(this.id_produit);
 
 
-//
-
-
-
-
-  //this.prixprodrech(this.id_produit);
-
-  if(responserecherche === "erreurproduit"){
-    alert('Commande [ '+this.id_produit+' ] introuvable');
-    this.refresh();
+  if(responserecherche === "erreurprod"){
+    this.toaster.warning('Commande [ '+this.idproduit+' ] introuvable');
+    this.production=[];
     console.log("retour liste");
   }
-  this.dateprod="";
-  
+  this.idproduit="";
+  this.prixprodrech(this.idproduit);
     }, error => console.log(error));
   }
+}
   
 
 
@@ -109,11 +108,11 @@ this.prixprodrech(this.id_produit);
   affliste(){
     console.log("afficher liste");
   
-    this.id_produit="";
+    this.idproduit="";
     this.refresh();
   }
 
-
+2
   prixprod(){
     this.service.prixtotalproduit().subscribe(data7 => {
   

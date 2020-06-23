@@ -9,9 +9,11 @@ import { ToastrService } from 'ngx-toastr';
   
 })
 export class ListeStockComponent implements OnInit {
-  employee: any[]
+  employee: any[];  
+  notifs:any=[] ;
   // constructor(private service:ApiEmployeeService) { }
- 
+  res ="nooo" ;
+  ss :any={};
  typec:any;
    typebox: any ; 
    fournisseurs:any[]; 
@@ -44,10 +46,26 @@ this.toastr.warning("liste fournisseur vide !! ");
     },error => console.log(error));
 }
 
+ 
+
+
 refrechliste(){
 this.service.getstock().subscribe(data=>{
-  console.log(data); 
+  console.log(data);  
 this.stock=data ; 
+for (let i=0; i<=this.stock.length; i++) {
+   let x = this.stock[i].quantitetot ; let y = this.stock[i].seuilmin ; let z ; 
+  z=x-y ;   
+  if(z>0){     
+    this.ss = {"notif":"OK", "codearticle":this.stock[i].codearticle,"libellearticle":this.stock[i].libellearticle,"quantitetot":this.stock[i].quantitetot,"emplacement":this.stock[i].emplacement, "typestockage":this.stock[i].typestockage } ;
+}else{
+   this.ss = {"notif":"NO", "codearticle":this.stock[i].codearticle,"libellearticle":this.stock[i].libellearticle,"quantitetot":this.stock[i].quantitetot,"emplacement":this.stock[i].emplacement, "typestockage":this.stock[i].typestockage } ;
+ 
+}
+  console.log("OBJETT ---> "+Object.values(this.ss));
+  this.notifs.push(this.ss);
+  console.log("sizeeeeeeeeeee ---> "+this.notifs.length); 
+}
 },error=> console.log (error));
 
 }

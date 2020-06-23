@@ -135,13 +135,15 @@
           </tr>
         </thead>
         <tbody style="background-color:rgba(254, 254, 255);">
-          <tr *ngFor = "let e of stock">
+          <tr *ngFor = "let e of notifs">
             <td><b>{{e.codearticle}}</b></td>
             <td>{{e.libellearticle}}</td>
             <td>{{e.quantitetot}}</td>
             <td>{{e.emplacement}}</td>
             <td>{{e.typestockage}}</td>
-            <td></td>
+            <td> 
+              <span  class="badge badge-info">{{e.notif}}</span>  
+            </td>
             
             
             <td >

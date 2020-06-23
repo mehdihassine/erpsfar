@@ -28,13 +28,13 @@
         <div class="row">
           <div class="col-md-2">
             <div class="form-group">
-              <label for="diametre">diametre </label>
+              <label for="dd">diametre </label>
               <input
                 type="text"
                 class="form-control"
-                id="diametre"
+                id="dd"
                 name="diametre"
-                formControlName="diametre "
+                formControlName="diametre"
                
               />
             </div>
@@ -72,11 +72,10 @@
                 style="width: 100%;"
                 id="type"
                 name="type"
-                formControlName="type"
-                value="typebox"
+                formControlName="type" 
               >
-                <option selected value="" disabled>choisir</option>
-                <option *ngFor="let s of listescategorie" [value]="s.libelle">{{
+                <option selected value="null" disabled>choisir</option>
+                <option *ngFor="let s of listescategorie" [value]="s.idtype">{{
                   s.libelle
                 }}</option>
               </select>
@@ -156,7 +155,7 @@
                 name="description"
                 formControlName="description"
               
-                required
+                 
               ></textarea>
             </div>
           </div>

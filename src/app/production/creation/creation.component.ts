@@ -101,6 +101,7 @@ export class CreationComponent implements OnInit {
   
     this.service.addartproduction(this.dateprod, this.nligne1, this.codarticle, this.quantite).subscribe(data3 => {
       table3 = data3;
+      console.log(data3);
       this.table3 = JSON.stringify(table3);
 
       var resp = data3.resp;

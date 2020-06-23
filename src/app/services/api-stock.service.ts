@@ -97,8 +97,8 @@ rechfournisseur(fournisseur):Observable<any>{
 deletearticle(codearticle,nreception):Observable<any>{
   return this.http.get(this.urlAP+"supprimerarticle.php?codearticle="+codearticle+"&nreception="+nreception);
 }
-getstock():Observable<any>{
-  return this.http.get(this.urlAP+"listestock.php");
+getstock(){
+  return this.http.get<any>(this.urlAP+"listestock.php");
 }
 
 

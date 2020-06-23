@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { VenteRoutingModule } from './vente-routing.module';
 
 import { ListeVenteComponent } from './liste-vente/liste-vente.component';
-import { FactureVenteComponent } from './facture-vente/facture-vente.component';
+
 import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ListeventeComponent } from './listevente/listevente.component';
 
 
 @NgModule({
-  declarations: [ListeVenteComponent, FactureVenteComponent, DetailComponent],
+  declarations: [ListeVenteComponent,  DetailComponent, ListeventeComponent],
   imports: [
     CommonModule,
     VenteRoutingModule,

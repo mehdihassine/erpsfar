@@ -26,10 +26,10 @@ export class AjoutProduitComponent implements OnInit {
     nom :  new FormControl('', [Validators.required, Validators.minLength(3)]),
     cout :   new FormControl('', Validators.required),
     vente :   new FormControl('', Validators.required),
-    type :  new FormControl('', [Validators.required]),
+    type :  new FormControl('null', [Validators.required]),
     tva :  new FormControl('', [Validators.required]),
-    diametre:new FormControl(),
-    description:new FormControl(),
+    diametre:new FormControl(Validators.nullValidator),
+    description:new FormControl(Validators.nullValidator)
   }
   this.addProduit=this.fb.group(formControls);
  }
@@ -84,7 +84,8 @@ console.log(data.description)
       
       }
       else{
-        this.produit=data;
+        
+        this.produit = data;
         this.cleartxt();
   
       }
