@@ -125,7 +125,18 @@
 
 
 
-        
+      <li class="treeview "*ngIf="(role == 'Secretaire' || role == 'admin')">
+        <a  href="#salaire" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-link"></i> <span>Gestion salaire</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul  class="collapse list-unstyled" id="salaire">
+          <li><a routerLink="/home/salaire/creation">Ajouter Salaire</a></li>
+          <li><a routerLink="/home/salaire/liste">Liste Salaire</a></li>
+        </ul>
+      </li>
+
       <li class="treeview" *ngIf="(role == 'Secretaire' || role == 'admin')">
         <a href="#fournisseur" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="fournisseur"><i class="fa fa-link"></i> <span>Gestion Fournisseur</span>
           <span class="pull-right-container">
@@ -139,7 +150,7 @@
       </li>
 
 
-
+ 
 
 
 
@@ -217,6 +228,7 @@
           <li><a routerLink="/home/article/liste">liste Article</a></li>
         </ul>
       </li>
+     
     </ul>
 
     <!-- /.sidebar-menu -->
