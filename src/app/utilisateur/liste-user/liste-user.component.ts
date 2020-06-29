@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
  
 })
 export class ListeUserComponent implements OnInit {
+  dtOptions: DataTables.Settings = {};
   utilisateur:any=[];
   iduser: any;
  
@@ -16,6 +17,13 @@ export class ListeUserComponent implements OnInit {
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      paging: false
+  };
+
+
     this.refresh();
   }
 

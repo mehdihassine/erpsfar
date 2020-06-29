@@ -1,0 +1,10 @@
+table{
+    color: black;
+    background-color: #f19954;
+  }
+  thead{
+      color:black ;
+      text-decoration: underline; 
+      letter-spacing: 1px;
+     
+  }

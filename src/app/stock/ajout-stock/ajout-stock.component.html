@@ -99,11 +99,8 @@
         <div class="col-md-3">
           <div class="form-group">
             <label>Date fin de validité:</label>
-            <div class="input-group date">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <input type="text" class="form-control pull-right" id="datepicker" name="datefinv" [(ngModel)]="datefinv"
+            <div class="input-group"> 
+              <input type="date" class="form-control pull-right" id="datepicker" name="datefinv" [(ngModel)]="datefinv"
                 required>
             </div>
           </div>

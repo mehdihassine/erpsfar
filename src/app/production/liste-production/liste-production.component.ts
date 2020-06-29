@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiProductionService } from 'src/app/services/api-production.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-liste-production',
@@ -14,7 +15,7 @@ statut:any;
 datecreation: any;
 codarticle: string;
 
-  constructor(private service: ApiProductionService, private router: Router) { }
+  constructor(private service: ApiProductionService, private router: Router,private toastr: ToastrService) { }
 production:any =[];
 
   ngOnInit(): void {
@@ -24,7 +25,15 @@ production:any =[];
   refresh(){
     this.service.getprodall().subscribe(data=>{
       console.log(data); 
-    this.production=data ; 
+    
+    if(data.RESPONSE){
+      this.production=[];
+      this.toastr.warning("liste production vide !!!");
+    }else
+    {
+      this.production=data ;
+    
+        } 
     },error=> console.log (error));
 
   }

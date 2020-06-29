@@ -41,8 +41,8 @@
         <div class="row">
           <div class="col-md-2 col-lg-2 col-xs-2">
             
-            <input type="text" class="form-control" id="nomclient" 
-                placeholder="Matricule employer" required>
+            <input type="text" class="form-control" id="matricule" 
+                placeholder="Matricule employer"  name="matricule" [(ngModel)]="matricule" required>
              
           
 
@@ -64,7 +64,7 @@
 
         </div>
           
-        <div class="col-md-2 col-lg-2 col-xs-2">
+        <div class="col-md-1 col-lg-1 col-xs-1">
         
         </div>
         <!-- /.row  [(ngModel)]="adresse" placeholder="" value="adressebox"-->
@@ -77,48 +77,39 @@
   
       </div>
       <!-- /.box-defaut -->
-     
-       
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-        </div>
-  
-        <div class="col-md-3 col-lg-3 col-xs-3">
-          <div class="form-group">
-          <div class="box-title" >Specialiter: &nbsp;{{datefiche1}} </div>
+     <div class="row">
+
+      <br>
+      <br>
+     </div>
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-xs-3">     
+          <div class="box-title" >Specialité: &nbsp;{{datefiche1}}</div>
+      </div>
+      <div class="col-md-1 col-lg-1 col-xs-1">
         
-        </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-xs-3">     
+        <div class="box-title" >CNSS: &nbsp;{{datefiche1}}</div>
+    </div>
+      </div>
+      <div class="row">
+       <br>
+        
+      </div>
+  
+          
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-xs-3">
+            
+          <div class="box-title" >salaire de base &nbsp;{{datefiche1}}</div>
+          
+          
 
 
       </div>
-      
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label for="prixachat">Quantite</label>
-                  <input type="text" class="form-control" id="quantite"
-                    placeholder="" required>
-                </div>
-              </div>
-              
-          <div class="col-md-6">
-            <div class="form-group">
-              </div>
-          </div>
-      <br>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <button type="button" class="btn btn-block btn-warning btn" >Ajouter</button>
-                </div>
-              </div>
-      
-            </div>
-            <!-- /.row -->
-          
-  
-  
-          
-  
+        
+      </div>
         </div>
   
   
@@ -133,8 +124,8 @@
       </div>
   
       <div class="box-body">
-        <table class="table table-bordered">
-            <thead style="color: blue;">
+        <table class="table table-bordered" >
+            <thead >
               <tr>
                
                 <th scope="col">code</th>
@@ -142,25 +133,128 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">sal/prime</th>
                 <th scope="col">retenue</th>
-                <th scope="col">Action</th>
+               
               </tr>
             </thead>
           <tbody>
-            <tr >
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;"  ><i class="fa fa-trash"></i></button></td>
+            <tr>
+              <th scope="row">01</th>
+              <td>nombre de jour</td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+              <td>50</td>
             </tr>
-  
+            <tr>
+              <th scope="row">05</th>
+              <td>jours ferie 200%</td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <th scope="row">07</th>
+              <td>Indement De Transport</td>
+              <td></td>
+              <td>6.426</td>
+            </tr>
+            <tr>
+              <th scope="row">08</th>
+              <td>Majoration Indement  Transport</td>
+              <td></td>
+              <td>45.486</td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td>Prime de presence</td>
+              <td></td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+            </tr>
+            <tr>
+              <th scope="row">14</th>
+              <td>Prime de Panier</td>
+              <td></td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+            </tr>
+            <tr>
+              <th scope="row">21</th>
+              <td>Conge Paye {{years}}</td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">40</th>
+              <td>SALAIRE BRUT</td>
+              <td></td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+            </tr>
+            <tr>
+              <th scope="row">41</th>
+              <td>C N.S.S</td>
+              <td></td>
+              <td></td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+            </tr>
+            <tr>
+              <th scope="row">51</th>
+              <td>SALAIRE IMPOSABLE</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">52</th>
+              <td>IRPP+CSS</td>
+              <td></td>
+              <td></td>
+              <td><input  type="text" class="form-control" id="nomclient" 
+                placeholder="nmb" required></td>
+            </tr>
+           
           </tbody>
         </table>
+        <br><br><br>
+
+
+
+
+
+
+
+<div class="col-md-5 col-lg-5 col-xs-5">
+
+
+</div>
+
+
+
+
+
+<div class="col-md-6 col-lg-6 col-xs-6" style="border-style: solid;">
+
+    <div class="row">
+
+        <div class="col-md-2 col-lg-2 col-xs-2">
+            </div>
+    
+            <div class="col-md-4 col-lg-4 col-xs-4">
+                <h4 class="box-title"><b> NET A PAYEE </b></h4>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xs-2">
+                <h4 class="box-title"><b>55</b></h4>
+            </div>
+    </div>
+    
+    
+   
+    
+    
+   
+</div>
       </div>
   
     </div>

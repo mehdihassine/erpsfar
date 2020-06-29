@@ -23,7 +23,7 @@
         <div class="col-md-2">
           <div class="form-group">
             <label for="codarticle">date prod</label>
-            <input type="text" class="form-control" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
+            <input type="date" class="form-control" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
           </div>
         </div>
         <div class="col-md-2">
@@ -88,7 +88,7 @@
             <td>
               <button class="btn btn-warning btn-sm" style="margin-left: 10px;" [routerLink]="['../reste',e.dateprod]">
                 <i class="fa fa-gear"></i></button>&nbsp;&nbsp;
-              <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supprimer(e.numproduction)"><i
+              <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supprimer(e.dateprod)"><i
                   class="fa fa-trash"></i></button>
 
             </td>

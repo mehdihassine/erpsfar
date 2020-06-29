@@ -7,7 +7,7 @@ import { ListeUserComponent } from './liste-user/liste-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
-
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [CreationUserComponent, ListeUserComponent, ModifierProfilComponent],
@@ -16,7 +16,8 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
     UtilisateurRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    DataTablesModule
   ]
 })
 export class UtilisateurModule { }

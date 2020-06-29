@@ -21,7 +21,7 @@ addartproduction(dateprod,nligne1,codarticle,quantite):Observable<any>{
     nligne1:nligne1,
     idproduit:codarticle,
     qteproduction:quantite}
-  return this.http.post(this.urlAP+"addartprod.php",body);
+  return this.http.post(this.urlAP+"exemple.php",body);
 } 
 
 
