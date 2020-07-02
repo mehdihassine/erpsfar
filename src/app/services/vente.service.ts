@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class VenteService {
-  urlAP ="http://127.0.0.1/apis_pfe/vente/"
+  urlAP ="http://127.0.0.1/apis_pfe/vente/";
+  urlAP22 = "http://127.0.0.1/apis_pfe/stat/";
+
   constructor( private http : HttpClient) { }
 
 
@@ -16,7 +18,9 @@ export class VenteService {
   
   }
   
-
+  getStatVente():Observable<any>{
+    return this.http.get(this.urlAP22+"vente.php");
+  }
 
   getprodall():Observable<any>{
     return this.http.get(this.urlAP+"listeprod.php");

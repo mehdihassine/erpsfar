@@ -17,6 +17,7 @@ import { from } from 'rxjs';
 import { HomeComponent } from './home/home.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import{SalaireModule}from './salaire/salaire.module';
+import{StatistiqueModule}from './statistique/statistique.module';
 const routes: Routes = [  
  {path:'',loadChildren:'./auth/auth.module#AuthModule'},
   
@@ -34,6 +35,7 @@ const routes: Routes = [
  {path:'facture',loadChildren:'./facture/facture.module#FactureModule'},
  {path:'specialitee',loadChildren:'./specialitee/specialitee.module#SpecialiteeModule'},
  {path:'utilisateur',loadChildren:'./utilisateur/utilisateur.module#UtilisateurModule'},
+ {path:'stat',loadChildren:'./statistique/statistique.module#StatistiqueModule'},
  {path: 'msg', component: MessagesComponent},
  {path: 'salaire',loadChildren:'./salaire/salaire.module#SalaireModule'}
 

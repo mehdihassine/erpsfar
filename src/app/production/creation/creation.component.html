@@ -29,9 +29,11 @@
   
           <div class="col-md-2">
             <div class="form-group">
-              <label for="codarticle">Code produit</label>
-              <input type="text" class="form-control" id="codarticle"[(ngModel)]="codarticle" name="codarticle"
-                value="{{txtbox}}" required>
+              <label>Code produit</label>
+              <select class="form-control select2" class="form-control" style="width: 100%;" id="codarticle" name="codarticle" [(ngModel)]="codarticle" value ="typecbox">
+                <option selected value="choisir" disabled>choisir</option>
+                <option *ngFor="let s of listesproduit" [value]="s.idProduit">{{ s.nomProduit }}</option>
+              </select>
             </div>
           </div>
   
@@ -46,14 +48,7 @@
             
           </div>
 
-          <div class="col-md-2 ml-auto">
-            <label for="libelle">Prix production</label>
-            </div>
-            <div class="col-md-2 ml-auto">
-            <div class="form-group">
-            <input type="text" class="form-control input-lg" class="text-center bold"  id="montanttotal" name="montanttotal" [(ngModel)]="montanttotal" value="{{montanttotal}}" disabled="disabled" required>                   
-          </div>
-            </div>
+          
          
          
         </div>
@@ -103,7 +98,7 @@
         <table id="example1" class="table table-bordered">
           <thead>
             <tr>
-              <th class=" text-center" class="col-md-1">N° ligne</th>
+            
               <th class=" text-center" class="col-md-1">Code produit</th>
               <th  class=" text-center" class="col-md-1">Libellé </th>
               <th class=" text-center" class="col-md-1">Quantité </th>
@@ -115,12 +110,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let e of aff">
-              <td>{{e.nligne}}</td>
-              <td><b>{{e.id_produit}}</b></td>
+           
+              <td><b>{{e.produit}}</b></td>
               <td>{{e.nomProduit}}</td>
-              <td>{{e.qteproduction}}</td>
+              <td>{{e.qte}}</td>
               <td>{{e.prixvente}}</td>
-              <td>{{e.qteproduction*e.prixvente}}</td>
+              <td>{{e.qte*e.prixvente}}</td>
               <td>{{e.datesys}}</td>
               <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppartprod(e.nligne)" ><i
                     class="fa fa-trash"></i></button></td>

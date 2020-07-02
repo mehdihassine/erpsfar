@@ -13,17 +13,15 @@ export class ListeUserComponent implements OnInit {
   utilisateur:any=[];
   iduser: any;
  
-
+ 
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
-      paging: false
-  };
-
-
+      processing: true
+    };
     this.refresh();
   }
 
@@ -33,6 +31,8 @@ export class ListeUserComponent implements OnInit {
     this.utilisateur=data ; 
     },error=> console.log (error));
   }
+
+  
   ajoute(){
     this.router.navigate(["home/utilisateur/creation"]);
 

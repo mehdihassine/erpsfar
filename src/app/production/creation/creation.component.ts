@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiProductionService } from 'src/app/services/api-production.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-creation',
@@ -24,20 +25,35 @@ export class CreationComponent implements OnInit {
   dateprod:any;
   datecreation: any; 
   dateprod2: any;
+  typecbox: string="choisir";
+  listesproduit: any=[];
 
-  constructor(private service: ApiProductionService, private router: Router,private datePipe: DatePipe) { }
+  constructor(private service: ApiProductionService, private router: Router,private datePipe: DatePipe,private toastr :ToastrService) { }
 
   ngOnInit(): void {
 
     var date = new Date();
     this.dateprod=this.datePipe.transform(date,"ddMMyyyy");
     this.dateprod2=this.datePipe.transform(date,"dd/MM/yyyy");
-
+    this.getcategorie();
     this.getartprod(this.dateprod);
 
    // this.newproduction(); //get num commande +1 
   }
 
+  getcategorie(){
+    this.codarticle="";
+    this.service.getAllproduit().subscribe(data => {
+  if(data.RESPONSE){
+  this.toastr.warning("liste specialiter vide !! "); 
+  }else
+      {
+        this.listesproduit = data;
+        this.typecbox="choisir";
+  }  
+      console.log(this.listesproduit);
+      },error => console.log(error));
+  }
 
 
 
@@ -73,6 +89,7 @@ export class CreationComponent implements OnInit {
     this.txtbox2 = '';
     this.codarticle = '';
     this.quantite = '';
+    this.typecbox='choisir';
     //console.log('txtbox = '+this.txtbox);
   } 
 

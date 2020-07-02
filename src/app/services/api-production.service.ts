@@ -23,8 +23,9 @@ addartproduction(dateprod,nligne1,codarticle,quantite):Observable<any>{
     qteproduction:quantite}
   return this.http.post(this.urlAP+"exemple.php",body);
 } 
-
-
+getAllproduit():Observable <any>{
+  return this.http.get(this.urlAP+"liste_produit.php");
+}
 
 
 supprimerartprod(dateprod,nligne1):Observable<any>{
@@ -76,8 +77,8 @@ rechercheprod(dateprod):Observable<any>{
 } 
 
 /*
-resteprod(dateprod,idproduit,qterestant,qterejeter):Observable<any>{
-  return this.http.get(this.urlAP+"restprod.php?dateprod="+dateprod+'&idproduit='+idproduit+'&qterestant='+qterestant+'&qterejeter='+qterejeter);
+resteprod(dateprod,idproduit,qterest,qterejeter):Observable<any>{
+  return this.http.get(this.urlAP+"restprod.php?dateprod="+dateprod+'&idproduit='+idproduit+'&qterest='+qterest+'&qterejeter='+qterejeter);
 } 
 */
 updaterest(dateprod):Observable<any>{
@@ -85,16 +86,16 @@ updaterest(dateprod):Observable<any>{
 }
 
 
-updateligneprod(dateprod,nligne,idproduit,qteprod,qterestant,qterejeter):Observable<any>{
+updateligneprod(dateprod,idproduit,qte,qterest,qterejeter):Observable<any>{
   console.log('dateprod:'+dateprod);
-  console.log('nligne:'+nligne);
-  console.log('qterestant:'+qterestant);
+
+  console.log('qterest:'+qterest);
   console.log('qterejeter:'+qterejeter);
   console.log('idproduit:'+idproduit);
-  console.log('qteprod:'+qteprod);
+  console.log('qte:'+qte);
 
 
-  return this.http.get(this.urlAP+"restprod.php?dateprod="+dateprod+'&nligne='+nligne+'&qterestant='+qterestant+'&qterejeter='+qterejeter+'&idproduit='+idproduit+'&qteprod='+qteprod);
+  return this.http.get(this.urlAP+"restprod.php?dateprod="+dateprod+'&qterest='+qterest+'&qterejeter='+qterejeter+'&idproduit='+idproduit+'&qte='+qte);
 } 
 
 
@@ -105,7 +106,9 @@ getlastligne(dateprod):Observable<any>{
 refreshprod(dateprod):Observable<any>{
   return this.http.get(this.urlAP+"refreshprod.php?dateprod="+dateprod);
 }
-
+enrgistrer(dateprod):Observable<any>{
+  return this.http.get(this.urlAP+"enregistre.php?dateprod="+dateprod);
+}
 
 
   

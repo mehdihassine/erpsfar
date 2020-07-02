@@ -50,7 +50,7 @@ this.getinformation();
       this.email=data.email;
       this.photo=data.photo;
       console.log(data);
-
+      this.photo= "http://127.0.0.1/apis_pfe/utilisateur/image/"+data.photo;  
      // this.photo=this.imagepath+this.photo;
 
     },error=>console.log(error));
@@ -60,7 +60,7 @@ this.getinformation();
   onFileSelected(event){
       this.selectedFile=<File>event.target.files[0];
       console.log(this.selectedFile); 
-     
+     // get path of file 
      this.photo=this.selectedFile.name;
     
      console.log(this.photo);  

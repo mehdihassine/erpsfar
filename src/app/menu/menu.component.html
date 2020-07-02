@@ -215,7 +215,18 @@
         </li>
 
 
+        <li class="treeview"*ngIf="(role == 'Directeur' || role == 'Secretaire'||role == 'admin')">
+          <a  href="#stat" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="vent"><i class="fa fa-link"></i> <span>Statestique</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul  class="collapse list-unstyled" id="stat">
+            <li><a routerLink="/home/stat/statvent"> Vente</a></li>
+          
+          </ul>
 
+        </li>
 
       <li class="treeview "*ngIf="(role == 'Secretaire' || role == 'admin')">
         <a  href="#article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-link"></i> <span>Gestion article</span>

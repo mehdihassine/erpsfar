@@ -70,7 +70,7 @@
 
             <th class="col-md-1">Nbre produit</th>
             <th class="col-md-1">Quantite</th>
-            <th class="col-md-1">Montant total</th>
+          
             <th class="col-md-2">Date création</th>
             <th class="col-md-2">Action</th>
 
@@ -81,9 +81,9 @@
           <tr *ngFor="let e of production">
             <td>{{e.dateprod}}</td>
 
-            <td>{{e.Nbreproduit}}</td>
-            <td>{{e.quantiteproduction}}</td>
-            <td>{{e.prixTotal}}</td>
+            <td>{{e.nbrproduit}}</td>
+            <td>{{e.qteproduction}}</td>
+         
             <td>{{e.datesys}}</td>
             <td>
               <button class="btn btn-warning btn-sm" style="margin-left: 10px;" [routerLink]="['../reste',e.dateprod]">

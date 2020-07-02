@@ -6,7 +6,9 @@
 
         <div class="box-header with-border  headertitle">
           <h3 class="box-title"><b>Mise A jour production  de vente</b></h3>
-
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-block btn-success btn-sm" (click)="valider(dateprod)">Validée</button>
+          </div>
         </div>
 
         
@@ -28,33 +30,7 @@
                 </div>
                 </div>
 
-             <!--  <div class="col-md-2">
-                  <div class="form-group">
-                    <label for="libelle">Code article</label>
-                    <input type="text" class="form-control" id="dateprod" name="codarticle" [(ngModel)]="codarticle" required>
-                  </div>
-                </div> 
-
-                <div class="col-md-2">
-                    <div class="form-group">
-                      <label for="libelle">Date commande</label>
-                      <input type="text" class="form-control" id="datecreation" name="datecreation" [(ngModel)]="datecreation" required>
-                    </div>
-                  </div> 
-
-                  <div class="col-md-2">
-                    <div class="form-group">
-                      <label>Statut commande</label>
-                      <select class="form-control select2" style="width: 100%;" id="statut" name="statut" [(ngModel)]="statut"  required>
-                        <option selected="selected" disabled="disabled">Choisir</option>
-                        <option value="valide">validé</option>
-                        <option value="cree">créé</option>
-                        <option value="annule">annulé</option>
-                      </select> 
-                    </div>
-                  </div>
-                  
---> 
+          
 
                   <div class="col-md-2">
                     <div class="form-group">
@@ -67,12 +43,7 @@
                   
                 </div>
 
- <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="libelle"></label>
-                      <button type="button" class="btn btn-block btn-success" (click)="rechprod()" >ENREGISTRER</button>
-                  </div>
-                </div>
+ 
 
             </div>
              <!--row1-->
@@ -115,7 +86,7 @@
   <tr>
 
     <th class="col-md-1">date prod  </th>
-    <th class="col-md-1">Nlinge </th>
+ 
     <th class="col-md-1">ID produit</th>
     <th class="col-md-1">libelle</th>
     <th class="col-md-1">Qte Prod</th>
@@ -133,18 +104,18 @@
   <tr *ngFor="let e of production">
 
     <td>{{e.dateprod}}</td>
-    <td>{{e.nligne}}</td>
+     
     <td>{{e.idProduit}}</td>
     <td>{{e.nomProduit}}</td>
-    <td>{{e.qteproduction}}</td>
-    <td>{{e.prixTotal}}</td>
-    <td><input type="text" class="form-control" id="qteRestProduction" name="qteRestProduction" [(ngModel)]="e.qteRestProduction" value="{{e.qteRestProduction}}" required> </td>
-    <td><input type="text" class="form-control" id="qterejeter" name="qtejeter" [(ngModel)]="e.qtejeter" value="{{e.qtejeter}}"required></td>
+    <td>{{e.qte}}</td>
+    <td>{{e.qte *e.prixvente}}</td>
+    <td><input type="text" class="form-control" id="qterest" name="qterest" [(ngModel)]="e.qterest" value="{{e.qterest}}" required> </td>
+    <td><input type="text" class="form-control" id="qterejeter" name="qterejeter	" [(ngModel)]="e.qterejeter	" value="{{e.qterejeter}}"required></td>
     <td>{{e.qtevente}}</td>
     <td>{{e.datesys}}</td> 
        
     <td>
-        <button class="btn btn-success btn-sm"style="margin-left: 10px;" (click)="update(e.dateprod,e.nligne,e.idProduit,e.qteproduction,e.qteRestProduction,e.qtejeter)" > <i class="fa fa-save "></i></button>&nbsp;&nbsp;
+        <button class="btn btn-success btn-sm"style="margin-left: 10px;" (click)="update(e.dateprod,e.idProduit,e.qte,e.qterest,e.qterejeter	)" > <i class="fa fa-save "></i></button>&nbsp;&nbsp;
         <button class="btn btn-danger btn-sm"style="margin-left: 10px;" (click)="supprimer(e.numproduction)" ><i class="fa fa-trash"></i></button>
 
     </td>    

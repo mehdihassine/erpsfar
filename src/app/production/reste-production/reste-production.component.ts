@@ -11,11 +11,11 @@ export class ResteProductionComponent implements OnInit {
 
   statut:any;
 idproduit:any;
-qteprod:any;
+qte:any;
   datecreation: any;
   codarticle: string;
   qterejeter:any;
-  qterestant:any;
+  qterest:any;
 beneficeprod:any;
 benefice:any;
   qtevente: any;
@@ -107,19 +107,19 @@ test:any;
     this.refresh();
   }
 
+ 
 
 
+  update(dateprod,idproduit,qte,qterest,qterejeter){
 
-  update(dateprod,nligne,idproduit,qteprod,qterestant,qterejeter){
-
-    this.service.updateligneprod(dateprod,nligne,idproduit,qteprod,qterestant,qterejeter).subscribe(data=>{
+    this.service.updateligneprod(dateprod,idproduit,qte,qterest,qterejeter).subscribe(data=>{
 
       console.log('dateprod:'+dateprod);
-      console.log('nligne:'+nligne);
-      console.log('qterestant:'+qterestant);
+     
+      console.log('qterest:'+qterest);
       console.log('qterejeter:'+qterejeter);
       console.log('idproduit:'+idproduit);
-      console.log('qteprod:'+qteprod);
+      console.log('qte:'+qte);
 
       console.log(data);
       this.production=[];
@@ -137,6 +137,12 @@ test:any;
 
   }
 
-  
+  valider(dateprod){
+    this.service.enrgistrer(dateprod).subscribe(data=>{
+      console.log(data);
+      this.production=(data);
+      this.router.navigate(["home/production/liste"]);
+        },error=>console.log(error));
+  }
   
 }
