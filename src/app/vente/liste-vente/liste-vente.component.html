@@ -100,9 +100,9 @@
 <table id="example1" class="table table-bordered">
 <thead>
   <tr>
-    <th class="col-md-1">dateprod </th>
+    <th class="col-md-1">date vente </th>
     
-    <th class="col-md-2" >Nbre produit</th>
+    <th class="col-md-2" >Quantite production</th>
     <th class="col-md-2">Quantite VENTE</th>
     <th class="col-md-2">Montant TOTAL</th>
     <th class="col-md-2">Benefice TOTAL</th>
@@ -113,12 +113,12 @@
 </thead>
 <tbody>
   <tr *ngFor="let e of production">
-    <td>{{e.datprod}}</td>
-    <td>{{e.Nbreproduit}}</td>
+    <td>{{e.date_ajout}}</td>
+    <td>{{e.qteproduction}}</td>
 
     <td>{{e.qtevente}}</td>
-    <td>{{e.montantvente}}</td>
-    <td>{{e.benficeProd}}</td>
+    <td>{{e.montanttotal}}</td>
+    <td>{{e.benefice}}</td>
       
     <td>
         <button class="btn btn-warning btn-sm"style="margin-left: 10px;" [routerLink]="['../ventes',e.datprod]"> <i class="fa fa-gear"></i></button>&nbsp;&nbsp;

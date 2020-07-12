@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiArticleService } from 'src/app/services/api-article.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ArticleModule } from '../article.module';
+import { Article } from 'src/app/models/article';
+import { type } from 'jquery';
 
 @Component({
   selector: 'app-ajout-article',
@@ -9,26 +13,48 @@ import { ToastrService } from 'ngx-toastr';
 
 })
 export class AjoutArticleComponent implements OnInit {
-  codearticle: any;
-  libelle: any;
-  description: any;
-  type: any;
-  nature: any;
-  typestockage: any;
-  seuil: any;
+  addArticle:FormGroup; 
+  
   listeajout: any = [];
-  typestockagebox: string;
-  naturebox: string;
-  typebox: string;
+  typestockagebox: string="choisir";
+  naturebox: string="choisir";
+  typebox: string="choisir";
   libellebox: string;
-  descriptionbox: string;
+  
   codearticlebox: string;
   seuilbox: string;
-  unite:any;
-  constructor(private service: ApiArticleService, private router: Router, private toastr: ToastrService) { }
+
+  constructor(private service: ApiArticleService, private router: Router, private toastr: ToastrService,private fb: FormBuilder) { 
+    let formControls={
+      codearticle:new FormControl('', [Validators.required]),
+      libelle:new FormControl('', [Validators.required]),
+      unite:new FormControl('', [Validators.required]),
+     
+      nature:new FormControl('', [Validators.required]),
+      type:new FormControl('', [Validators.required]),
+      seuil:new FormControl('', [Validators.required]),
+      typestockage:new FormControl('', [Validators.required]),
+      description:new FormControl('',[Validators.nullValidator])
+      
+
+
+
+    }
+    this.addArticle=this.fb.group(formControls); 
+
+  }
+  get codearticle(){return this.addArticle.get('codearticle')}
+  get libelle(){return this.addArticle.get('libelle')}
+  get unite(){return this.addArticle.get('unite')}
+  get description(){return this.addArticle.get('description')}
+  get nature(){return this.addArticle.get('nature')}
+  get type(){return this.addArticle.get('type')}
+  get seuil(){return this.addArticle.get('seuil')}
+  get typestockage(){return this.addArticle.get('typestockage')}
 
   ngOnInit(): void {
     this.cleartxtbox();
+
   }
 
 
@@ -38,39 +64,12 @@ this.listeajout=[];
 
 
   creer() {
-
-    var reg = /^[0-9]+$/;
-
-
-    if (!this.codearticle) {
-      this.toastr.error('champ code article  obligatoire!!');
-    }
-
-    else if (!this.libelle) {
-      this.toastr.error('champ libelle obligatoire!!');
-    }
-    else if (!this.unite) {
-      this.toastr.error('champ unite obligatoire!!');
-    }
-    else if (!this.type) {
-      this.toastr.error('champ type article obligatoire!!');
-    }
-
-    else if (!this.nature) {
-      this.toastr.error('champ nature article obligatoire!!');
-    }
-
-    else if (!this.typestockage) {
-      this.typestockage = 'normal';
-    }
-    else if (!this.seuil.match(reg)) {
-      this.toastr.error('champ seuil numerique!!');
-    }
+    let data=this.addArticle.value;
+   let user = new Article(data.codearticle ,data.libelle,data.description,data.type,data.nature,data.typestockage,data.seuil, data.unite );
+console.log(user) ;
 
 
-    else {
-
-      this.service.ajoutarticle(this.codearticle, this.libelle, this.description, this.type, this.nature, this.typestockage, this.seuil,this.unite).subscribe(data => {
+      this.service.ajoutarticle(user).subscribe(data => {
 
         this.listeajout = data;
 
@@ -84,15 +83,13 @@ this.listeajout=[];
         else {
           this.toastr.success('article [' + this.codearticle + '] ajoutée avec success!!');
         }
-
-        this.cleartxtbox();
+        this.addArticle.reset();
+      
 
       }, error => console.log(error));
 
 
-
-    }
-
+    
    
 
 
@@ -113,20 +110,14 @@ this.listeajout=[];
   
 
 cleartxtbox(){
-  this.codearticle="";
-  this.codearticlebox="";
-  this.description="";
-  this.descriptionbox="";
-  this.libelle="";
-  this.libellebox="";
-  this.type="";
+ 
+
   this.typebox="choisir";
-  this.nature="";
+ 
   this.naturebox="choisir";
-  this.typestockage="";
+  
   this.typestockagebox="choisir";
-  this.seuil="";
-  this.seuilbox="";
+
 }
 
 

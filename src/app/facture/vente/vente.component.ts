@@ -113,11 +113,12 @@ export class VenteComponent implements OnInit {
     var table9: any = [];
     this.increment();
     console.log('facture = ' + this.nfacture + ' ' + 'produit= ' + this.codproduit);
-    
-    this.service.addarticlefacture(this.nfacture, this.nligne1, this.codproduit, this.quantite, this.nomclient, this.adresse).subscribe(data3 => {
+    console.log('facture = ' + this.quantite + ' ' + 'produit= ' + this.nomclient + 'produit= ' + this.adresse);
+    this.service.addarticlefacture(this.nfacture,this.codproduit, this.quantite, this.nomclient, this.adresse).subscribe(data3 => {
       table3 = data3;
       this.table3 = JSON.stringify(table3);
-      console.log('facture=' + table3[0] + '|' + 'nligne=' + table3[1]+ '|' + 'art=' + table3[2]+ '|' + 'qte=' + table3[3]);
+      console.log(data3); 
+    //  console.log('facture=' + table3[0] + '|' + 'nligne=' + table3[1]+ '|' + 'art=' + table3[2]+ '|' + 'qte=' + table3[3]);
       this.cleartextbox();
      // this.dataecrea();
       this.refreshfacture(this.nfacture);
@@ -175,22 +176,22 @@ export class VenteComponent implements OnInit {
 
 var resultat:any = [];
 
-  this.service.verifefacture(nfacture).subscribe(data7 => {
+//   this.service.verifefacture(nfacture).subscribe(data7 => {
 
 
-    resultat =(data7);
+//     resultat =(data7);
 
-    var result = resultat.resp;
-  console.log('resp = ' +resultat.resp );
-
-
-  if (result === "0") { //RESULT KO
-    alert(' Erreur facture ['+this.nfacture+']');
-    this.router.navigate(["home/facture/vente/"]);}
+//     var result = resultat.resp;
+//   console.log('resp = ' +resultat.resp );
 
 
+//   if (result === "0") { //RESULT KO
+//     alert(' Erreur facture ['+this.nfacture+']');
+//     this.router.navigate(["home/facture/vente/"]);}
 
-else{
+
+
+// else{
 
     this.service.validerfacture(nfacture).subscribe(data => {
       this.table4[0] = data;
@@ -202,9 +203,9 @@ else{
       this.router.navigate(["home/facture/detail/"+nfacture]);
       
     }, error => console.log(error));
-}
-    //else erreur
-  }, error => console.log(error));
+// }
+//     //else erreur
+//   }, error => console.log(error));
 
   }
 

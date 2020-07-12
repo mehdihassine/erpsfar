@@ -28,9 +28,9 @@ getAllproduit():Observable <any>{
 }
 
 
-supprimerartprod(dateprod,nligne1):Observable<any>{
-  console.log('service:'+dateprod+' '+nligne1);
-  return this.http.get(this.urlAP+"suppartprod.php?dateprod="+dateprod+"&nligne="+nligne1);
+supprimerartprod(dateprod,produit):Observable<any>{
+  console.log('service:'+dateprod+' '+produit);
+  return this.http.get(this.urlAP+"suppartprod.php?dateprod="+dateprod+"&produit="+produit);
 } 
 
 

@@ -5,7 +5,7 @@ import { ArticleRoutingModule } from './article-routing.module';
 import { AjoutArticleComponent } from './ajout-article/ajout-article.component';
 import { ListeArticleComponent } from './liste-article/liste-article.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ModifierArticleComponent } from './modifier-article/modifier-article.component';
 
@@ -16,6 +16,7 @@ import { ModifierArticleComponent } from './modifier-article/modifier-article.co
     CommonModule,
     ArticleRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })

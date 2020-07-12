@@ -5,25 +5,22 @@
 <div class="box">
 
     <div class="box-header with-border  headertitle">
-      <h3 class="box-title"><b>Creation Fiche salaire</b></h3>
+      <h3 class="box-title"><b> Fiche salaire</b></h3>
   
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-block btn-danger btn-sm">Annuler</button>
+        <button type="button" class="btn btn-block btn-danger btn-sm"(click)="retour()">RETOUR</button>
       </div>
       <div class="box-tools pull-right">
         &nbsp;&nbsp;&nbsp;
       </div>
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-primary btn-success btn-sm" (click)="valider()"><b>Valider Fiche</b></button>
-      </div>
-      
+     
     </div>
-    
+    <div id="imprimer">
     <div class="box box-default">
       <div class="box-header with-border soustitre">
-        <h3 class="box-title">Informations Fiche</h3>
+        <h3 class="box-title"> Fiche</h3>
         <div class="box-tools pull-right">  
-            <h4 class="box-title" >{{datefiche1}}</h4>
+            <h4 class="box-title" >{{datefiche}}</h4>
           </div>
 
           <div class="box-tools pull-right">  
@@ -41,10 +38,7 @@
         <div class="row">
           <div class="col-md-2 col-lg-2 col-xs-2">
             
-            <input type="text" class="form-control" id="matricule" 
-                placeholder="Matricule "  name="matricule" [(ngModel)]="matricule"  [value]="getlibelle()"required>
-             
-          
+            <div class="box-title" >Matricule : &nbsp;{{matricule}} </div>
 
 
           </div>
@@ -140,15 +134,13 @@
             <tr>
               <th scope="row">01</th>
               <td>Nombre de jour</td>
-              <td><input  type="text" class="form-control" id="nbjour" 
-                placeholder="nmb" name="nbjour" [(ngModel)]="nbjour" required [value]="salaire()" ></td>
+              <td>{{nbrjour}}</td>
               <td>{{montant}}</td>
             </tr>
             <tr>
               <th scope="row">05</th>
               <td>Jours ferié 200%</td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                placeholder="nmb" name="nbjour" [(ngModel)]="nbferier" required></td>
+              <td>{{jourferier}}</td>
               <td>{{prime}}</td>
             </tr>
             <tr>
@@ -167,43 +159,38 @@
               <th scope="row">10</th>
               <td>Prime de presence</td>
               <td></td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                name="primepresence" [(ngModel)]="primepresence" placeholder="nmb" required></td>
+              <td>{{primePr}}</td>
             </tr>
             <tr>
               <th scope="row">14</th>
               <td>Prime de Panier</td>
               <td></td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                name="primepanier" [(ngModel)]="primepanier" placeholder="nmb" required></td>
+              <td>{{primeP}}</td>
             </tr>
             <tr>
               <th scope="row">21</th>
               <td>Conge Paye {{years}}</td>
-              <td><input   type="text" class="form-control" id="nomclient" 
-                placeholder="nmb"   name="Conge" [(ngModel)]="Conge"required></td>
+              <td>{{conger}}</td>
               <td>{{congier}}</td>
             </tr>
             <tr>
               <th scope="row">40</th>
               <td>SALAIRE BRUT</td>
               <td></td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                placeholder="nmb" required  name="salairebrute" [(ngModel)]="salairebrute"value="{{salairebrute}}"></td>
+              <td>{{salairebrute}}</td>
             </tr>
             <tr>
               <th scope="row">41</th>
               <td>C N.S.S</td>
               <td></td>
               <td></td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                placeholder="nmb"  name="cnss" [(ngModel)]="cnss" required></td>
+              <td>{{cnss}}</td>
             </tr>
             <tr>
               <th scope="row">51</th>
               <td>SALAIRE IMPOSABLE</td>
               <td></td>
-              <td>    {{salaireimpossable}}</td>
+              <td>{{salaireimpossable}}</td>
               <td></td>
             </tr>
             <tr>
@@ -211,8 +198,7 @@
               <td>IRPP+CSS</td>
               <td></td>
               <td></td>
-              <td><input  type="text" class="form-control" id="nomclient" 
-                placeholder="nmb" name="irp" [(ngModel)]="irp" required></td>
+              <td>{{irpp_css}}</td>
             </tr>
            
           </tbody>
@@ -245,7 +231,7 @@
                 <h4 class="box-title"><b> NET A PAYER </b></h4>
             </div>
             <div class="col-md-2 col-lg-2 col-xs-2">
-                <h4 class="box-title"><b>{{payee}}</b></h4>
+                <h4 class="box-title"><b>{{salairenet}}</b></h4>
             </div>
     </div>
     
@@ -256,9 +242,13 @@
    
 </div>
       </div>
-  
+    </div>
+      
+
     </div>
   
   </div>
+  <div><button class="btn btn-primary btn-sm"style="margin-left: 10px;" (click)="print('imprimer')">Imprimer</button>
+    &nbsp;&nbsp;
  </div>
 

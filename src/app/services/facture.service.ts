@@ -140,17 +140,15 @@ getartfactureachat(nfacture): Observable<any> {
 
 
 
-  addarticlefacture(nfacture, nligne1, codarticle, quantite, nomclient, adresse): Observable<any> {
-    const body = {
-      nfacture: nfacture,
-      nligne: nligne1,
-      codarticle: codarticle,
-      quantite: quantite,
+  addarticlefacture(nfacture,codproduit,quantite,nomclient,adresse):Observable<any>{
+    const body={
+      nfacture:nfacture,
+      codproduit:codproduit,
+      quantite:quantite,
       nomclient:nomclient,
-      adresse: adresse
-      
-    }
-    return this.http.post(this.urlAP + "addartfacture.php", body);
+      adresse:adresse, 
+    };
+    return this.http.post(this.urlAP+"ajouter.php",body);
   }
 
 

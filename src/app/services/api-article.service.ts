@@ -15,19 +15,9 @@ export class ApiArticleService {
 
 
   
-  ajoutarticle(codearticle,libelle,description,type,nature, typestockage, seuil,unite):Observable<any>{
-    const body={
-      codearticle:codearticle,
-      libelle:libelle,
-      description:description,
-      type:type,
-      nature:nature,
-      typestockage:typestockage,
-      seuil:seuil,
-      unite:unite
-      
-    };
-    return this.http.post(this.urlAP+"ajoutarticle.php",body);
+  ajoutarticle(user):Observable<any>{
+    
+    return this.http.post(this.urlAP+"ajoutarticle.php",user);
     }
 
 
@@ -36,7 +26,7 @@ export class ApiArticleService {
     supprimerarticle(codearticle):Observable<any>{
       return this.http.get(this.urlAP+"supprimerarticle.php?codearticle="+codearticle);
     }
-
+  
 
 
     getAllarticle():Observable <any>{

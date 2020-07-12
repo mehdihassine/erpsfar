@@ -144,12 +144,12 @@ export class CreationComponent implements OnInit {
 
 
   //supprimer article from cdv
-  suppartprod(nligne1) {
+  suppartprod(produit) {
 
-    console.log(''+this.dateprod+''+nligne1+'');
+    console.log(''+this.dateprod+''+produit+'');
 
     var table5: any = [];//declaration d'un array
-    this.service.supprimerartprod(this.dateprod, nligne1).subscribe(data5 => {
+    this.service.supprimerartprod(this.dateprod, produit).subscribe(data5 => {
       table5 = data5;// array tabel5 = retour mta3 service mta3 el php
       this.table5 = JSON.stringify(table5.resp);// tabel5 lina wala valeur => mchai 5dai el valeur mta3 resp eli hiya mawjouda fel php
       console.log(this.table5);

@@ -1,0 +1,257 @@
+
+<!-- Content Wrapper. Contains page content -->
+
+
+<!-- Default box -->
+<div class="box" style="background-color:rgba(109, 125, 177, 0.164);">
+
+    <div class="box-header with-border soustitre headertitle"   style="background-color:rgba(7, 79, 161, 0.534);">
+      <h3 class="box-title"><b>Liste des employées </b></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;" (click)=" nouveaufiche()">Créer nouveau Fiche</button>
+      </div>
+      <div class="box-tools pull-right">
+        &nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;" (click)="affiche()"><b>afficher liste</b></button>
+      </div>
+    </div>
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre"  >
+        <h3 class="box-title"> Rechercher Fiche(e)</h3>
+      </div>
+  
+  
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
+  
+        <div class="row">
+  
+  
+          <div class="col-md-8">
+            <div class="input-group">
+            <span class="input-group-btn">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" id="idemploye" placeholder="N° matricule"  name="idemploye" [(ngModel)]="idemploye" style="width: 100px;"  value= "idemploye" required>
+              </div>
+            </span>
+            
+  
+           
+  
+          <span class="input-group-btn">
+            <p>&nbsp;&nbsp;</p>
+          </span>
+  
+      
+            <span class="input-group-btn">
+              <select class="form-control select2" class="form-control" style="width: 150px;" id="etat" name="etat" [(ngModel)]="etat"   value="typebox2"required>
+                <option disabled selected value="">{{typebox2}}</option>
+                <option value="valider">Validée</option>
+                <option value="supprimer">Supprimer</option>
+               
+              </select>   
+          </span> 
+  
+  
+  
+  
+  
+          
+  
+          
+  
+  
+  
+        <span class="input-group-btn">
+          <p>&nbsp;&nbsp;</p>
+        </span>
+  
+            <span class="input-group-btn">
+               <button class="btn btn-primary btn-sm" type="submit" (click)=" Recherche()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button> 
+            </span>
+          </div>
+  
+          </div>
+  
+  
+       
+  
+  
+  
+  
+  
+  
+  
+          <!-- (click)="rechprod()" (click)="affliste()"-->
+        
+        </div>
+        <!--row1-->
+  
+        <div class="row">
+         
+        </div>
+        <!--row1-->
+  
+      </div>
+      <!-- boxbody-->
+  
+    </div>
+    <!--boxbody defaut-->
+  
+  
+    <div class="box box-default">
+  
+      <div class="box-header with-border soustitre" >
+        <h3 class="box-title">Liste des Employées</h3>
+  
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+  
+      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+        <table id="example1" class="table table-bordered">
+          <thead >
+            <tr >
+              <th>Matricule</th>
+              <th>Nom Prénom </th>
+              <th>Nombre jours</th>
+              <th>Salaire Brute</th>
+              <th>Salaire Net</th>
+              <th>Date</th>
+              <th>Etat Fiche</th>
+             
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody style="background-color:rgba(254, 254, 255);">
+            <tr *ngFor = "let e of salaires">
+              <td><b>{{e.idEmployee}}</b></td>
+              <td>{{e.nomEmployee}}&nbsp;{{e.prenomEmployee}}</td>
+              <td>{{e.nbrjour}}</td>
+              <td>{{e.salairebrute}}</td>
+              <td>{{e.salairenet}}</td>
+              <td>{{e.datefiche}}</td>
+            <td>{{e.etat}}</td>
+              <td >
+               <button class=" btn btn-fill btn-info"[routerLink]="['../affiche',e.idsalaire] "><i class="fa fa-eye"></i></button> 
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" (click)=" idemployee(e.idsalaire)" data-target="#delete"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+  
+    
+          </tbody>  
+        </table>     
+      </div>
+     
+    <!--boxbody defaut-->
+  
+  </div>
+  <!--box-->
+   
+  
+  
+  
+ <div class="modal modal-danger fade" id="delete" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Voulez vous vraiment supprimer ?? </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+          <button type="submit" class="btn btn-outline" (click)="delete(idPr)" data-dismiss="modal" >Oui , supprimer</button>
+        </div>
+      </div>
+    
+    </div>
+  </div> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

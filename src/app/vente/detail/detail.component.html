@@ -108,12 +108,12 @@
 <table id="example1" class="table table-bordered">
 <thead>
   <tr>
-    <th class="col-md-2" >ID produit</th>
-    <th class="col-md-1">dateprod </th>
-    <th class="col-md-2">Quantite VENTE</th>
-    <th class="col-md-2">Montant TOTAL</th>
-    <th class="col-md-2">Benefice TOTAL</th>
-    <th class="col-md-2">Action</th>
+    <th >NOM PRODUIT</th>
+    <th >DATE production </th>
+    <th >Quantite VENTE</th>
+    <th >Montant TOTAL</th>
+    <th >Benefice TOTAL</th>
+    <th >Action</th>
 
 
   </tr>
@@ -121,10 +121,10 @@
 <tbody>
   <tr *ngFor="let e of production">
    
-    <td>{{e.idproduit}}</td>
-    <td>{{e.datprod}}</td>
+    <td>{{e.nomProduit}}</td>
+    <td>{{e.dateprod}}</td>
     <td>{{e.qtevente}}</td>
-    <td>{{e.montanttotal}}</td>
+    <td>{{e.montantvente}}</td>
     <td>{{e.benefice}}</td>
       
     <td>

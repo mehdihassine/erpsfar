@@ -9,8 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   
 })
 export class ListeFournisseurComponent implements OnInit {
-fournisseur: any=[];
+fournisseur: any={};
 nomfournisseur:any;
+far:any={};
   idPr: any;
   constructor(private service :ApiFournisseurService , private router: Router,private toastr:ToastrService) { }
   
@@ -39,12 +40,22 @@ nomfournisseur:any;
     this.service.getAllfournisseur().subscribe(data=>{
       console.log(data); 
 
-      if(data.RESPONSE){
-        this.toastr.error(data.RESPONSE);
-      }
-      else{
-    this.fournisseur=data ; 
-  }
+      // if(data.RESPONSE){
+      //   this.toastr.error(data.RESPONSE);
+      // }
+      // else{
+    this.fournisseur=data ;
+    
+    for(let i=1 ; i<=this.fournisseur.length;i++){
+      this.far = {"nomfr":this.fournisseur[i].nomfr,"mailfr":this.fournisseur[i].mailfr,"villefr":this.fournisseur[i].villefr,
+      "codepostal":this.fournisseur[i].codepostal,"adresse":this.fournisseur[i].adresse,"fax":this.fournisseur[i].fax,"telfr":this.fournisseur[i].telfr};
+     
+
+    }
+    console.log(this.far);
+
+    this.fournisseur.push(this.far) ;
+ // }
     },error=> console.log (error));
 
 
