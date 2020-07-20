@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ListeCategorieComponent implements OnInit {
 categorie:any[]; 
 libelle : any ; 
+  idPr: any;
    
   constructor(private service:ApiCategorieService,private toastr: ToastrService, private router:Router) { }
 
@@ -27,6 +28,16 @@ libelle : any ;
     },error=> console.log (error));
     
   }
+
+
+
+  
+  libelles(libelle){
+   
+    this.idPr=libelle;
+   
+     }
+   
  delete(libelle){
     this.service.supprimercategorie(libelle).subscribe(data=>{
       console.log(data);
@@ -35,7 +46,7 @@ libelle : any ;
   } 
  
 
-
+ 
 
   rechcategorie(){
 

@@ -12,6 +12,7 @@ import { ApiArticleService } from 'src/app/services/api-article.service';
 export class ListeArticleComponent implements OnInit {
   listeajout:any=[];
   codearticle: any;
+  cd: any;
 
 
 
@@ -31,10 +32,12 @@ export class ListeArticleComponent implements OnInit {
     
   }
 
+code(codearticle){
+  this.cd=codearticle
+}
 
-
- delete(codearticle){
-    this.service.supprimerarticle(codearticle).subscribe(data=>{
+ delete(cd){
+    this.service.supprimerarticle(cd).subscribe(data=>{
       console.log(data);
       this.refresh();
      

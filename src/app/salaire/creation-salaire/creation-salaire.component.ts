@@ -158,11 +158,11 @@ var x:any;
     console.log(this.prime);
     let a = this.Conge*this.salairejour ;
     this.congier=a.toFixed(3); 
-    let val1c1 = parseFloat(this.indtransport);
-    console.log(val1c1);
-    let val1c = parseFloat(this.majtransport);
-    console.log(val1c);
-    let z=val1c1+val1c;
+    let ind = parseFloat(this.indtransport);// convertation men chain el float 
+    console.log(ind);
+    let maj = parseFloat(this.majtransport);// convertation men chain el float
+    console.log(maj);
+    let z=ind+maj;// jma3thoum fi variable Z
     console.log(x)
     let b=parseFloat(this.primepanier);
     let e=parseFloat(this.primepresence);
@@ -203,7 +203,7 @@ this.service.addfiche(this.matricule,this.nbjour,this.nbferier,this.primepresenc
         alert(' Erreur Article ['+this.matricule+'] inexistant dans la base !');
       }
       else{
-        this.router.navigate(["home/salaire/liste/"+this.matricule]);
+        this.router.navigate(["home/salaire/affiche/"+this.matricule]);
        
         
       }

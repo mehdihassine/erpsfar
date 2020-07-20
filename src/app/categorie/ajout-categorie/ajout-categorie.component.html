@@ -9,7 +9,7 @@
     <h3 class="box-title"><b>Creation categorie de produit</b></h3>
     <div class="box-tools pull-right">
  
-      <button type="button" class="btn btn-block btn-warning btn-sm"(click)="retourliste()" >Retour liste</button>
+      <button type="button" class="btn btn-block btn-sm exemple"(click)="retourliste()" >Retour liste</button>
 
 </div>
   </div>
@@ -53,7 +53,7 @@
                 <input type="text" class="form-control" id="libelle" name="libelle" formControlName="libelle">
                 <div *ngIf="libelle.touched && libelle.invalid">
                   <small *ngIf="libelle.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  libelle  est requis<br></small>
-                  
+                  <small *ngIf="libelle.errors.pattern" class="text-danger"><i class=" fa fa-times-circle"></i>  libelle est seulement lettre<br></small>
                 </div>
               </div>
             </div>
@@ -62,10 +62,7 @@
               <div class="form-group">
                 <label for="description">description catégorie</label>
                 <input type="text" class="form-control" id="description" name="description" formControlName="description" >
-                <div *ngIf="description.touched && description.invalid">
-                  <small *ngIf="description.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>  description  est requis<br></small>
-                  
-                </div>
+               
               </div>
             </div>
             
@@ -77,7 +74,7 @@
           <div class="row">
           <div class="col-md-2">
             <div class="form-group">
-              <button type="submit" class="btn btn-block btn-success btn-sm"[disabled]="addCategorie.invalid" >Ajouter</button>
+              <button type="submit" class="btn btn-block btn-success btn-sm ajout"[disabled]="addCategorie.invalid" >Ajouter</button>
             </div>
           </div>
         </div>

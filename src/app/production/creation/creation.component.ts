@@ -35,17 +35,17 @@ export class CreationComponent implements OnInit {
     var date = new Date();
     this.dateprod=this.datePipe.transform(date,"ddMMyyyy");
     this.dateprod2=this.datePipe.transform(date,"dd/MM/yyyy");
-    this.getcategorie();
+    this.getproduit();
     this.getartprod(this.dateprod);
 
    // this.newproduction(); //get num commande +1 
   }
 
-  getcategorie(){
+  getproduit(){
     this.codarticle="";
     this.service.getAllproduit().subscribe(data => {
   if(data.RESPONSE){
-  this.toastr.warning("liste specialiter vide !! "); 
+  this.toastr.warning("liste produits vide !! "); 
   }else
       {
         this.listesproduit = data;

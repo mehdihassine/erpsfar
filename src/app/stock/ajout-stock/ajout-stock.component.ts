@@ -84,6 +84,7 @@ this.toastr.warning("liste article vide !! ");
   }else
       {
         this.listearticle = data;
+        this.typebox="choisir";
   }  
       console.log(this.listearticle);
       console.log(this.listearticle.length)
@@ -159,9 +160,9 @@ ajouter() {
     this.toastr.error("choisir  fournisseur !!");
   }
   
-  else if ((!this.datefinv.match(regdat))||(!this.datefinv)) {
-    this.toastr.error('verifier votre date !!');
-  }
+  // else if ((!this.datefinv.match(regdat))||(!this.datefinv)) {
+  //   this.toastr.error('verifier votre date !!');
+  // }
 
   else if(!this.type){
     this.toastr.error("choisir  emplacement !!");
@@ -282,22 +283,6 @@ annuler(nreception) {
 
 valider(nreception) {
 
-  console.log('nreception = ' + nreception);
-
-//service veriffacture => exixte ou pas
-
-var resultat:any = [];
-
-this.service.verifereception(nreception).subscribe(data7 => {
-
-  resultat =(data7);
-  var result = resultat.resp;
-console.log('resp = ' +resultat.resp );
-if (result === "0") { //RESULT KO
-  alert(' Erreur facture ['+this.nreception+']');
-  this.router.navigate(["home/stock/reception/"]);
-}
-else{
 
  this.service.validerreception(nreception).subscribe(data => {
     this.table4[0] = data;
@@ -310,9 +295,7 @@ else{
     this.router.navigate(["home/stock/all"]);
     
   }, error => console.log(error));
-}
-  //else erreur
-}, error => console.log(error));
+
 
 }
 

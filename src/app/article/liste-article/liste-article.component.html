@@ -8,7 +8,7 @@
       <h3 class="box-title"><b>Liste des articles</b></h3>
       <div class="box-tools pull-right">
    
-        <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="ajouterarticle()" >Ajouter article</button>
+        <button type="button" class="btn btn-block btn-success btn-sm ajout"(click)="ajouterarticle()" >Ajouter article</button>
   
   </div>
  
@@ -16,7 +16,7 @@
     &nbsp;&nbsp;&nbsp;
   </div>
   <div class="box-tools pull-right">
-    <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;" (click)="afficheliste()"><b>afficher liste</b></button>
+    <button type="button" class="btn btn-primary btn-sm exemple"(click)="afficheliste()"><b>afficher liste</b></button>
   </div>
     </div>
   
@@ -28,7 +28,7 @@
       </div>
   
   
-      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);">
+      <div class="box-body" >
   
         <div class="row">
           <div class="col-md-5">
@@ -36,7 +36,7 @@
               <label for="codarticle">code article</label>
               <form class="form-inline md-form mr-auto mb-4">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="codearticle" name="codearticle" [(ngModel)]="codearticle" required>
-                <button class="btn btn-primary btn-sm" type="submit" (click)=" recherchearticle()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                <button class="btn btn-primary btn-sm exemple" type="submit" (click)=" recherchearticle()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
               </form>
             </div>
           </div> 
@@ -67,7 +67,7 @@
   
       <div class="box-body">
         <table id="example1" class="table table-bordered">
-          <thead style="background-color:rgba(109, 125, 177, 0.164);">
+          <thead >
             <tr>
              
                 <th class="col-md-1">Code article</th>
@@ -93,7 +93,7 @@
                 <td>{{e.typestockage}}</td> 
                 <td>{{e.seuilmin}}</td>
                <td> <button class=" btn btn-fill btn-info"[routerLink]="['../edit',e.idarticle] "><i class="fa fa-edit"></i></button>
-                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete" ><i class="fa fa-trash"></i></button>
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;" data-toggle="modal" data-target="#delete" (click)="code(e.codearticle)" ><i class="fa fa-trash"></i></button>
               </td>
             </tr>
   
@@ -107,7 +107,7 @@
   
   </div>
   <!--box-->
-  <div class="modal modal-danger fade" id="delete" *ngFor = "let e of listeajout">
+  <div class="modal modal-danger fade" id="delete" >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -120,7 +120,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
-          <button type="submit" class="btn btn-outline" (click)="delete(e.codearticle)" data-dismiss="modal" >Oui , supprimer</button>
+          <button type="submit" class="btn btn-outline" (click)="delete(cd)" data-dismiss="modal" >Oui , supprimer</button>
         </div>
       </div>
       <!-- /.modal-content -->

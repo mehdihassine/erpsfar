@@ -85,7 +85,7 @@
             <label>Fournisseur</label>
             <select  class="form-control select2" class="form-control"  style="width: 100%;"  id="fournisseur" name="fournisseur"  [(ngModel)]="fournisseur"value="typebox" required>
               <option  selected value="" disabled>{{typebox}}</option>
-              <option *ngFor="let s of listefournisseur" [value] = s.nomfr>{{s.nomfr}}</option>
+              <option *ngFor="let s of listefournisseur" [value] = s.idfr>{{s.nomfr}}</option>
             </select>   
           </div>
         </div>
@@ -196,7 +196,7 @@
       <table id="example1" class="table table-bordered">
         <thead>
           <tr>
-            <th class=" text-center" class="col-md-1">N° ligne</th>
+            
             <th class=" text-center" class="col-md-1">Code produit</th>
             <th  class=" text-center" class="col-md-1">Libellé </th>
             <th class=" text-center" class="col-md-1">Quantité </th>
@@ -207,12 +207,12 @@
         </thead>
         <tbody>
           <tr *ngFor = "let s of stock" >
-            <td>{{s.nligne}}</td>
+  
             <td>{{s.codearticle}}</td>
             <td>{{s.libellearticle}}</td>
-            <td>{{s.qteentree}}</td>
-            <td>{{s.prixunitaire}}</td>
-            <td>{{s.prixTotal}}</td>
+            <td>{{s.quantite}}</td>
+            <td>{{s.prixachat}}</td>
+            <td>{{s.montant}}</td>
             <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="suppartreception(s.nligne)"><i class="fa fa-trash"></i></button></td>
           </tr>
 

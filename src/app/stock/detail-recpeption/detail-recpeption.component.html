@@ -28,30 +28,30 @@
         </div>
       </div>
   
-      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.164);" >
+      <div class="box-body"  >
         <table id="example1" class="table table-bordered">
           <thead >
             <tr >
-              <th >code article </th>
+          
               <th >libelle </th>
               <th >Quantite </th>
               <th  >Prix d'achat</th>
               <th >Remise</th>
               <th >Taxes</th>
-              <th >Date Achat</th>
+              <th >Date FIN</th>
               
               <th >Action</th>
             </tr>
           </thead>
-          <tbody style="background-color:rgba(254, 254, 255);">
+          <tbody>
             <tr *ngFor = "let e of stock">
-              <td><b>{{e.codearticle}}</b></td>
+        
               <td>{{e.libellearticle}}</td>
-              <td>{{e.qteentree}}</td>
-              <td>{{e.prixunitaire}}</td>
+              <td>{{e.quantite}}</td>
+              <td>{{e.prixachat}}</td>
               <td>{{e.remise}}</td>
-              <td>{{e.taxes}}</td>
-              <td>{{e.dateachat}}</td>
+              <td>{{e.taxe}}</td>
+              <td>{{e.datefin}}</td>
               
               
               <td >

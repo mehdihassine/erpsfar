@@ -20,8 +20,8 @@ descriptionbox:any;
   addCategorie: FormGroup;
   constructor(private service:ApiCategorieService ,private router:Router,private toastr: ToastrService,private fb: FormBuilder) {
     let forControls={
-      libelle :  new FormControl('', [Validators.required, Validators.minLength(3)]),
-      description :   new FormControl('', Validators.required),
+      libelle :  new FormControl('', [Validators.required, Validators.minLength(3),Validators.pattern('[a-zA-Z ]*')]),
+      description :   new FormControl( ),
     }
     this.addCategorie=this.fb.group(forControls)
    } 

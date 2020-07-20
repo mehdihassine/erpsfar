@@ -43,8 +43,9 @@ datecreation: any;
 codarticle: string;
 benficetotal:any;
 datprod :any;
+  sup: any;
   constructor(private service :VenteService , private router: Router,private toastr:ToastrService) { }
-production:any ={}
+vente:any ={}
 
   ngOnInit(): void {
     this.refresh(); 
@@ -54,28 +55,32 @@ production:any ={}
   refresh(){
     this.service.getprodall().subscribe(data=>{ 
       console.log(data); 
-    this.production=data ; 
-    this.prixprod();
+    this.vente=data ; 
+    this.beneficeTotal();
     },error=> console.log (error));
 
   }
-  supprimer( dateprod){
-    this.service.supprimerprod( dateprod).subscribe(data=>{
+  supprimer (idvente){
+    this.sup=idvente;
+  }
+  delete( sup){
+    this.service.supprimerprod( sup).subscribe(data=>{
       console.log(data);
       this.refresh();
     },error=>console.log(error));
   }
   
   Rechercher(){
-this.service.recherchedate(this.datprod).subscribe(data=>{
-  console.log("date  production: "+this.datprod);
+    console.log(this.dateprod);
+this.service.recherchedate(this.dateprod).subscribe(data=>{
+  console.log("date  production: "+this.dateprod);
   var responserecherche = data[0].respo
 
-  if((responserecherche === "erreurprod")||(this.datprod==undefined)){
-    this.toastr.warning('Commande [ '+this.datprod+' ] introuvable');
+  if((responserecherche === "erreurprod")||(this.dateprod==undefined)){
+    this.toastr.warning('Commande [ '+this.dateprod+' ] introuvable');
    
     }else{
-    this.production=data; 
+    this.vente=data; 
     }
   }, error => console.log(error));
 
@@ -94,8 +99,8 @@ Recherche(){
 
   this.service.recherchedate(this.datprod).subscribe(data => {
     console.log("recherche : "+this.datprod);
-    this.production=[];
-    this.production=(data);
+    this.vente=[];
+    this.vente=(data);
     console.log(data);
 var responserecherche = data[0].respo;
 
@@ -118,7 +123,7 @@ affliste(){
   this.dateprod="";
   this.refresh();
 }
-prixprod(){
+beneficeTotal(){
   this.service.prixtotalprod().subscribe(data7 => {
 
   this.benficetotal=data7.benficetotal;

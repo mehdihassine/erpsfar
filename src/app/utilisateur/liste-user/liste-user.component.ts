@@ -9,19 +9,16 @@ import { ToastrService } from 'ngx-toastr';
  
 })
 export class ListeUserComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
+ 
   utilisateur:any=[];
   iduser: any;
+  idPr: any;
  
  
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService) { }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      processing: true
-    };
+   
     this.refresh();
   }
 
@@ -37,10 +34,20 @@ export class ListeUserComponent implements OnInit {
     this.router.navigate(["home/utilisateur/creation"]);
 
   }
-  delete(login){
-    this.service.supprimeruser(login).subscribe(data=>{
+
+  loginuser(loginuser){
+   
+    this.idPr=loginuser;
+   
+     }
+  delete(idPr){
+    this.service.supprimeruser(idPr).subscribe(data=>{
       console.log(data);
-      this.refresh();
+     
+        this.toaster.success(data.RESPONSE); 
+        this.refresh();
+     
+    
     },error=>console.log(error));
   } 
 

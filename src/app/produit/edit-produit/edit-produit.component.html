@@ -1,68 +1,11 @@
-<!-- <div class="box">
-    <div class="box-header with-border soustitre headertitle">
-      <h3 class="box-title" class="text-center">Liste des Produits</h3>
-    </div>
-    <div class="box-body">
-      <form>  
-        <div class="row">
-          <div class="col-md-6">
-            <div class=" form-group">
-              <label>diamètre</label>
-              <input class=" form-control" type="text" id="diametre" [(ngModel)]="diametre" name="diametre"  required  />
-            </div>
-          </div> 
-        <div class="col-md-6">
-          <div class=" form-group">
-            <label> NOM Produit</label>
-            <input class=" form-control" type="text" id="diametre" [(ngModel)]="nomProduit" name="nomProduit"  "required  />
-          </div>
-        </div> 
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label> cout de revien</label>
-              <input class=" form-control"  type="text" id="prixProduit" [(ngModel)]="coutrevien" name="coutrevien"  required  />
-            </div>
-          </div> 
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label> PRIX Vente </label>
-              <input class=" form-control" type="text" value=""id="prixvente" [(ngModel)]="prixvente" name="prixvente"  required />
-            </div>
-          </div>
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label>TYPE Produit</label>
-              <input class=" form-control"  type="text" id="type" [(ngModel)]="typeProduit_id" name="typeProduit_id"  value="{{table.typeProduit_id}}"required/>
-            </div>
-          </div> 
-          <div class=" col-md-12">
-            <div class=" form-group">
-              <label>Description article</label>
-              <textarea class=" form-control"type="text" row="6"  id="desc" [(ngModel)]="descriptionProduit" name="descriptionProduit" required ></textarea>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="card-footer"> 
-      <button class="btn btn-fill btn-primary" style="margin-left: 10px;"  >modifier</button> 
-      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="retouliste()" >retour</button> 
-      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="delete(table.idProduit)" >supprimer</button> 
-    </div>
-  
-  
-   
-  </div> -->
+
+
   <div class="box" >
 
 
     <div class="box-header with-border  headertitle" > 
       <h3 class="box-title"><b>Création Produit </b></h3>
-      <div class="box-tools pull-right">
-  
-            <button type="button" class="btn btn-primary btn-sm" (click)="retourliste()"  >Retour liste</button>
-  
-      </div>
+      
       <!--(click)="retourliste()-->
     </div>
   
@@ -78,7 +21,7 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body" style="background-color:rgba(109, 125, 177, 0.198);">
+      <div class="box-body" >
         <div class="row">
           <div class="col-md-2">
             <div class="form-group">
@@ -150,7 +93,7 @@
   
           <div class="col-md-3">
             <div class="form-group">
-              <button type="button" class="btn btn-block  btn-sm" (click)="edit()" >modifier</button>
+              <button type="button"class="btn btn-block  btn-success btn-sm ajout" (click)="edit()" >modifier</button>
             </div>
           </div>
         </div>
@@ -194,7 +137,7 @@
               <td>{{e.prixvente}}</td>
               <td>{{e.descriptionProduit}}</td>
              
-              <td><button class="btn btn-danger btn-sm" style="margin-left: 10px;  "(click)="delete(e.idProduit)"><i class="fa fa-trash"></i></button></td>
+              <td><button class="btn btn-success btn-sm" style="margin-left: 10px;  "(click)="retourliste()"><i class="fa fa-check"></i></button></td>
             </tr>
   
           </tbody>

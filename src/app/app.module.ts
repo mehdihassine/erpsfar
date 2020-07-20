@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
-import { MessagesComponent } from './messages/messages.component';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
@@ -28,7 +28,6 @@ import { RedirectComponent } from './redirect/redirect.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    MessagesComponent,
     HomeComponent,
     RedirectComponent
   ],

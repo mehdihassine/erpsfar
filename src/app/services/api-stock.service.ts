@@ -40,7 +40,7 @@ export class ApiStockService {
       description:description,
       numfact:numfact
     }
-    return this.http.post(this.urlAP + "addreception.php", body);
+    return this.http.post(this.urlAP + "exemple.php", body);
   }
   getnumreception(): Observable<any> {
     return this.http.get(this.urlAP + "getnumreception.php");

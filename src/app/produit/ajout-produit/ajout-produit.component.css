@@ -1,29 +1,2 @@
-.box{
-    background-color:rgb(193, 195, 200);
-}
 
-.headertitle {
-    background-color:rgba(7, 79, 161, 0.616) !important;
-}
-
-
-.soustitre{
-    background-color:rgba(109, 125, 177, 0.493)!important;
-}
-
-tbody{
-    background-color:rgb(254, 254, 255);
-}
-#tableau{
-    background-color:rgba(109, 125, 177, 0.198);
-}
-
-.btn.btn-block {
-    background-color:rgba(194, 0, 0, 0.63);
-    color: cornsilk;
-}
-.btn.btn-primary{
-    background-color:rgb(49, 38, 209);
-    color: cornsilk;
-}
 

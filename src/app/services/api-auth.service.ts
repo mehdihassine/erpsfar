@@ -15,7 +15,8 @@ verifUser(login,pass){
 }
 
 verifmail(mail){
-  return this.http.get(this.urlService+"verifmail.php?mail="+mail);
+  console.log (mail);
+  return this.http.get(this.urlService+"exemple.php?mail="+mail);
 }
 verifphoto(iduser){
   return this.http.get(this.urlService+"verifphoto.php?iduser="+iduser);}

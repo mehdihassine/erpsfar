@@ -5,10 +5,10 @@
 <div class="box">
 
     <div class="box-header with-border  headertitle">
-      <h3 class="box-title"><b>Liste des utilisateurs</b></h3>
+      <h3 class="box-title"><b>Listes des utilisateurs</b></h3>
       <div class="box-tools pull-right">
    
-        <button type="button" class="btn btn-block btn-success btn-sm"(click)="ajoute()" >Ajouter utilisateur</button>
+        <button type="button" class="btn btn-block btn-success btn-sm ajout"(click)="ajoute()" >Ajouter utilisateur</button>
   
   </div>
  
@@ -22,22 +22,17 @@
   
     <div class="box box-default">
   
-      <div class="box-header with-border soustitre">
-        <h3 class="box-title">Liste des Utilisateur</h3>
-  
-        <div class="box-tools pull-right">
-        </div>
-      </div>
+      
   
       <div class="box-body">
-        <table datatable [dtOptions]="dtOptions"  class="table table-bordered table-hover"> 
+        <table   class="table table-bordered table-hover"> 
           <thead>
             <tr>
                 <th class="col-md-2">Nom et Prenom</th>
               <th  class="col-md-2">E_mail</th>
               <th  class="col-md-2">Login</th>
               <th  class="col-md-2">Mot de passe </th>
-              <th  class="col-md-2">Role </th>
+              <th  class="col-md-2">Rôle </th>
                 <th  class="col-md-2">Action</th>
               </tr>
           </thead>
@@ -49,8 +44,8 @@
                 <td>{{e.mpduser}}</td>
                 <td>{{e.roleuser}}</td>
                <td>
-                <button class="btn btn-danger btn-fill"style="margin-left: 10px;"(click)= "delete(e.loginuser)"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-success btn-fill"style="margin-left: 10px;"(click)= "profil(e.iduser)"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-danger btn-fill"style="margin-left: 10px;"data-toggle="modal" (click)="loginuser(e.loginuser)" data-target="#delete"><i class="fa fa-trash "></i></button>
+                <button class="btn btn-fill btn-info"style="margin-left: 10px;"(click)= "profil(e.iduser)" ><i class="fa fa-edit"></i></button>
               </td>
             </tr>
   
@@ -64,3 +59,22 @@
   
   </div>
   <!--box-->
+ <div class="modal modal-danger fade" id="delete" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Voulez vous vraiment supprimer ?? {{idPr}} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+        <button type="submit" class="btn btn-outline" (click)= "delete(idPr)" data-dismiss="modal" >Oui , supprimer</button>
+      </div>
+    </div> 
+    <!-- /.modal-content -->
+  </div>
+</div>

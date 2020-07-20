@@ -23,8 +23,8 @@
 
 
 
-      <li class="treeview">
-        <a  href="#user" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="user"><i class="fa fa-link" ></i> <span>Gestion Utilisateur</span>
+      <li class="treeview" *ngIf="(role == 'Directeur' || role == 'admin')" >
+        <a  href="#user" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="user"> <i class="fa fa-user-circle" aria-hidden="true"></i> <span>Gestion Utilisateur</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -38,7 +38,8 @@
       
       <!-- Optionally, you can add icons to the links -->
       <li class="treeview" *ngIf="(role == 'Chef de Production' || role == 'admin')"  >
-        <a href="#categorie" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="categorie"><i class="fa fa-link"></i> <span>Gestion Categorie</span>
+        <a href="#categorie" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="categorie"><i class="fa fa-clone" aria-hidden="true"></i>
+          <span>Gestion Categorie</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -55,7 +56,8 @@
 
 
       <li class="treeview" *ngIf="(role == 'Chef de Production' || role == 'admin')">
-        <a  href="#otherSections1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections1"><i class="fa fa-link" ></i> <span>Gestion Produits</span>
+        <a  href="#otherSections1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections1"><i class="fa fa-product-hunt" aria-hidden="true"></i>
+          <span>Gestion Produits</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -75,7 +77,7 @@
 
 
       <li class="treeview" *ngIf="(role == 'Secretaire' || role == 'admin')">
-        <a href="#employee" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="employee"><i class="fa fa-link"></i> <span>Gestion Employées</span>
+        <a href="#employee" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="employee"><i class="fa fa-users" aria-hidden="true"></i> <span>Gestion Employées</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -91,7 +93,7 @@
 
       
         <li class="treeview"*ngIf="(role == 'Secretaire' || role == 'admin')">
-          <a  href="#specialite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="specialite"><i class="fa fa-link"></i> <span>Gestion spécialitées</span>
+          <a  href="#specialite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="specialite"><i class="fa fa-clone" aria-hidden="true"></i> <span>Gestion spécialitées</span>
             <span class="pulspecialitel-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -106,7 +108,8 @@
 
      
       <li class="treeview" *ngIf="(role == 'Secretaire' || role == 'admin')">
-        <a href="#stock" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="stock"><i class="fa fa-link"></i> <span>Gestion Stock</span>
+        <a href="#stock" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="stock"><i class="fa fa-briefcase" aria-hidden="true"></i>
+          <span>Gestion Stock</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -125,8 +128,9 @@
 
 
 
-      <li class="treeview "*ngIf="(role == 'Secretaire' || role == 'admin')">
-        <a  href="#salaire" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-link"></i> <span>Gestion salaire</span>
+      <li class="treeview "*ngIf="(role == 'Directeur' || role == 'admin')">
+        <a  href="#salaire" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+          <span>Gestion salaire</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -138,7 +142,7 @@
       </li>
 
       <li class="treeview" *ngIf="(role == 'Secretaire' || role == 'admin')">
-        <a href="#fournisseur" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="fournisseur"><i class="fa fa-link"></i> <span>Gestion Fournisseur</span>
+        <a href="#fournisseur" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="fournisseur"><i class="fa fa-users" aria-hidden="true"></i> <span>Gestion Fournisseur</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -150,20 +154,9 @@
       </li>
 
 
- 
-
-
-
-      <li class="treeview">
-        <a routerLink="/msg"><i class="fa fa-link"></i> <span>Liste des Messages</span> </a>
-      </li>
-
-
-
-
 
       <li class="treeview" *ngIf="(role == 'Chef de Production' || role == 'admin')">
-        <a href="#production" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="production"><i class="fa fa-link"></i> <span>Gestion Production</span>
+        <a href="#production" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="production"><i class="fa fa-product-hunt" aria-hidden="true"></i> <span>Gestion Production</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -176,47 +169,20 @@
 
       </li>
 
+      <li *ngIf="(role == 'Chef de Production' || role == 'admin')"><a routerLink="/home/facture/vente"><i class="fa fa-book"></i> <span>Facture Vente</span></a></li>
+      <li *ngIf="(role == 'Directeur' || role == 'admin')"><a routerLink="/home/facture/diver"><i class="fa fa-book"></i> <span>Facture Divers</span></a></li>
+      <li *ngIf="(role == 'Directeur' || role == 'admin')"><a routerLink="/home/facture/liste"><i class="fa fa-file"></i> <span>Liste Factures </span></a></li>
 
 
 
 
+        <li *ngIf="(role == 'Chef de Production' || role == 'admin')"><a routerLink="/home/vente/liste"><i class="fa fa-shopping-basket"></i> <span>Liste Vente</span></a></li>
 
-        <li class="treeview" *ngIf="(role == 'Directeur' || role == 'admin')">
-          <a href="#facture" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="facture"><i class="fa fa-link"></i> <span>Gestion facture</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-           <ul  class="collapse list-unstyled" id="facture">
-            <li><a routerLink="/home/facture/vente">Facture Vente</a></li>
-            <li><a routerLink="/home/facture/achat">Facture Achat</a></li>
-            <li><a routerLink="/home/facture/diver">Facture Diver</a></li>
-            <li><a routerLink="/home/facture/liste">Liste Facture </a></li>
-          </ul>
+    
 
 
-        </li>
-
-
-
-
-        <li class="treeview"*ngIf="(role == 'Directeur' || role == 'Secretaire'||role == 'admin')">
-          <a  href="#vente" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="vente"><i class="fa fa-link"></i> <span>Gestion Vente</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul  class="collapse list-unstyled" id="vente">
-            <li><a routerLink="/home/vente/liste">Liste Vente</a></li>
-            <li><a routerLink="/home/vente/detail">Detail Vente</a></li>
-          
-          </ul>
-
-        </li>
-
-
-        <li class="treeview"*ngIf="(role == 'Directeur' || role == 'Secretaire'||role == 'admin')">
-          <a  href="#stat" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="vent"><i class="fa fa-link"></i> <span>Statestique</span>
+        <li class="treeview"*ngIf="(role == 'Directeur' ||role == 'admin')">
+          <a  href="#stat" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="vent"><i class="fa fa-line-chart" aria-hidden="true"></i> <span>Statestique</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -229,7 +195,7 @@
         </li>
 
       <li class="treeview "*ngIf="(role == 'Secretaire' || role == 'admin')">
-        <a  href="#article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-link"></i> <span>Gestion article</span>
+        <a  href="#article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="article"><i class="fa fa-barcode" aria-hidden="true"></i> <span>Gestion article</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>

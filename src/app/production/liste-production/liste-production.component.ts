@@ -26,7 +26,7 @@ production:any =[];
     this.service.getprodall().subscribe(data=>{
       console.log(data); 
     
-    if(data.RESPONSE){
+    if(data.RESPONSE==="0"){
       this.production=[];
       this.toastr.warning("liste production vide !!!");
     }else
@@ -72,6 +72,8 @@ affliste(){
   this.refresh();
 }
 
-
+ajouterarticle(){
+  this.router.navigate(["home/production/creation"]);
+}
 }
 

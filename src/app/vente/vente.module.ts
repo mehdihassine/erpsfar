@@ -8,11 +8,12 @@ import { ListeVenteComponent } from './liste-vente/liste-vente.component';
 import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ListeventeComponent } from './listevente/listevente.component';
+
+
 
 
 @NgModule({
-  declarations: [ListeVenteComponent,  DetailComponent, ListeventeComponent],
+  declarations: [ListeVenteComponent,  DetailComponent ],
   imports: [
     CommonModule,
     VenteRoutingModule,
@@ -22,7 +23,7 @@ import { ListeventeComponent } from './listevente/listevente.component';
 })
 export class VenteModule {
  
-
+ 
 
 
 

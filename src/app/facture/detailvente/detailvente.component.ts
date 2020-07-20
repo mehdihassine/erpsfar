@@ -61,10 +61,12 @@ piedfacture(nfacture){
 
   this.service.sumpiedfacture(nfacture).subscribe(data => {
 
-    
+  
 this.montantTHT=data.montantTHT;
+
 this.montanttva=data.montanttva;
-this.montanttotale=data.montanttotale;
+this.montanttotale=data.montanttotale;;
+
   }, error => console.log(error));
 
 }
@@ -72,9 +74,9 @@ this.montanttotale=data.montanttotale;
   prixfacture(nfacture){
     this.service.prixtotalfacture(nfacture).subscribe(data7 => {
     this.montanttotal=data7.montanttotal;
-    this.montanttotal=this.montanttotal;
+    this.montanttotale=this.montanttotal.toFixed(3);
 
-    console.log('ttc = ' + data7.montanttotal);
+    console.log('ttc = ' + data7.montanttotale);
     }, error => console.log(error));
   }
    

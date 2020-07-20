@@ -53,14 +53,16 @@ export class ModifierComponent implements OnInit {
 
 
 
-  edit(idtype) {
+  edit(libelle) {
+  
+
     var reg = /^[A-Za-z]+$/;
 
-    if (!this.libelle) {
+     if (!this.libelle) {
 
       this.toastr.error('champ libelle obligatoire!!');
-    }
-    else if (this.libelle.match(reg)) {
+     }
+     else if (this.libelle.match(reg)) {
 
 
 
@@ -75,15 +77,13 @@ export class ModifierComponent implements OnInit {
         console.log(data);
 
         this.categorie = data;
-        // this.router.navigate(["categorie/all"]);
+      //  this.router.navigate(["home/categorie/all"]);
       }, error => console.log(error));
     }
-    else {
-      this.toastr.error('champ libelle obligatoirement chaine de caractére!!');
-    }
+    
 
 
-
+  
 
 
   }

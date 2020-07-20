@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListeReceptionComponent implements OnInit {
   employee: any[]
+  notifs:any[]
   // constructor(private service:ApiEmployeeService) { }
  
  typec:any;
@@ -24,6 +25,7 @@ export class ListeReceptionComponent implements OnInit {
    nreception: any;
    numfact:any;
   idrecp: any;
+  ss:any={};
   constructor(private service :ApiStockService,private router: Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -49,11 +51,13 @@ refrechliste(){
     console.log(data); 
     if(data.RESPONSE){
       this.stock=[];
-      this.toastr.warning("liste reception vide !! ");
+
     
     }
     else{
   this.stock=data ; 
+  console.log(this.stock);
+ 
     }
   
   },error=> console.log (error));
@@ -99,6 +103,7 @@ idrecep(nreception){
         this.stock= [];
       }else{
         this.stock=data; 
+       
       }
       
     },error=>console.log(error));

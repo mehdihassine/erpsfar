@@ -11,33 +11,34 @@ export class VenteService {
 
   constructor( private http : HttpClient) { }
 
-
+// service mta3 montent total production 
   prixtotalprod():Observable<any>{
     return this.http.get(this.urlAP+"montanttotalprod.php");
   
   
   }
-  
+  //service statestisque 
   getStatVente():Observable<any>{
     return this.http.get(this.urlAP22+"vente.php");
   }
-
+//service affiche tout les produit de production
   getprodall():Observable<any>{
     return this.http.get(this.urlAP+"listeprod.php");
   }
-  
+  //service rechereche 
   rechercheprod(dateprod):Observable<any>{
   
     return this.http.get(this.urlAP+"rechercheprod.php?dateprod="+dateprod);
   } 
 
-
-  supprimerprod(dateprod):Observable<any>{
-    console.log('service:'+dateprod);
-    return this.http.get(this.urlAP+"suppprod.php?dateprod="+dateprod);
+//service supprimer
+  supprimerprod(idvente):Observable<any>{
+    console.log('service:'+idvente);
+    return this.http.get(this.urlAP+"suppprod.php?idvente="+idvente);
   } 
   
   /* les service detail vente */  
+
   rechercheproduit(idproduit):Observable<any>{
   
     return this.http.get(this.urlAP+"rechercheproduit.php?idproduit="+idproduit);
@@ -48,7 +49,7 @@ export class VenteService {
     return this.http.get(this.urlAP+"listeproduit.php");
   }
 
-
+//service montant total de produit dans le production 
   prixtotalproduit():Observable<any>{
     return this.http.get(this.urlAP+"montanttotalproduit.php");
   
@@ -67,14 +68,14 @@ export class VenteService {
   }
 
 
-
+//service affichagee detail vente 
   refreshprod(datprod):Observable<any>{
     return this.http.get(this.urlAP+"refreshart.php?datprod="+datprod);
   }
 
 
 
-
+//service calculer le benfice total de production
   beneficetotal(datprod):Observable<any>{
     return this.http.get(this.urlAP+"beneficeproduit.php?datprod="+datprod);
   

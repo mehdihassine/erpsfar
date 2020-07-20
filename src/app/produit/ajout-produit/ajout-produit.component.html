@@ -1,12 +1,8 @@
 <div class="box">
-  <div class="box-header with-border soustitre headertitle">
+  <div class="box-header with-border  headertitle">
     <h3 class="box-title"><b>Création Produit </b></h3>
     <div class="box-tools pull-right">
-      <button
-        type="button"
-        class="btn btn-primary btn-sm"
-        (click)="retourlist()"
-      >
+      <button type="button" class="btn btn-primary btn-sm exemple" (click)="retourlist()">
         Retour liste
       </button>
     </div>
@@ -21,44 +17,23 @@
     </div>
     <!-- /.box-header -->
     <form [formGroup]="addProduit" (ngSubmit)="add()">
-      <div
-        class="box-body"
-        style="background-color: rgba(109, 125, 177, 0.198);"
-      >
+      <div class="box-body">
         <div class="row">
           <div class="col-md-2">
             <div class="form-group">
               <label for="dd">diametre </label>
-              <input
-                type="text"
-                class="form-control"
-                id="dd"
-                name="diametre"
-                formControlName="diametre"
-               
-              />
+              <input type="text" class="form-control" id="dd" name="diametre" formControlName="diametre" />
             </div>
           </div>
 
           <div class="col-md-2">
             <div class="form-group">
               <label for="nom">Nom produit</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nom"
-                name="nom"
-                formControlName="nom"
-                placeholder=""
-              />
+              <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" placeholder="" />
               <div *ngIf="nom.touched && nom.invalid">
-                <small *ngIf="nom.errors.required" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Nom est requis<br
-                /></small>
-                <small *ngIf="nom.errors.minLength" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Nom doit etres 3
-                  caracteres au minimum<br
-                /></small>
+                <small *ngIf="nom.errors.required" class="text-danger"><i class="fa fa-times-circle"></i> Nom est requis<br /></small>
+                <small *ngIf="nom.errors.pattern" class="text-danger"><i class=" fa fa-times-circle"></i> Nom est seulement lettre<br></small>
+                <small *ngIf="nom.errors.minLength" class="text-danger"><i class="fa fa-times-circle"></i> Nom doit etres 4 caracteres au minimum<br /></small>
               </div>
             </div>
           </div>
@@ -66,23 +41,14 @@
           <div class="col-md-2">
             <div class="form-group">
               <label>Type</label>
-              <select
-                class="form-control select2"
-                class="form-control"
-                style="width: 100%;"
-                id="type"
-                name="type"
-                formControlName="type" 
-              >
+              <select class="form-control select2" class="form-control" style="width: 100%;" id="type" name="type"
+                formControlName="type">
                 <option selected value="null" disabled>choisir</option>
-                <option *ngFor="let s of listescategorie" [value]="s.idtype">{{
-                  s.libelle
-                }}</option>
+                <option *ngFor="let s of listescategorie" [value]="s.idtype">{{s.libelle}}</option>
               </select>
               <div *ngIf="type.touched && type.invalid">
-                <small *ngIf="type.errors.required" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Nom est requis<br
-                /></small>
+                <small *ngIf="type.errors.required" class="text-danger"><i class="fa fa-times-circle"></i> Nom est requis<br /></small>
+
               </div>
             </div>
           </div>
@@ -91,19 +57,10 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="cout">Coût de Revien</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cout"
-                name="cout"
-                formControlName="cout"
-                placeholder=""
-              />
+              <input type="text" class="form-control" id="cout" name="cout" formControlName="cout" placeholder="" />
               <div *ngIf="cout.touched && cout.invalid">
-                <small *ngIf="cout.errors.required" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Coût de Revien est
-                  requis<br
-                /></small>
+                <small *ngIf="cout.errors.required" class="text-danger"><i class="fa fa-times-circle"></i> Coût de Revient est requis<br /></small>
+                <small *ngIf="cout.errors.pattern" class="text-danger"><i class=" fa fa-times-circle"></i> Coût contient seullement des chiffres<br></small>
               </div>
             </div>
           </div>
@@ -111,18 +68,10 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="vente">Prix vente</label>
-              <input
-                type="text"
-                class="form-control"
-                id="vente"
-                name="vente"
-                formControlName="vente"
-                placeholder=""
-              />
+              <input type="text" class="form-control" id="vente" name="vente" formControlName="vente" placeholder="" />
               <div *ngIf="vente.touched && vente.invalid">
-                <small *ngIf="vente.errors.required" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Prix vente est requis<br
-                /></small>
+                <small *ngIf="vente.errors.required" class="text-danger"><i class="fa fa-times-circle"></i> Prix vente est requis<br /></small>
+                <small *ngIf="vente.errors.pattern" class="text-danger"><i class=" fa fa-times-circle"></i> Prix contient seullement des chiffres<br></small>
               </div>
             </div>
           </div>
@@ -131,32 +80,19 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="tva">TVA%</label>
-              <input
-                type="text"
-                class="form-control"
-                id="tva"
-                name="tva"
-                formControlName="tva"
-              />
+              <input type="text" class="form-control" id="tva" name="tva" formControlName="tva" />
               <div *ngIf="tva.touched && tva.invalid">
-                <small *ngIf="tva.errors.required" class="text-danger"
-                  ><i class="fa fa-times-circle"></i> Nom est requis<br
-                /></small>
+                <small *ngIf="tva.errors.required" class="text-danger"><i class="fa fa-times-circle"></i> TVA est requis<br /></small>
+                <small *ngIf="tva.errors.max" class="text-danger"><i class=" fa fa-times-circle"></i>TVA contient 2 chiffres<br></small>
+                <small *ngIf="tva.errors.pattern" class="text-danger"><i class=" fa fa-times-circle"></i>TVA contient seullement des chiffres<br></small>
               </div>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea
-                type="text"
-                class="form-control"
-                id="description"
-                name="description"
-                formControlName="description"
-              
-                 
-              ></textarea>
+              <textarea type="text" class="form-control" id="description" name="description"
+                formControlName="description"></textarea>
             </div>
           </div>
         </div>
@@ -164,13 +100,9 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <button
-                type="submit"
-                class="btn btn-block btn-sm"
-                [disabled]="addProduit.invalid"
-              >
-                Créer
-              </button>
+              <button type="submit" class="btn btn-block btn-success btn-sm ajout"
+                [disabled]="addProduit.invalid">Créer</button>
+
             </div>
           </div>
         </div>
@@ -214,11 +146,7 @@
             <td>{{ e.descriptionProduit }}</td>
 
             <td>
-              <button
-                class="btn btn-danger btn-sm"
-                style="margin-left: 10px;"
-                (click)="supprimer(e.idProduit)"
-              >
+              <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="supprimer(e.idProduit)">
                 <i class="fa fa-trash"></i>
               </button>
             </td>

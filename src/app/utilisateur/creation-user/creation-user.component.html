@@ -5,7 +5,7 @@
       <h3 class="box-title"><b>Création utilisateur</b></h3>
       <div class="box-tools pull-right">
   
-            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retourliste()" >Retour liste</button>
+            <button type="button" class="btn btn-block  btn-sm exemple" (click)="retourliste()" >Retour liste</button>
   
       </div>
       <!--(click)="retourliste()-->
@@ -50,7 +50,7 @@
   
           <div class="col-md-6">
             <div class="form-group">
-              <label for="codearticle">email</label>
+              <label for="codearticle">E-mail</label>
               <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder=""  >
               <div *ngIf="email.touched && email.invalid">
                 <small *ngIf="email.errors.required" class="text-danger"><i class=" fa fa-times-circle"></i>E-mail  est requis<br></small>
@@ -89,9 +89,9 @@
              
             <div class="col-md-6">
                 <div class="form-group">
-                  <label>Role</label>
-                  <select class="form-control select2" style="width: 100%;" id="role" name="role" formControlName="role"  >
-                    <option selected   disabled>Choisir Role</option>
+                  <label>Rôle</label>
+                  <select class="form-control select2" style="width: 100%;" id="role" name="role" formControlName="role" value={{rolebox}} >
+                    <option selected   disabled>{{rolebox}}</option>
                     <option value="Directeur">Directeur</option>
                     <option value="Chef de Production">Chef de Production</option>
                     <option value="Secretaire">Sécretaire</option>
@@ -108,7 +108,7 @@
   
           <div class="col-md-3">
             <div class="form-group">
-              <button type="submit" class="btn btn-block btn-success btn-sm" [disabled]="addUSR.invalid">valider</button>
+              <button type="submit" class="btn btn-block btn-success btn-sm ajout" [disabled]="addUSR.invalid">valider</button>
              </div>
           </div>
         </div>

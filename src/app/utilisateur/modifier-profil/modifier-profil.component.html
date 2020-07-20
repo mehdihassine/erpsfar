@@ -5,7 +5,7 @@
         <h3 class="box-title"><b>Modifier Profil</b></h3>
         <div class="box-tools pull-right">
 
-            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="retour()">SORTIE</button>
+            <button type="button" class="btn btn-block  btn-sm exemple" (click)="retour()">SORTIE</button>
 
         </div>
 
@@ -18,7 +18,7 @@
 
     <div class="box box-default">
         <div class="box-header with-border soustitre">
-            <h3 class="box-title">Informations générales</h3>
+            <h3 class="box-title">Informations Générales</h3>
 
             <div class="box-tools pull-right">
             </div>
@@ -84,16 +84,16 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="codearticle">Mot Passe </label>
-                        <input type="text" class="form-control" id="mdp" placeholder="" name="mdp" [(ngModel)]="mdp"
+                        <label for="codearticle">Mot De Passe </label>
+                        <input type="password" class="form-control" id="mdp" placeholder="" name="mdp" [(ngModel)]="mdp"
                             value="{{mpduser}}" required>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="libelle">Confirmation mot de passe </label>
-                        <input type="text" class="form-control" id="cmdp" placeholder="" name="cmdp" [(ngModel)]="cmdp"
+                        <label for="libelle">Confirmation Mot De Passe </label>
+                        <input type="password" class="form-control" id="cmdp" placeholder="" name="cmdp" [(ngModel)]="cmdp"
                             value="" required>
                     </div>
                 </div>
@@ -114,19 +114,19 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <button type="button" class="btn btn-block btn-success btn-sm"
+                        <button type="button" class="btn btn-block btn-success btn-sm ajout"
                             (click)="enregistre()">Enregistrée</button>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <button type="button" class="btn btn-block btn-danger btn-sm">Annuler</button>
+                        <button type="button" class="btn btn-block btn-danger btn-sm ajout1">Annuler</button>
                     </div>
 
                 </div>
                 <div class="col-md-1" style="margin-left: 312px;">
                 <div class="form-group">
-                  <button type="button" class="btn btn-block btn-success btn-sm" (click)="onUpload()">Upload</button>
+                  <button type="button" class="btn btn-block btn-success btn-sm ajout" (click)="onUpload()">Upload</button>
                 </div>
                 
               </div> 

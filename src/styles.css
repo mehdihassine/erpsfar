@@ -193,20 +193,30 @@ button.toast-close-button {
   background-color:rgba(7, 79, 161, 0.616) !important;
 }
 
-.headertitle:hover {
-  background-color:rgba(5, 64, 131, 0.616) !important;
-  color : white;
-  box-shadow: 0 0 12px #000000;
-
-}
-
 
   .soustitre{
     background-color:rgba(109, 125, 177, 0.493)!important;
 }
-.soustitre:hover {
-  background-color:rgba(109, 125, 177, 0.493) !important;
-  color : white;
+.exemple{
+  background-color: rgba(32, 23, 153, 0.781);
+  color: cornsilk;
+}
+.exemple:hover{
+  background-color: rgba(96, 87, 221, 0.781) !important;
+  color :whitesmoke;
+  box-shadow: 0 0 12px #000000;
+
+
+}
+.ajout:hover{
+  background-color:rgb(3, 144, 3) !important;
+  color :whitesmoke;
+  box-shadow: 0 0 12px #000000;
+
+}
+.ajout1:hover{
+  background-color:rgb(219, 36, 36)!important;
+  color :whitesmoke;
   box-shadow: 0 0 12px #000000;
 
 }

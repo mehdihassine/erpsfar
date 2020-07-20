@@ -6,7 +6,18 @@
 
   <div class="box-header with-border  headertitle">
     <h3 class="box-title"><b>Liste des production de vente</b></h3>
+    <div class="box-tools pull-right">
+   
+      <button type="button" class="btn btn-block btn-success btn-sm ajout"(click)="ajouterarticle()" >Ajouter article</button>
 
+</div>
+
+<div class="box-tools pull-right">
+  &nbsp;&nbsp;&nbsp;
+</div>
+<div class="box-tools pull-right">
+  <button type="button" class="btn btn-primary btn-sm exemple"(click)="affliste()"><b>afficher liste</b></button>
+</div>
   </div>
 
 
@@ -20,23 +31,16 @@
     <div class="box-body">
 
       <div class="row">
-        <div class="col-md-2">
-          <div class="form-group">
-            <label for="codarticle">date prod</label>
-            <input type="date" class="form-control" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-group">
-            <label for="libelle"></label>
-            <button type="button" class="btn btn-block btn-success" (click)="rechprod()">Rechercher</button>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-group">
-            <label for="libelle"></label>
-            <button type="button" class="btn btn-block btn-success" (click)="affliste()">Affiche liste</button>
-          </div>
+        
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="codarticle">code article</label>
+              <form class="form-inline md-form mr-auto mb-4">
+                <input class="form-control mr-sm-2" type="date" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
+                <button class="btn btn-primary btn-sm exemple" type="submit" (click)=" rechprod()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+              </form>
+            </div>
+          </div> 
         </div>
 
       </div>
@@ -46,10 +50,10 @@
       </div>
       <!--row1-->
 
-    </div>
+    
     <!-- boxbody-->
 
-  </div>
+
   <!--boxbody defaut-->
 
 

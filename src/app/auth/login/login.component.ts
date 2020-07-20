@@ -99,18 +99,18 @@ pass="";
 
 
     resetpass(){
-     
+     console.log(this.mail);
         this.service.verifmail(this.mail).subscribe(data => {
-        
-        
+          this.log=false;
+          this.toaster.success(data[0].RESPONSE);
           var reponsemail = data[0].RESPONSE;
           var reponsemail2=data[0].RESPONSE2;
           console.log(data);
 if(reponsemail){
-  this.toaster.success(reponsemail);
+  this.toaster.success("Votre message bien envoyer ");
 }
 else if (reponsemail2){
-  this.toaster.warning(reponsemail2);
+  this.toaster.warning("valider votre email ");
   
 }
 else{

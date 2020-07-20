@@ -14,6 +14,7 @@ import { Utilisateur } from 'src/app/models/utilisateur';
 export class CreationUserComponent implements OnInit {
   addUSR : FormGroup;
    nom:String ; 
+   rolebox:any="Choisir Role";
     utilisateur:any=[];
   constructor(private service : UtilisateurService,private router:Router,private toaster:ToastrService, private fb: FormBuilder) { 
       let fromControls = {
@@ -38,7 +39,7 @@ export class CreationUserComponent implements OnInit {
 
 
   ngOnInit(): void {
-     
+     this.rolebox="Choisir Rôle";
   }
  
 

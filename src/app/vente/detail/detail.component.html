@@ -6,101 +6,30 @@
 
         <div class="box-header with-border  headertitle">
           <h3 class="box-title"><b>Detail de VENTE </b></h3>
-
-          
-
+ 
           <div class="box-tools pull-right">
-            <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affliste()" ><b>afficher liste</b></button>
+            <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="retourlist()" ><b>retour  liste</b></button>
           </div>
-
-
-
         </div>
 
         
-        <div class="box box-default">
-
-          <div class="box-header with-border soustitre">
-            <h3 class="box-title"> Rechercher produit</h3>
-            <div class="box-tools pull-right">  
-              <input type="text" class="form-control input-lg" class="text-center bold" id="benficetotal" name="benficetotal" [(ngModel)]="benficetotal" value="{{benficetotal}}" disabled="disabled" disabled required>
-            </div>
-  
-            <div class="box-tools pull-right">  
-              &nbsp;&nbsp;&nbsp;
-            </div>
-  
-          <div class="box-tools pull-right">  
-              <label for="libelle">Benefice TOTAL</label>
-            </div>
-
-          </div>
-
-
-          <div class="box-body">
-
-            <div class="row">
-
-              <div class="col-md-8">
-                <div class="input-group">
-                <span class="input-group-btn">
-                  <div class="form-group">
-                    
-                    <input type="text" class="form-control" id="idproduit" placeholder="code produit"  name="idproduit" [(ngModel)]="idproduit" style="width: 130px;"  value= "idproduit" required>
-                  </div>
-                </span>
-                
-      
-                <span class="input-group-btn">
-                  <p>&nbsp;</p>
-                </span>
-        
-             
-              
-      
-      
-      
-                <span class="input-group-btn">
-                  <button class="btn btn-primary btn-sm" type="submit" (click)="Recherche()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
-                </span>
-              </div>
-      
-              </div>
-      
-
-
-            </div>
-             <!--row1-->
-
-
-
-
-            <div class="row">
-
-              
-
-
-
-
-            </div>
-            <!--row1-->
-
-
-
-           
-            </div>
-            <!-- boxbody-->
-
-        </div>
-        <!--boxbody defaut-->
+       
 
       
         <div class="box box-default">
 
     <div class="box-header with-border soustitre">
-      <h3 class="box-title">Liste des productions</h3>
+      <h3 class="box-title">Liste Des Produits Vendues </h3>
+      <div class="box-tools pull-right">  
+        <input type="text" class="form-control input-lg" class="text-center bold" id="benficetotal" name="benficetotal" [(ngModel)]="benficetotal" value="{{benficetotal}}" disabled="disabled" disabled required>
+      </div>
+      
+      <div class="box-tools pull-right">  
+        &nbsp;&nbsp;&nbsp;
+      </div>
 
-      <div class="box-tools pull-right">
+      <div class="box-tools pull-right">  
+        <label for="libelle">Benefice Total</label>
       </div>
     </div>
 
@@ -108,30 +37,28 @@
 <table id="example1" class="table table-bordered">
 <thead>
   <tr>
-    <th >NOM PRODUIT</th>
-    <th >DATE production </th>
-    <th >Quantite VENTE</th>
-    <th >Montant TOTAL</th>
-    <th >Benefice TOTAL</th>
-    <th >Action</th>
+    <th class="col-md-2" >Nom produit</th>
+   
+    <th class="col-md-2">Quantite VENTE</th>
+    <th class="col-md-1">prix vente </th>
+    <th class="col-md-2">Montant TOTAL</th>
+    <th class="col-md-2">Benefice TOTAL</th>
+    
 
 
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let e of production">
+  <tr *ngFor="let e of detail">
    
     <td>{{e.nomProduit}}</td>
-    <td>{{e.dateprod}}</td>
+   
     <td>{{e.qtevente}}</td>
+    <td>{{e.prixvente}}</td>
     <td>{{e.montantvente}}</td>
     <td>{{e.benefice}}</td>
       
-    <td>
-       
-        <button class="btn btn-danger btn-sm"style="margin-left: 10px;" (click)="supprimer(e.idproduits)" ><i class="fa fa-trash"></i></button>
-
-    </td>    
+    
 </tr>      
 
 

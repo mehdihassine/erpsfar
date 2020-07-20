@@ -9,7 +9,7 @@
 
           
           <div class="box-tools pull-right">
-            <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affliste()" ><b>afficher liste</b></button>
+            <button type="button" class="btn btn-block  btn-sm exemple " (click)="affliste()" ><b>afficher liste</b></button>
           </div>
 
 
@@ -41,31 +41,16 @@
 
             <div class="row">
 
-              <div class="col-md-8">
-                <div class="input-group">
-                <span class="input-group-btn">
-                  <div class="form-group">
-                    
-                    <input type="text" class="form-control" id="datprod" placeholder="Date production"  name="datprod" [(ngModel)]="datprod" style="width: 130px;"  value= "datprod" required>
-                  </div>
-                </span>
-                
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="codarticle">code article</label>
+                  <form class="form-inline md-form mr-auto mb-4">
+                    <input class="form-control mr-sm-2" type="date" id="dateprod" name="dateprod" [(ngModel)]="dateprod" required>
+                    <button class="btn btn-primary btn-sm exemple" type="submit" (click)=" Rechercher()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                  </form>
+                </div>
+              </div> 
       
-                <span class="input-group-btn">
-                  <p>&nbsp;</p>
-                </span>
-        
-             
-              
-      
-      
-      
-                <span class="input-group-btn">
-                  <button class="btn btn-primary btn-sm" type="submit" (click)="Recherche()" ><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
-                </span>
-              </div>
-      
-              </div>
       
 
 
@@ -112,7 +97,7 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let e of production">
+  <tr *ngFor="let e of vente">
     <td>{{e.date_ajout}}</td>
     <td>{{e.qteproduction}}</td>
 
@@ -121,8 +106,8 @@
     <td>{{e.benefice}}</td>
       
     <td>
-        <button class="btn btn-warning btn-sm"style="margin-left: 10px;" [routerLink]="['../ventes',e.datprod]"> <i class="fa fa-gear"></i></button>&nbsp;&nbsp;
-        <button class="btn btn-danger btn-sm"style="margin-left: 10px;" (click)="supprimer(e.datprod)" ><i class="fa fa-trash"></i></button>
+        <button class="btn btn-primary btn-sm"style="margin-left: 10px;" [routerLink]="['../detail',e.datprod]"> <i class="fa fa-eye"></i></button>&nbsp;&nbsp;
+        <button class="btn btn-danger btn-sm"style="margin-left: 10px;"data-toggle="modal" (click)="supprimer(e.idvente)" data-target="#delete"><i class="fa fa-trash"></i></button>
 
     </td>    
 </tr>      
@@ -139,6 +124,24 @@
       <!--box-->
 
 
-
+      <div class="modal modal-danger fade" id="delete" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" class="text-center">confirmation suppression </h4>
+            </div>
+            <div class="modal-body">
+              <p class="text-center">Voulez vous vraiment supprimer ?? {{sup}} </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Non , anuuler</button>
+              <button type="submit" class="btn btn-outline" (click)="delete( sup)" data-dismiss="modal" >Oui , supprimer</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+      </div>
     
 

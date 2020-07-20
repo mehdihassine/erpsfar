@@ -7,13 +7,13 @@
     <div class="box-header with-border  headertitle">
       <h3 class="box-title"><b>Liste des sorties de stock</b></h3>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-block  btn-sm" style="background-color:rgba(194, 0, 0, 0.63); color: cornsilk;"(click)="nouveau()" >Créer nouveau sortie</button>
+        <button type="button" class="btn btn-block btn-success btn-sm ajout" (click)="nouveau()" >Créer nouveau sortie</button>
       </div>
       <div class="box-tools pull-right">
         &nbsp;&nbsp;&nbsp;
       </div>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-block  btn-sm"  style="background-color:rgba(32, 23, 153, 0.781); color: cornsilk;"(click)="affliste()"  ><b>afficher liste</b></button>
+        <button type="button" class="btn btn-primary btn-sm exemple" (click)="affliste()"  ><b>afficher liste</b></button>
       </div>
     </div>
   
@@ -37,7 +37,7 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="libelle"></label>
-              <button type="button" class="btn btn-block btn-success" (click)="rechsortie()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+              <button type="button" class="btn btn-primary btn-sm exemple" (click)="rechsortie()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
             </div>
           </div>
          

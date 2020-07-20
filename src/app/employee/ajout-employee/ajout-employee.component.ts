@@ -22,12 +22,12 @@ export class AjoutEmployeeComponent implements OnInit {
   specialites: any;
   constructor( private service:ApiEmployeeService, private router:Router,private toastr:ToastrService,private fb: FormBuilder) {
     let formControls={
-      nom :  new FormControl('', [Validators.required, Validators.minLength(3)]),
-      prenom :   new FormControl('', Validators.required),
+      nom :  new FormControl('', [Validators.required, Validators.minLength(3),Validators.pattern('[a-zA-Z ]*')]),
+      prenom :   new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]*')]),
       adress :   new FormControl('', Validators.required),
-      telephone :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      telephone :  new FormControl('', [Validators.required, Validators.pattern("[0-9 ]{8}")]),
       cin :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
-      cnss :  new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
+      cnss :  new FormControl('', Validators.required),
       typec :   new FormControl('', Validators.required),
       specialite :   new FormControl('', Validators.required),
     

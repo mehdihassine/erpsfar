@@ -51,7 +51,7 @@
         <table id="example1" class="table table-striped">
           <thead>
             <tr class="bg-primary">
-              <th class=" text-center" class="col-md-1">N° ligne</th>
+           
               <th class=" text-center" class="col-md-1">Code produit</th>
               <th  class=" text-center" class="col-md-1">Libellé </th>
               <th class=" text-center" class="col-md-1">Quantité </th>
@@ -64,14 +64,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let f of facture">
-              <td>{{f.nligne}}</td>
+     
               <td>{{f.idproduit}}</td>
               <td>{{f.nomProduit}}</td>
               <td>{{f.quantite}}</td>
               <td>{{f.prixvente}}</td>
               <td>{{f.tva}}</td>
               <td>{{f.montanttva}}</td>
-              <td>{{f.montanthtc}}</td>
+              <td>{{f.montantthtc}}</td>
               <td>{{f.montantttc}}</td>
             </tr>
   

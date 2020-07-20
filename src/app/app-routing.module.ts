@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MessagesComponent } from './messages/messages.component';
+
 import { ProduitModule } from './produit/produit.module';
 import{EmployeeModule} from './employee/employee.module';
 import{StockModule} from './stock/stock.module';
@@ -36,7 +36,7 @@ const routes: Routes = [
  {path:'specialitee',loadChildren:'./specialitee/specialitee.module#SpecialiteeModule'},
  {path:'utilisateur',loadChildren:'./utilisateur/utilisateur.module#UtilisateurModule'},
  {path:'stat',loadChildren:'./statistique/statistique.module#StatistiqueModule'},
- {path: 'msg', component: MessagesComponent},
+ 
  {path: 'salaire',loadChildren:'./salaire/salaire.module#SalaireModule'}
 
  //commentaire walid

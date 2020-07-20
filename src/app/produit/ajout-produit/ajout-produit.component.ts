@@ -20,14 +20,15 @@ export class AjoutProduitComponent implements OnInit {
   listescategorie:any=[];
   typecbox: any="choisir";
   addProduit: FormGroup;
+
   
   constructor(private service:ApiProduitService, private router: Router,private toastr :ToastrService,private fb: FormBuilder) {
      let formControls={
-    nom :  new FormControl('', [Validators.required, Validators.minLength(3)]),
-    cout :   new FormControl('', Validators.required),
-    vente :   new FormControl('', Validators.required),
+    nom :  new FormControl('', [Validators.required, Validators.minLength(4),Validators.pattern('[a-zA-Z ]*')]),
+    cout :   new FormControl('',[ Validators.required,Validators.pattern('[+-]?([0-9]*[.])?[0-9]+')]),
+    vente :   new FormControl('',[ Validators.required,Validators.pattern('[+-]?([0-9]*[.])?[0-9]+')]),
     type :  new FormControl('null', [Validators.required]),
-    tva :  new FormControl('', [Validators.required]),
+    tva :  new FormControl('', [Validators.required,Validators.max(3),Validators.pattern("^[0-9]*$"),]),
     diametre:new FormControl(Validators.nullValidator),
     description:new FormControl(Validators.nullValidator)
   }
@@ -121,93 +122,3 @@ retourlist(){
   
   }
 }
-
-
-/*
-
-
-
-add() {
- 
-  var reg = /^[0-9]+$/;
-
-
-  if (!this.nom) {
-    this.toastr.error('champ nom  obligatoire!!');
-  }
-
-  else if (!this.prenom) {
-    this.toastr.error('champ prenom obligatoire!!');
-  }
-  
-  else if (!this.adress) {
-    this.toastr.error('champ adress obligatoire!!');
-  }
-  else if((!this.telephone.match(reg))||(!this.telephone)){
-  
-    this.toastr.error('champ telephone obligatoirement numerique!!');
-  }
- 
-
-  else if ((!this.cin.match(reg))||(!this.cin)){
-    this.toastr.error('champ cart identitée obligatoirement numerique!!');
-   }
-    else if  ((!this.cnss.match(reg))||(!this.cnss)){
-      this.toastr.error('champ numero CNSS obligatoirement numerique!!');
-     }
-  else if (!this.typec) {
-    this.toastr.error('champ type contrat obligatoire!!');
-  }
-  else if (!this.specialite) {
-    this.toastr.error('champ specialité obligatoire!!');
-  }
-
-
-  else {
-
-
-
-
-
-
-  this.service.addemploye(this.nom,this.prenom,this.adress,this.telephone,this.cin,this.cnss,this.typec,this.specialite).subscribe(data => {
-    console.log(data);
-   
-    if(data.RESPONSE){
-    
-      this.toastr.error(data.RESPONSE);
-    
-    }
-    else{
-      this.employees[0]=(data[1]);
-      console.log( this.employees[0]);
-
-    }
-    this.cleartxtbox();
-  
-},error=>console.log(error));
-
-
-
-}
-
-
-
-
-
-}
-
-refresh(){
-
-this.employees=[];
-
-}
-
-
-supprimer(idemployee){
-
-  this.service.deleteEmploye(idemployee).subscribe(data=>{
-    this.toastr.warning(data.RESPONSE);
-    this.refresh();
-  },error=>console.log(error));
-}*/

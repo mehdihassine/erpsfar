@@ -1,63 +1,11 @@
-<!-- <div class="box">
-    <div class="box-header with-border  headertitle">
-      <h3 class="box-title" class="text-center">Sortie Stock</h3>
-    </div>
-    <div class="box-body">
-      <form>  
-        <div class="row">
-          <div class="col-md-6">
-            <div class=" form-group">
-              <label>code article</label>
-              <input class=" form-control" type="text" id="CodArt" required  />
-            </div>
-          </div> 
-        <div class="col-md-6">
-          <div class=" form-group">
-            <label> Quantite</label>
-            <input class=" form-control" type="text" id="Quantite"  required  />
-          </div>
-        </div> 
-          <div class=" col-md-6">
-            <div class=" form-group">
-              <label>N°Support</label>
-              <input class=" form-control"  type="text" id="date_reception"  required/>
-            </div>
-          </div> 
-       <div class=" col-md-6">
-            <div class=" form-group">
-                <label>Motif Sortie</label>
-                <select class="form-control select2" style="width: 100%;" required>
-                  <option selected="selected">selectioner un Motif</option>
-                  <option>Fabrication</option>
-                  <option >destruction </option>
-                  <option>Retour</option>
-              
-                </select>
-            </div>
-          </div>
-        </div> 
-        
-      </form>
-    </div>
-    <div class="card-footer"> 
-      <button class="btn btn-fill btn-primary" style="margin-left: 10px;" (click)="sup()">Valider</button> 
-    </div>
-  
-  
-    
-  </div>
-   -->
-<!-- Content Wrapper. Contains page content -->
 
-
-<!-- Default box -->
 <div class="box">
 
   <div class="box-header with-border  headertitle">
     <h3 class="box-title"><b>Création Liste  de Sortie {{datesortie2}} </b></h3>
 
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-block btn-danger btn-sm"(click)="annuler(datesortie)" >Annuler tout</button>
+      <button type="button" class="btn btn-block btn-success btn-sm ajout" (click)="annuler(datesortie)" >Annuler tout</button>
     </div>
     <div class="box-tools pull-right">
     </div>
@@ -96,7 +44,7 @@
             <label>Utilisation</label>
             <select class="form-control select2" style="width: 100%;" id="motif" name="motif" [(ngModel)]="motif"
               required>
-              <option selected="selected" disabled="disabled">selectioner un Motif</option>
+              <option selected="selected"selected value="null" disabled>selectioner un Motif</option>
               <option value="Fabrication">Fabrication</option>
               <option value="destruction">destruction</option>
               <option value="Retour">Retour</option>
@@ -118,7 +66,7 @@
 
         <div class="col-md-3">
           <div class="form-group">
-            <button type="button" class="btn btn-block btn-warning btn-sm" (click)="ajouter()">Ajouter</button>
+            <button type="button" class="btn btn-block btn-success btn-sm ajout"  (click)="ajouter()">Ajouter</button>
           </div>
         </div>
 
